@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Go2U App</title>
+        <meta name="description" content="">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="bower_components/bootstrap-css-only/css/bootstrap.css">
+        <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+        <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+        <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body class="homepage">
+        <div id="header-wrapper">
+            <div id="header">    
+
+                <!-- Logo -->
+                <!--h1><a href="index.html">Go2U</a></h1-->
+
+                <!-- Nav -->
+                <nav id="nav" class="menu">
+                    
+                    <ul ng-show="authenticated" ng-controller="rootCtrl">
+                        <li class="current"><a href="index.html">Home</a></li>
+                        <li><a href="#/view2">Add Task</a></li>
+                        <li><a href="#/list">List Tasks</a></li>
+                        <li><a href="#/clients">Clients</a></li>
+                        <li><a href="" ng-click="logout()">Logout</a></li>
+                        <!--li>
+                            <a href="#">Dropdown</a>
+                            <ul>
+                                <li><a href="#">Lorem ipsum dolor</a></li>
+                                <li><a href="#">Magna phasellus</a></li>
+                                <li><a href="#">Etiam dolore nisl</a></li>
+                                <li>
+                                    <a href="#">Phasellus consequat</a>
+                                    <ul>
+                                        <li><a href="#">Magna phasellus</a></li>
+                                        <li><a href="#">Etiam dolore nisl</a></li>
+                                        <li><a href="#">Veroeros feugiat</a></li>
+                                        <li><a href="#">Nisl sed aliquam</a></li>
+                                        <li><a href="#">Dolore adipiscing</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Veroeros feugiat</a></li>
+                            </ul>
+                        </li-->
+                    </ul>
+                    <ul  ng-show="!authenticated">
+                        <li class="current"><a href="index.html">Home</a></li>
+                        <li><a href="#/login">Login</a></li>
+                        <li><a href="#/view2">Add Task</a></li>
+                    </ul>
+                    
+                </nav>
+            </div>
+        </div>
+        <!--ul class="menu">
+            <div  ng-show="authenticated" ng-controller="rootCtrl">
+                <li><a href="#/view1">view1</a></li>
+                <li><a href="#/view2">view2</a></li>
+                <li><a href="#/list">list</a></li>
+                <li><a href="#/clients">clients</a></li>
+                <li><a href="" ng-click="logout()">logout</a></li>
+            </div>
+            <div  ng-show="!authenticated">
+                <li><a href="#/login">login</a></li>
+                <li><a href="#/view1">view1</a></li>
+                <li><a href="#/view2">view2</a></li>
+            </div>
+
+
+        </ul-->
+
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div ng-view></div>
+
+        <div>Angular seed app: v<span app-version></span></div>
+
+        <!-- In production use:
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+        -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.dropotron.min.js"></script>
+        <script src="assets/js/skel.min.js"></script>
+        <script src="assets/js/skel-viewport.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="app.js"></script>
+        <script src="view1/view1.js"></script>
+        <script src="view2/view2.js"></script>
+        <script src="list/list.js"></script>
+        <script src="login/login.js"></script>
+        <script src="client/clients.js"></script>
+        <script src="services/services.js"></script>
+        <script src="components/version/version.js"></script>
+        <script src="components/version/version-directive.js"></script>
+        <script src="components/version/interpolate-filter.js"></script>
+        <!--Dependencias de Angular material-->  
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-aria/angular-aria.js"></script>
+
+        <!--Angular material-->
+        <script src="bower_components/angular-material/angular-material.js"></script> 
+
+    </body>
+</html>
