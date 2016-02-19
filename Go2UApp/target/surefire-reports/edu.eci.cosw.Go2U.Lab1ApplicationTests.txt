@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: edu.eci.cosw.Go2U.Lab1ApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.789 sec - in edu.eci.cosw.Go2U.Lab1ApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.164 sec - in edu.eci.cosw.Go2U.Lab1ApplicationTests
