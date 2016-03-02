@@ -8,7 +8,7 @@ angular.module('myApp.test', ['ngRoute'])
                     controller: 'testCtrl'
                 });
             }])
-        .controller('testCtrl', ['$scope', 'Test', '$mdDialog', '$mdMedia','PostQue', function ($scope, Test, $mdDialog, $mdMedia,PostQue) {
+        .controller('testCtrl', ['$scope', 'Test', '$mdDialog', '$mdMedia','PostQue','$location', function ($scope, Test, $mdDialog, $mdMedia,PostQue,$location) {
                 $scope.tests = Test.query();
 
                 $scope.predicate = 'id';
@@ -44,7 +44,7 @@ angular.module('myApp.test', ['ngRoute'])
                     });
                 };
                 
-                $scope.showAdd = function (ev, test) {
+                $scope.showAdd = function (ev, test) {/*
                     var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
                     $mdDialog.show({
                         controller: DialogController,
@@ -64,7 +64,8 @@ angular.module('myApp.test', ['ngRoute'])
                         return $mdMedia('xs') || $mdMedia('sm');
                     }, function (wantsFullScreen) {
                         $scope.customFullscreen = (wantsFullScreen === true);
-                    });
+                    });*/
+                    $location.path('/view3');
                 };
                 
                 $scope.addQue = function (){

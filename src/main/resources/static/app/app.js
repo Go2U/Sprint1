@@ -13,6 +13,7 @@ angular.module('myApp', [
     'myApp.uniReg',
     'myApp.calendar',
     'myApp.test',
+    'myApp.view3',
     'services.services',
     'myApp.version'
 ]).
