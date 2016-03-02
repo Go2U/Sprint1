@@ -3,11 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.eci.cosw.Go2U;
+package edu.eci.cosw.Go2U.Universities;
 
-import edu.eci.cosw.Go2U.Universities.University;
-import edu.eci.cosw.Go2U.Universities.Carrer;
-import edu.eci.cosw.Go2U.Universities.UnivServiceInterface;
 import java.io.InputStream;
 import java.util.ArrayList;
 import org.springframework.stereotype.Service;

@@ -5,7 +5,6 @@
  */
 package edu.eci.cosw.Go2U.Universities;
 
-import edu.eci.cosw.Go2U.ServiceUniversity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;

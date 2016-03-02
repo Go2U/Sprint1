@@ -5,18 +5,12 @@
         <h2>Test List</h2>
         <!--p>Lorem ipsum dolor sit amet feugiat</p-->
     </header>
-    <table class="table table-striped table-hover" ng-controller="testCtrl" >
+    <table class="table table-striped table-hover">
         <tbody>
             <tr>
-                <th>
-                    <button ng-click="order('Pregunta')">Pregunta</button>
-                    <span class="sortorder" ng-show="predicate === 'Pregunta'" ng-class="{reverse:reverse}"></span>
-                </th>
-                <th>
-                    <button ng-click="order('Respuestas')">Pregunta</button>
-                    <span class="sortorder" ng-show="predicate === 'Respuestas'" ng-class="{reverse:reverse}"></span>
-                </th>
-                <th> Descripción </th>
+                <th style="color: black; font-size: 150%; font-weight: bold">Pregunta</th>
+                <th style="color: black; font-size: 150%; font-weight: bold">Respuestas</th>
+                <th style="color: black; font-size: 150%; font-weight: bold">Descripción</th>
             </tr>
             <tr ng-repeat="todo in tests| orderBy:predicate:reverse">
                 <td>
@@ -28,7 +22,7 @@
                     </p>
                 </td>
                 <td>
-                    <md-button class="md-primary md-raised" ng-click="showAdvanced($event, todo)" flex="300" flex-gt-md="auto">
+                    <md-button class="button alt" ng-click="showAdvanced($event, todo)" flex="300" flex-gt-md="auto">
                         Detalles
                     </md-button>
                     <!--md-button class="md-primary md-raised" ng-click="showAdvanced($event, todo)" flex="100" flex-gt-md="auto">
@@ -38,9 +32,7 @@
             </tr>
             <tr>
                 <td colspan="3" style="alignment-baseline: center">
-                    <md-button class="md-primary md-raised" ng-click="showAdd($event)" flex="100" flex-gt-md="auto">
-                        Agregar
-                    </md-button>
+                    <md-button class="button alt" ng-click="showAdd($event)" flex="100" flex-gt-md="auto">Agregar</md-button>
                 </td>
             </tr>
         </tbody>

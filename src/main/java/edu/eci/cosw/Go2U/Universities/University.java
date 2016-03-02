@@ -110,6 +110,7 @@ public class University {
     }
     
     public void addCarrers(ArrayList<Carrer> c){
+        this.carrers = new ArrayList<>();
         this.carrers = c;
     }
 

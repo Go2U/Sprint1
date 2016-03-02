@@ -8,14 +8,14 @@
                 <header>
                     <h3>Ingresar</h3>                    
                 </header>
-                <form role="form" ng-controller="welcomeUniversityCtrl">
+                <form role="form" ng-submit="loginUni()">
                     <div class="form-group">
-                        <input type="text" placeholder="Usuario" class="form-control" ng-model="InUser"/>
+                        <input type="text" placeholder="Usuario" class="form-control" ng-model="IUser"/>
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Contraseña" class="form-control" ng-model="InPass"/>
+                        <input type="password" placeholder="Contraseña" class="form-control" ng-model="IPass"/>
                     </div>
-                    <input type="button" value="Ingresar" ng-click="loginUniversity()"/>
+                    <button type="submit" class="button alt">Ingresar</button>
                 </form>
             </article>
             <!--<header>
@@ -29,21 +29,21 @@
         </section>
         <section class="box">            
             <article class="box post">
-                <a href="#" class="image featured"><img src="images/pic12.jpg" alt="" /></a>
+                <a class="image featured"><img src="images/pic12.jpg" alt="" /></a>
                 <header>
                     <h3>Registrar Universidad</h3>                    
                 </header>
-                <form role="form" ng-controller="welcomeUniversityCtrl">                    
+                <form role="form" ng-submit="newUniversity()">                    
                     <div class="form-group">
-                        <input type="text" placeholder="E-mail" class="form-control" ng-model="InEmail"/>
+                        <input type="email" placeholder="E-mail" class="form-control" ng-model="REmail"/>
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Usuario" class="form-control" ng-model="InUser"/>
+                        <input type="text" placeholder="Usuario" class="form-control" ng-model="RUser"/>
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Contraseña" class="form-control" ng-model="InPassword"/>
+                        <input type="password" placeholder="Contraseña" class="form-control" ng-model="RPass"/>
                     </div>
-                    <input type="button" value="Registrar" ng-click="newUniversity()"/>
+                    <button type="submit" class="button alt">Registrar</button>
                 </form>
             </article>
         </section>

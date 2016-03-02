@@ -1,16 +1,14 @@
 'use strict';
 angular.module('services.services', ['ngRoute', 'ngResource'])
 
-        .factory('communication', function () {
-            var data = {
-                listado: []
-            };
+        .factory('Usuario', function () {
+            var user = "";
             return {
-                getListado: function () {
-                    return data.listado;
+                getUser: function () {
+                    return user;
                 },
-                addTodo: function (todo) {
-                    data.listado.push(todo);
+                addUser: function (name) {
+                    user = name;
                 }};
         })
 

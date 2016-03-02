@@ -9,9 +9,8 @@ angular.module('myApp.uniReg', ['ngRoute'])
             });
         }])
 
-        .controller('uniRegCtrl', ['$scope','$rootScope','GetUnivById','UpdateUni', 'PostCarrersUni', function ($scope,$rootScope,GetUnivById,UpdateUni,PostCarrersUni) {
-            //
-            $rootScope.uniUser = 'eci';
+        .controller('uniRegCtrl', ['$scope','$rootScope','GetUnivById','UpdateUni', 'PostCarrersUni', 'Usuario', function ($scope,$rootScope,GetUnivById,UpdateUni,PostCarrersUni, Usuario) {
+            $scope.userId = "";
             // Information variables
             $scope.user = "";
             $scope.pass = "";
@@ -25,13 +24,15 @@ angular.module('myApp.uniReg', ['ngRoute'])
             $scope.desc = "";
             // Carrers variables
             $scope.carNumber = 1;
-            $scope.carrers = [];
-            $scope.cName = [];
-            $scope.dep = [];
+            $scope.carrers = new Array(30);
+            $scope.cName = new Array(30);
+            $scope.dep = new Array(30);
             
             // Save the Universiti information
             $scope.loadUni = function () {
-                $scope.data=GetUnivById.get({id:$rootScope.uniUser});
+                $scope.userId = Usuario.getUser();
+                console.log($scope.userId);
+                $scope.data=GetUnivById.get({id:$scope.userId});
                 $scope.data.$promise.then(function(data) {
                     $scope.u = data;
                     $scope.user = $scope.u.id;
@@ -63,7 +64,7 @@ angular.module('myApp.uniReg', ['ngRoute'])
                     'descp':$scope.desc
                 };
                 
-                UpdateUni.save({id:$rootScope.uniUser}, u, function(){
+                UpdateUni.save({id:$scope.userId}, u, function(){
                     console.info("Saved "+JSON.stringify(u));
                 });
             };
@@ -96,21 +97,27 @@ angular.module('myApp.uniReg', ['ngRoute'])
 
             // Add a new space for a new carrer
             $scope.addCarrer = function () {
-                var fragment = $scope.create('<div class="form-group"><input type="text" class="form-control" name="name" id="name' + $scope.carrers + '" placeholder="Name" ng-model="cName['+$scope.carrers+']"/><input type="text" class="form-control" name="dep" id="dep' + $scope.carrers + '" placeholder="Department" ng-model="dep['+$scope.carrers+']"/></div>');
+                var fragment = $scope.create('<div class="form-group"><input type="text" class="form-control" name="name" id="name' + $scope.carNumber + '" placeholder="Name" ng-model="cName['+$scope.carNumber+']"/><input type="text" class="form-control" name="dep" id="dep' + $scope.carNumber + '" placeholder="Department" ng-model="dep['+$scope.carNumber+']"/></div>');
                 // You can use native DOM methods to insert the fragment:
                 var element = document.getElementById('carrers');
                 element.appendChild(fragment);
+                console.log($scope.carNumber);
+                console.log($scope.cName);
+                console.log($scope.dep);
                 $scope.carNumber += 1;
             };
             
             // Save carrers information
             $scope.saveCarrers = function () {
+                $scope.carrers=[];
                 for (var i=0;i< ($scope.carNumber-1);i++){
                     $scope.carrers.push({'id':i+1000,'name':$scope.cName[i],'department':$scope.dep[i]});
                 }
                 console.log($scope.carrers);
+                console.log($scope.cName);
+                console.log($scope.dep);
                 
-                PostCarrersUni.save({id:$rootScope.uniUser}, $scope.carrers, function(){
+                PostCarrersUni.save( {id:$scope.userId}, $scope.carrers, function(){
                     console.info("Saved "+JSON.stringify($scope.carrers));
                 });
             };
