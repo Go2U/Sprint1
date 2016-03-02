@@ -30,11 +30,11 @@
                     <nav id="nav" class="menu">
 
                         <ul ng-show="authenticated" ng-controller="rootCtrl">
-                            <li class="current"><a href="index.html">Home</a></li>
-                            <li class="current"><a href="#/view2">Add Task</a></li>
-                            <li class="current"><a href="#/list">List Tasks</a></li>
-                            <li class="current"><a href="#/clients">Clients</a></li>
-                            <li class="current"><a href="" ng-click="logout()">Logout</a></li>
+                            <li><a href="index.html" style="color: black; font-size: 150%; font-weight: bold">Home</a></li>
+                            <li><a href="#/view2" style="color: black; font-size: 150%; font-weight: bold">Add Task</a></li>
+                            <li><a href="#/list" style="color: black; font-size: 150%; font-weight: bold">List Tasks</a></li>
+                            <li><a href="#/clients" style="color: black; font-size: 150%; font-weight: bold">Clients</a></li>
+                            <li><a href="" ng-click="logout()" style="color: black; font-size: 150%; font-weight: bold">Logout</a></li>
                             <!--li>
                                 <a href="#">Dropdown</a>
                                 <ul>
@@ -56,9 +56,10 @@
                             </li-->
                         </ul>
                         <ul  ng-show="!authenticated">
-                            <li class="current"><a href="index.html">Home</a></li>
-                            <li class="current"><a href="#/login">Login</a></li>
-                            <li class="current"><a href="#/view2">Add Task</a></li>
+                            <li><a href="index.html" style="color: black; font-size: 150%; font-weight: bold">Home</a></li>
+                            <li><a href="#/login" style="color: black; font-size: 150%; font-weight: bold">Login</a></li>
+                            <li><a href="#/view2" style="color: black; font-size: 150%; font-weight: bold">Add Task</a></li>
+                            <li><a href="#/uniReg" style="color: black; font-size: 150%; font-weight: bold">Sing Up</a></li>
                         </ul>
 
                     </nav>
@@ -73,34 +74,33 @@
                 <section id="footer" class="container">
 
                     <div class="row">
-                        <div class="4u 12u(mobile)">
-                            <section>
+                        <div class="8u 12u(mobile)">
+                            <section class="8u 12u(mobile)">
                                 <header>
-                                    <h2>Tempus consequat</h2>
+                                    <h2>Get In Touch</h2>
                                 </header>
-                                <ul class="divided">
-                                    <li><a href="#">Lorem ipsum dolor sit amet sit veroeros</a></li>
-                                    <li><a href="#">Sed et blandit consequat sed tlorem blandit</a></li>
-                                    <li><a href="#">Adipiscing feugiat phasellus sed tempus</a></li>
-                                    <li><a href="#">Hendrerit tortor vitae mattis tempor sapien</a></li>
-                                    <li><a href="#">Sem feugiat sapien id suscipit magna felis nec</a></li>
-                                    <li><a href="#">Elit class aptent taciti sociosqu ad litora</a></li>
-                                </ul>
-                            </section>
-                        </div>
-                        <div class="4u 12u(mobile)">
-                            <section>
-                                <header>
-                                    <h2>Ipsum et phasellus</h2>
-                                </header>
-                                <ul class="divided">
-                                    <li><a href="#">Lorem ipsum dolor sit amet sit veroeros</a></li>
-                                    <li><a href="#">Sed et blandit consequat sed tlorem blandit</a></li>
-                                    <li><a href="#">Adipiscing feugiat phasellus sed tempus</a></li>
-                                    <li><a href="#">Hendrerit tortor vitae mattis tempor sapien</a></li>
-                                    <li><a href="#">Sem feugiat sapien id suscipit magna felis nec</a></li>
-                                    <li><a href="#">Elit class aptent taciti sociosqu ad litora</a></li>
-                                </ul>
+                                <form>
+                                    <div class="row 50%">
+                                        <div class="8u 12u(mobile)">
+                                            <input type="text" name="name" id="name" placeholder="Name">
+                                        </div>
+                                        <div class="8u 12u(mobile)">
+                                            <input type="email" name="email" id="email" placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="row 50%">
+                                        <div class="12u">
+                                            <textarea name="message" id="message" placeholder="Message" rows="5"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row 50%">
+                                        <div class="12u">
+                                            <ul class="actions">
+                                                <li><input type="submit" class="button alt" value="Send Message"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </form>
                             </section>
                         </div>
                         <div class="4u 12u(mobile)">
@@ -193,6 +193,8 @@
         <script src="list/list.js"></script>
         <script src="login/login.js"></script>
         <script src="client/clients.js"></script>
+        <script src="uniReg/uniReg.js"></script>
+        <script src="calendar/calendar.js"></script>
         <script src="services/services.js"></script>
         <script src="components/version/version.js"></script>
         <script src="components/version/version-directive.js"></script>

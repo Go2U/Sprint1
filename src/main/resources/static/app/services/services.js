@@ -46,4 +46,40 @@ angular.module('services.services', ['ngRoute', 'ngResource'])
                 }
             });
 
-        });
+        })
+        
+        /*
+         * University Services
+         */
+        // Get universities
+        .factory('GetUniv', function ($resource) {
+            return $resource('/api/uni', {}, {
+                get: {
+                    method: 'GET', 
+                    isArray: true
+                }
+            });
+        })
+        // Get university by Id
+        .factory('GetUnivById', function ($resource) {
+            return $resource('/api/uni/:id', {id:'@id'}, {
+                get: {
+                    method: 'GET', 
+                    isArray: false
+                }
+            });
+        })
+        // Update university information by Id
+        .factory('UpdateUni', function ($resource) {
+            return $resource('/api/uni/upd/:id',{id:'@id'});
+        })
+        // Post carrers to university by Id
+        .factory('PostCarrersUni', function ($resource) {
+            return $resource('/api/uni/:id/add',{id:'@id'});
+        })
+        // Post university
+        .factory('PostUniv', function ($resource) {
+            return $resource('/api/uni/add');
+        })
+        
+;

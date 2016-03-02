@@ -9,6 +9,8 @@ angular.module('myApp', [
     'myApp.list',
     'myApp.login',
     'myApp.clients',
+    'myApp.uniReg',
+    'myApp.calendar',
     'services.services',
     'myApp.version'
 ]).
