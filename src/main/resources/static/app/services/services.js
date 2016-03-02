@@ -48,7 +48,6 @@ angular.module('services.services', ['ngRoute', 'ngResource'])
 
         })
         
-<<<<<<< HEAD
         /*
          * University Services
          */
@@ -57,17 +56,19 @@ angular.module('services.services', ['ngRoute', 'ngResource'])
             return $resource('/api/uni', {}, {
                 get: {
                     method: 'GET', 
-=======
-        .factory('Test', function ($resource) {
-            return $resource('/test/getTestUniversity', {}, {
-                get: {
-                    method: 'GET',
->>>>>>> e055112ee0ce83dae334686ac2464e7404d8fcd8
                     isArray: true
                 }
             });
         })
-<<<<<<< HEAD
+        //Get test
+        .factory('Test', function ($resource) {
+            return $resource('/test/getTestUniversity', {}, {
+                get: {
+                    method: 'GET',
+                    isArray: true
+                }
+            });
+        })
         // Get university by Id
         .factory('GetUnivById', function ($resource) {
             return $resource('/api/uni/:id', {id:'@id'}, {
@@ -89,11 +90,8 @@ angular.module('services.services', ['ngRoute', 'ngResource'])
         .factory('PostUniv', function ($resource) {
             return $resource('/api/uni/add');
         })
-        
-;
-=======
-        
+        // Post Test
         .factory('PostQue', function ($resource) {
             return $resource('/test/postQuestions');
         });
->>>>>>> e055112ee0ce83dae334686ac2464e7404d8fcd8
+;
