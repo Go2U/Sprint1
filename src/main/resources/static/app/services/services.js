@@ -46,4 +46,17 @@ angular.module('services.services', ['ngRoute', 'ngResource'])
                 }
             });
 
+        })
+        
+        .factory('Test', function ($resource) {
+            return $resource('/test/getTestUniversity', {}, {
+                get: {
+                    method: 'GET',
+                    isArray: true
+                }
+            });
+        })
+        
+        .factory('PostQue', function ($resource) {
+            return $resource('/test/postQuestions');
         });

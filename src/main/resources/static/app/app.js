@@ -9,6 +9,7 @@ angular.module('myApp', [
     'myApp.list',
     'myApp.login',
     'myApp.clients',
+    'myApp.test',
     'services.services',
     'myApp.version'
 ]).
