@@ -16,10 +16,6 @@ public class Test {
     private ArrayList<Questions> test = new ArrayList<>();
     
     public Test(){
-        idUniversity = 1;
-        test.add(new Questions());
-        test.add(new Questions());
-        test.add(new Questions());
     }
     
     public int getIdUniversity() {

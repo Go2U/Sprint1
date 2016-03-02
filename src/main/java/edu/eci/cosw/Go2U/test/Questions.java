@@ -18,10 +18,6 @@ public class Questions {
     private ArrayList<Answers> answer = new ArrayList<>();
     
     public Questions(){
-        question = "hola mundo";
-        answer.add(new Answers());
-        answer.add(new Answers());
-        answer.add(new Answers());
     }
 
     public String getQuestion() {

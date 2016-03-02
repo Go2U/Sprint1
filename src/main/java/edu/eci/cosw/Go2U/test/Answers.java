@@ -17,13 +17,6 @@ public class Answers {
     private ArrayList<Integer> valSum = new ArrayList<>();
     
     public Answers(){
-        answer = "la respuesta es";
-        academicProgram.add("1");
-        academicProgram.add("2");
-        academicProgram.add("3");
-        valSum.add(2);
-        valSum.add(1);
-        valSum.add(3);
     }
 
     public String getAnswer() {
