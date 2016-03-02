@@ -6,6 +6,7 @@ angular.module('myApp', [
     'ngRoute',
     'myApp.view1',
     'myApp.view2',
+    'myApp.welcomeUniversity',
     'myApp.list',
     'myApp.login',
     'myApp.clients',
