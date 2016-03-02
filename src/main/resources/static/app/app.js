@@ -9,8 +9,12 @@ angular.module('myApp', [
     'myApp.list',
     'myApp.login',
     'myApp.clients',
+<<<<<<< HEAD
     'myApp.uniReg',
     'myApp.calendar',
+=======
+    'myApp.test',
+>>>>>>> e055112ee0ce83dae334686ac2464e7404d8fcd8
     'services.services',
     'myApp.version'
 ]).
