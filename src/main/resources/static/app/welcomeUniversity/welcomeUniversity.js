@@ -23,6 +23,7 @@ angular.module('myApp.welcomeUniversity', ['ngRoute'])
                         $scope.u = data;
                         if ($scope.u.pass == $scope.IPass) {
                             Usuario.addUser($scope.IUser);
+                            $rootScope.authenticated = true;
                             $location.path('/uniReg');
                         }
                     });

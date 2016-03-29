@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
         <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
         <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+        <link rel="stylesheet" href="bower_components/material-calendar/angular-material-calendar.css">
         <link rel="stylesheet" href="assets/css/main.css" />
         <link href="style.css" rel="stylesheet" type="text/css">
         <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
@@ -31,11 +32,12 @@
 
                         <ul ng-show="authenticated" ng-controller="rootCtrl">
                             <li><a href="index.html" style="color: black; font-size: 150%; font-weight: bold">Home</a></li>
-                            <li><a href="#/welcomeUniversity" style="color: black; font-size: 150%; font-weight: bold">Ingreso Universidades</a></li>
+                            <li><a href="#/uniReg" style="color: black; font-size: 150%; font-weight: bold">Universidad</a></li>
+<!--                            <li><a href="#/welcomeUniversity" style="color: black; font-size: 150%; font-weight: bold">Ingreso Universidades</a></li>
                             <li><a href="#/view2" style="color: black; font-size: 150%; font-weight: bold">Add Task</a></li>
                             <li><a href="#/list" style="color: black; font-size: 150%; font-weight: bold">List Tasks</a></li>
                             <li><a href="#/clients" style="color: black; font-size: 150%; font-weight: bold">Clients</a></li>
-                            <li><a href="#/test"  style="color: black; font-size: 150%; font-weight: bold">Prueba</a></li>
+                            <li><a href="#/test"  style="color: black; font-size: 150%; font-weight: bold">Prueba</a></li>-->
                             <li><a href="" ng-click="logout()" style="color: black; font-size: 150%; font-weight: bold">Logout</a></li>
 
                             <!--li>
@@ -182,6 +184,11 @@
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-route/angular-route.js"></script>
         <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/material-calendar/angular-material-calendar.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-aria/angular-aria.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-material/angular-material.js"></script>
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/jquery.dropotron.min.js"></script>
         <script src="assets/js/skel.min.js"></script>

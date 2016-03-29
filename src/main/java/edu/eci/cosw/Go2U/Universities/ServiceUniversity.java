@@ -15,7 +15,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ServiceUniversity implements UnivServiceInterface{
-public static ArrayList<University> Universities = new ArrayList<University>() {{ add(new University("eci","eci")); add(new University("ros","ros"));}};
+    public static ArrayList<Carrer> carrers = new ArrayList<Carrer>() {{add(new Carrer("c1","d1")); add(new Carrer("c2","d2"));}};
+    public static ArrayList<University> Universities = new ArrayList<University>() {{ add(new University("eci","eci", carrers)); add(new University("ros","ros", carrers));}};
     
     @Override
     public void addUniversity(University u) {

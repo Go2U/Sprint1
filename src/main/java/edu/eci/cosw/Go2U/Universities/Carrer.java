@@ -14,6 +14,11 @@ public class Carrer {
     private String name;
     private String department;
     
+    public Carrer(String name, String dep){
+        this.name = name;
+        this.department = dep;
+    }
+    
     public Carrer(){
         
     }

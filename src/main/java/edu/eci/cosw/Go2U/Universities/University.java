@@ -25,9 +25,10 @@ public class University {
     private ArrayList<Carrer> carrers;
     private InputStream logo;
     
-    public University(String id, String pass){
+    public University(String id, String pass, ArrayList<Carrer> carrers){
         this.id = id;
         this.pass = pass; 
+        this.carrers = carrers;
     }
     
     public University(){

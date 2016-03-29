@@ -76,6 +76,15 @@ angular.module('services.services', ['ngRoute', 'ngResource'])
                 }
             });
         })
+        // Get university carrers by Id
+        .factory('GetCarrUnivById', function ($resource) {
+            return $resource('/api/uni/:id/carrers', {id:'@id'}, {
+                get: {
+                    method: 'GET', 
+                    isArray: true
+                }
+            });
+        })
         // Update university information by Id
         .factory('UpdateUni', function ($resource) {
             return $resource('/api/uni/upd/:id',{id:'@id'});

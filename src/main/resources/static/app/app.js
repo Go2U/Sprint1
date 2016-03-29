@@ -24,13 +24,15 @@ angular.module('myApp', [
 
         .controller('rootCtrl', ['$scope', '$rootScope', '$http', '$location', function ($scope, $rootScope, $http, $location) {
                 $scope.logout = function () {
-                    $http.post('/logout', {}).success(function () {
-                        $rootScope.authenticated = false;
-                        $location.path("/login");
-                    }).error(function (data) {
-                        $rootScope.authenticated = false;
-                        $location.path("/login");
-                    });
+//                    $http.post('/logout', {}).success(function () {
+//                        $rootScope.authenticated = false;
+//                        $location.path("/login");
+//                    }).error(function (data) {
+//                        $rootScope.authenticated = false;
+//                        $location.path("/login");
+//                    });
+                    $rootScope.authenticated = false;
+                    $location.path("/");
                 };
             }]);
 
