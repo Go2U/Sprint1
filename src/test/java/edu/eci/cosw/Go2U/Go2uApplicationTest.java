@@ -8,13 +8,9 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-<<<<<<< HEAD
-@SpringApplicationConfiguration(classes = Lab1Application.class)
-=======
 @SpringApplicationConfiguration(classes = Go2uApplication.class)
->>>>>>> refactor
 @WebAppConfiguration
-public class Lab1ApplicationTest {
+public class Go2uApplicationTest {
 
 	@Test
 	public void contextLoads() {
