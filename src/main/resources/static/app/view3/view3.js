@@ -14,7 +14,7 @@ angular.module('myApp.view3', ['ngRoute'])
                 $scope.InPrio;
                 $scope.nq;
 
-                $scope.newTask = function (){
+                $scope.newTask = function (ev){
                     var question = {"question":$scope.Que,
                             "answer":[
                             {"answer":$scope.SAns[0],
@@ -34,6 +34,8 @@ angular.module('myApp.view3', ['ngRoute'])
                         ]};
                     PostQue.save(question, function(){
                         //console.info("Saved "+JSON.stringify(question));
+                        alert("Pregunta agregada");
+                        
                     });
                     $scope.Que = "";
                     $scope.SAns[0]="";
@@ -50,6 +52,7 @@ angular.module('myApp.view3', ['ngRoute'])
                     $scope.VAns[3][0]=4;
                 };
                 
+              
                 /*$scope.newTask = function () {
                     var task = {"num":$scope.nq, "preg":$scope.pre, "ans1":$scope.a1, "ans2":$scope.b2, "ans3":$scope.c3, "ans4":$scope.d4};
                     Post.save(task, function(){
