@@ -7,25 +7,40 @@ package edu.eci.cosw.Go2U.model.universities;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import org.hibernate.annotations.Proxy;
 
 /**
  *
  * @author miguelromero
  */
-public class University {
+@Entity
+@Table(name = "University")
+@Proxy(lazy = false)
+public class University implements java.io.Serializable{
     private String id;
     private String pass;
     private String name;
-    private String city;
+    private Integer city;
     private String email;
     private String url;
     private String address;
     private String descp;
     private Integer number;
-    private ArrayList<Carrer> carrers;
+    private List<Carrer> carrers;
     private InputStream logo;
     
-    public University(String id, String pass, ArrayList<Carrer> carrers){
+    public University(String id, String pass, List<Carrer> carrers){
         this.id = id;
         this.pass = pass; 
         this.carrers = carrers;
@@ -34,10 +49,27 @@ public class University {
     public University(){
         
     }
+    
+    /**
+     * @return the id
+     */
+    @Id
+    @Column(name = "idUniversity")
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
 
     /**
      * @return the name
      */
+    @Column(name="name")
     public String getName() {
         return name;
     }
@@ -52,20 +84,22 @@ public class University {
     /**
      * @return the city
      */
-    public String getCity() {
+    @Column(name="City_idCity")
+    public Integer getCity() {
         return city;
     }
 
     /**
      * @param city the city to set
      */
-    public void setCity(String city) {
+    public void setCity(int city) {
         this.city = city;
     }
 
     /**
      * @return the address
      */
+     @Column(name="address")
     public String getAddress() {
         return address;
     }
@@ -80,6 +114,7 @@ public class University {
     /**
      * @return the number
      */
+     @Column(name="number")
     public Integer getNumber() {
         return number;
     }
@@ -94,7 +129,8 @@ public class University {
     /**
      * @return the carrers
      */
-    public ArrayList<Carrer> getCarrers() {
+    @ManyToMany (cascade = CascadeType.ALL, mappedBy = "universities")
+    public List<Carrer> getCarrers() {
         return carrers;
     }
     
@@ -110,31 +146,20 @@ public class University {
         } 
     }
     
-    public void addCarrers(ArrayList<Carrer> c){
-        this.carrers = new ArrayList<>();
+    public void setCarrers(List<Carrer> c){
+//        this.carrers = new Set<>();
         this.carrers = c;
     }
 
-    /**
-     * @return the id
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(String id) {
-        this.id = id;
-    }
+    
 
     /**
      * @return the logo
      */
-    public InputStream getLogo() {
-        return logo;
-    }
+//    @Column(name="Logo")
+//    public InputStream getLogo() {
+//        return logo;
+//    }
 
     /**
      * @param logo the logo to set
@@ -146,6 +171,7 @@ public class University {
     /**
      * @return the email
      */
+     @Column(name="email")
     public String getEmail() {
         return email;
     }
@@ -160,6 +186,7 @@ public class University {
     /**
      * @return the url
      */
+     @Column(name="url")
     public String getUrl() {
         return url;
     }
@@ -174,6 +201,7 @@ public class University {
     /**
      * @return the descp
      */
+     @Column(name="descp")
     public String getDescp() {
         return descp;
     }
@@ -188,6 +216,7 @@ public class University {
     /**
      * @return the pass
      */
+    
     public String getPass() {
         return pass;
     }

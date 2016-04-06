@@ -9,6 +9,7 @@ import edu.eci.cosw.Go2U.model.universities.Carrer;
 import edu.eci.cosw.Go2U.model.universities.University;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -18,8 +19,8 @@ public interface UnivServiceInterface {
     public void addUniversity(University u);
     public void updateUniversity(String id,University u);
     public void addUniversityCarrer(String id, ArrayList<Carrer> c);
-    public ArrayList<University> getUniversities();
+    public List<University> getUniversities();
     public University getUniversityById(String id);
-    public ArrayList<Carrer> getUniversityCarrers(String id);
-    public InputStream getUniversityLogo(String id);
+    public List<Carrer> getUniversityCarrers(String id);
+//    public InputStream getUniversityLogo(String id);
 }

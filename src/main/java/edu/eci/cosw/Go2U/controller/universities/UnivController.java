@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
@@ -45,7 +46,7 @@ public class UnivController {
     }
     
     @RequestMapping(method = RequestMethod.GET)
-    public ArrayList<University> getUniversities() {
+    public List<University> getUniversities() {
         return universities.getUniversities(); //Obtiene lista de todos los clientes
     }
 
@@ -57,12 +58,12 @@ public class UnivController {
     
     //On test creation, its necesary to list the carrers available
     @RequestMapping(value = "/{id}/carrers", method = RequestMethod.GET)
-    public ArrayList<Carrer> getUniversityCarrers(@PathVariable String id){
+    public List<Carrer> getUniversityCarrers(@PathVariable String id){
         return universities.getUniversityCarrers(id);
     }
     
-    @RequestMapping(value = "/{id}/logo", method = RequestMethod.GET)
-    public ResponseEntity<InputStreamResource> getUniversityLogo(@PathVariable String id) {
-        return ResponseEntity.ok().contentType(MediaType.parseMediaType("image/jpg")).body(new InputStreamResource(universities.getUniversityLogo(id)));
-    }
+//    @RequestMapping(value = "/{id}/logo", method = RequestMethod.GET)
+//    public ResponseEntity<InputStreamResource> getUniversityLogo(@PathVariable String id) {
+//        return ResponseEntity.ok().contentType(MediaType.parseMediaType("image/jpg")).body(new InputStreamResource(universities.getUniversityLogo(id)));
+//    }
 }

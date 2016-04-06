@@ -9,6 +9,8 @@ import edu.eci.cosw.Go2U.model.universities.Carrer;
 import edu.eci.cosw.Go2U.model.universities.University;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,7 +20,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ServiceUniversity implements UnivServiceInterface{
     public static ArrayList<Carrer> carrers = new ArrayList<Carrer>() {{add(new Carrer(1000,"c1","d1")); add(new Carrer(1001,"c2","d2"));}};
-    public static ArrayList<University> Universities = new ArrayList<University>() {{ add(new University("eci","eci", carrers)); add(new University("ros","ros", carrers));}};
+    public static List<University> Universities = new ArrayList<University>() {{ add(new University("eci","eci", carrers)); add(new University("ros","ros", carrers));}};
     
     @Override
     public void addUniversity(University u) {
@@ -26,7 +28,7 @@ public class ServiceUniversity implements UnivServiceInterface{
     }
 
     @Override
-    public ArrayList<University> getUniversities() {
+    public List<University> getUniversities() {
         return Universities;
     }
     
@@ -42,32 +44,32 @@ public class ServiceUniversity implements UnivServiceInterface{
     }
 
     @Override
-    public ArrayList<Carrer> getUniversityCarrers(String id) {
+    public List<Carrer> getUniversityCarrers(String id) {
         ArrayList<Carrer> ans = null;
         for (University u: Universities) {
             if (u.getId().compareTo(id)==0){
-                ans = u.getCarrers();
+                ans = (ArrayList<Carrer>) u.getCarrers();
             }
         }
         return ans;
     }
 
-    @Override
-    public InputStream getUniversityLogo(String id) {
-        InputStream ans = null;
-        for (University u: Universities) {
-            if (u.getId().compareTo(id)==0){
-                ans = u.getLogo();
-            }
-        }
-        return ans;
-    }
+//    @Override
+//    public InputStream getUniversityLogo(String id) {
+//        InputStream ans = null;
+//        for (University u: Universities) {
+//            if (u.getId().compareTo(id)==0){
+//                ans = u.getLogo();
+//            }
+//        }
+//        return ans;
+//    }
 
     @Override
     public void addUniversityCarrer(String id, ArrayList<Carrer> c) {
         for (University u: Universities) {
             if (u.getId().compareTo(id)==0){
-                u.addCarrers(c);
+                u.setCarrers(c);
             }
         }
     }

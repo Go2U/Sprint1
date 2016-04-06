@@ -5,14 +5,31 @@
  */
 package edu.eci.cosw.Go2U.model.universities;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import org.hibernate.annotations.Proxy;
+
 /**
  *
  * @author miguelromero
  */
-public class Carrer {
+@Entity
+@Table(name = "Carrer")
+@Proxy(lazy = false)
+public class Carrer implements java.io.Serializable{
     private Integer id;
     private String name;
     private String department;
+    private List<University> universities;
     
     public Carrer(String name, String dep){
         this.name = name;
@@ -32,6 +49,7 @@ public class Carrer {
     /**
      * @return the name
      */
+    @Column(name="name")
     public String getName() {
         return name;
     }
@@ -46,6 +64,7 @@ public class Carrer {
     /**
      * @return the department
      */
+    @Column(name="department")
     public String getDepartment() {
         return department;
     }
@@ -60,6 +79,8 @@ public class Carrer {
     /**
      * @return the id
      */
+    @Id
+    @Column(name = "idCarrer")
     public Integer getId() {
         return id;
     }
@@ -70,6 +91,20 @@ public class Carrer {
     public void setId(Integer id) {
         this.id = id;
     }
+    
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="Carrer_has_University",joinColumns={@JoinColumn(name="Carrer_idCarrer", referencedColumnName="idCarrer", nullable = false)},
+               inverseJoinColumns= {@JoinColumn(name="University_idUniversity", referencedColumnName="idUniversity", nullable = false)}
+              ) 
+    public List<University> getUniversities() {
+        return universities;
+    }
+
+    public void setUniversities(List<University> universities) {
+        this.universities = universities;
+    }
+    
+    
     
     
 }
