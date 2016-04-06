@@ -9,11 +9,20 @@ angular.module('myApp.view3', ['ngRoute'])
                 });
             }])
 
-        .controller('View3Ctrl', ['$scope', 'PostQue', function ($scope,PostQue) {
+        .controller('View3Ctrl', ['$scope', 'Usuario', 'PostQue','GetCarrUnivById',function ($scope,Usuario,PostQue,GetCarrUnivById) {
                 $scope.InDesc;
                 $scope.InPrio;
                 $scope.nq;
-
+                $scope.carrer=[];
+                $scope.userId = Usuario.getUser();
+                
+                $scope.data = GetCarrUnivById.get({id: $scope.userId});
+                $scope.data.$promise.then(function (data) {
+                        $scope.u = data;
+                        $scope.carrer=$scope.u;
+                        console.log($scope.carrer);
+                });
+                
                 $scope.newTask = function (ev){
                     var question = {"question":$scope.Que,
                             "answer":[

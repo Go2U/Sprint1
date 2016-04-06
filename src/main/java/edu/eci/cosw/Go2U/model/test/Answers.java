@@ -5,6 +5,7 @@
  */
 package edu.eci.cosw.Go2U.model.test;
 
+import edu.eci.cosw.Go2U.model.universities.Carrer;
 import java.util.ArrayList;
 
 /**
@@ -13,10 +14,23 @@ import java.util.ArrayList;
  */
 public class Answers {
     private String answer = "";
-    private ArrayList<String> academicProgram = new ArrayList<>();
+    private ArrayList<String> IdcademicProgram = new ArrayList<>();
+    private ArrayList<Carrer> academicProgramC = new ArrayList<>();
     private ArrayList<Integer> valSum = new ArrayList<>();
     
     public Answers(){
+        Carrer tem = new Carrer("Ing Sistemas", "unoH");
+        tem.setId(1000);
+        academicProgramC.add(tem);
+        tem = new Carrer("Ing electrónica", "dosH");
+        tem.setId(1001);
+        academicProgramC.add(tem);
+        tem =new Carrer("Economia", "tresH");
+        tem.setId(1002);
+        academicProgramC.add(tem);
+        tem =new Carrer("Medicina", "CuatroH");
+        tem.setId(1003);
+        academicProgramC.add(tem);
     }
 
     public String getAnswer() {
@@ -29,27 +43,18 @@ public class Answers {
 
     public ArrayList<String> getAcademicProgram() {
         ArrayList<String> tem = new ArrayList<>();
-        for(int  i=0;i<academicProgram.size();i++){
-            switch(Integer.parseInt(academicProgram.get(i))){
-                case 1:
-                    tem.add("Ingeniería de Sistemas");
-                    break;
-                case 2:
-                    tem.add("Ingeniería Electrónica");
-                    break;
-                case 3:
-                    tem.add("Economía");
-                    break;
-                case 4:
-                    tem.add("Medicina");
-                    break;
+        for(int  j=0;j<IdcademicProgram.size();j++){
+            for(int  i=0;i<academicProgramC.size();i++){
+                if(Integer.parseInt(IdcademicProgram.get(j))==academicProgramC.get(i).getId()){
+                    tem.add(academicProgramC.get(i).getName());
+                }
             }
         }
         return tem;
     }
 
     public void setAcademicProgram(ArrayList<String> academicProgram) {
-        this.academicProgram = academicProgram;
+        this.IdcademicProgram = academicProgram;
     }
 
     public ArrayList<Integer> getValSum() {

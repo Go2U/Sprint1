@@ -19,6 +19,12 @@ public class Carrer {
         this.department = dep;
     }
     
+    public Carrer(Integer id,String name, String dep){
+        this.id = id;
+        this.name = name;
+        this.department = dep;
+    }
+    
     public Carrer(){
         
     }
