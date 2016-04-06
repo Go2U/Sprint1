@@ -13,8 +13,8 @@ import java.util.ArrayList;
  * @author cbonilla
  */
 public interface ServiceTestUniversityInterface {
-    public int getIdUniversity();
+//    public int getIdUniversity();
     public ArrayList<Questions> getTest();
-    public ArrayList<Questions> Test(int u);
+//    public ArrayList<Questions> Test(int u);
     public void addQuestions(Questions q); 
 }

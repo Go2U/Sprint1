@@ -25,10 +25,10 @@ public class TestUniversityController{
     @Autowired
     ServiceTestUniversity TestUniversity;
     
-    @RequestMapping(value = "/getIdUniversity", method = RequestMethod.GET)
-    public int getIdUniversity(){
-        return TestUniversity.getIdUniversity();
-    }
+//    @RequestMapping(value = "/getIdUniversity", method = RequestMethod.GET)
+//    public int getIdUniversity(){
+//        return TestUniversity.getIdUniversity();
+//    }
     
     @RequestMapping(value = "/getTestUniversity", method = RequestMethod.GET)
     public ArrayList<Questions> getTestUniversity(){

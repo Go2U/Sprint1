@@ -23,20 +23,20 @@ public class ServiceTestUniversity implements ServiceTestUniversityInterface{
         test = new Test();
     }
     
-    @Override
-    public int getIdUniversity() {
-        return test.getIdUniversity();
-    }
+//    @Override
+//    public int getIdUniversity() {
+//        return test.getIdUniversity();
+//    }
 
     @Override
     public ArrayList<Questions> getTest() {
         return test.getTest();
     }
 
-    @Override
-    public ArrayList<Questions> Test(int u) {
-        return test.Test(u);
-    }
+//    @Override
+//    public ArrayList<Questions> Test(int u) {
+//        return test.Test(u);
+//    }
 
     @Override
     public void addQuestions(Questions q) {

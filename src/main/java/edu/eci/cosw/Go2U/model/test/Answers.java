@@ -13,6 +13,8 @@ import java.util.ArrayList;
  * @author cbonilla
  */
 public class Answers {
+    
+    private Integer idAnswer;
     private String answer = "";
     private ArrayList<String> IdcademicProgram = new ArrayList<>();
     private ArrayList<Carrer> academicProgramC = new ArrayList<>();

@@ -14,6 +14,7 @@ import java.util.ArrayList;
  */
 public class Questions {
     
+    private Integer idQuestion;
     private String question = "";
     private ArrayList<Answers> answer = new ArrayList<>();
     
