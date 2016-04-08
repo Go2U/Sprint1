@@ -5,6 +5,8 @@
  */
 package edu.eci.cosw.Go2U.model.universities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mysql.jdbc.Blob;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,8 @@ import javax.persistence.JoinColumns;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.Proxy;
 
 /**
@@ -38,7 +42,7 @@ public class University implements java.io.Serializable{
     private String descp;
     private Integer number;
     private List<Carrer> carrers;
-    private InputStream logo;
+    private Blob Logo;
     
     public University(String id, String pass, List<Carrer> carrers){
         this.id = id;
@@ -50,6 +54,13 @@ public class University implements java.io.Serializable{
         
     }
     
+    // ***Constructor para realizar pruebas*** //
+    public University(String id, String name, String email, Integer city){
+        this.id=id;
+        this.name=name;
+        this.email=email;
+        this.city=city;
+    }
     /**
      * @return the id
      */
@@ -130,11 +141,12 @@ public class University implements java.io.Serializable{
      * @return the carrers
      */
     @ManyToMany (cascade = CascadeType.ALL, mappedBy = "universities")
+    @Fetch(FetchMode.JOIN)
     public List<Carrer> getCarrers() {
         return carrers;
     }
     
-    public void addCarrer(Carrer c){
+    public void setCarrer(Carrer c){
         boolean exits=false;
         for (Carrer ca:this.getCarrers()){
             if (ca.getName().compareTo(c.getName())==0){
@@ -143,7 +155,7 @@ public class University implements java.io.Serializable{
         }
         if (!exits) {
             this.getCarrers().add(c);
-        } 
+        }
     }
     
     public void setCarrers(List<Carrer> c){
@@ -151,21 +163,20 @@ public class University implements java.io.Serializable{
         this.carrers = c;
     }
 
-    
-
     /**
      * @return the logo
      */
-//    @Column(name="Logo")
-//    public InputStream getLogo() {
-//        return logo;
-//    }
+    @Column(name="Logo")
+    @JsonIgnore
+    public java.sql.Blob getLogo() {
+        return Logo;
+    }
 
     /**
      * @param logo the logo to set
      */
-    public void setLogo(InputStream logo) {
-        this.logo = logo;
+    public void setLogo(Blob logo) {
+        this.Logo = logo;
     }
 
     /**

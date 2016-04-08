@@ -6,7 +6,9 @@
 package edu.eci.cosw.Go2U.services.students;
 
 import edu.eci.cosw.Go2U.model.student.Student;
+import edu.eci.cosw.Go2U.persistence.StudentRepository;
 import java.util.ArrayList;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,8 +17,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ServiceStudent implements StudentServiceInterface{
-    public static ArrayList<Student> Students = new ArrayList<>();
-
+    public static ArrayList<Student> Students = new ArrayList<>(); //Esto toca borrarlo y usar el repositorio
+    
+    @Autowired
+    StudentRepository student;
+    
     @Override
     public void addStudent(Student s) {
         Students.add(s); //To change body of generated methods, choose Tools | Templates.

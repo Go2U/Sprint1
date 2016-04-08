@@ -16,6 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.Proxy;
 
 /**
@@ -93,6 +95,7 @@ public class Carrer implements java.io.Serializable{
     }
     
     @ManyToMany(cascade = CascadeType.ALL)
+    @Fetch(FetchMode.JOIN)
     @JoinTable(name="Carrer_has_University",joinColumns={@JoinColumn(name="Carrer_idCarrer", referencedColumnName="idCarrer", nullable = false)},
                inverseJoinColumns= {@JoinColumn(name="University_idUniversity", referencedColumnName="idUniversity", nullable = false)}
               ) 

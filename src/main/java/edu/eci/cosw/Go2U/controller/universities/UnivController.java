@@ -5,6 +5,7 @@
  */
 package edu.eci.cosw.Go2U.controller.universities;
 
+import com.mysql.jdbc.Blob;
 import edu.eci.cosw.Go2U.services.universities.ServiceUniversity;
 import edu.eci.cosw.Go2U.model.universities.Carrer;
 import edu.eci.cosw.Go2U.model.universities.University;
@@ -19,6 +20,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -42,7 +44,7 @@ public class UnivController {
     
     @RequestMapping(value = "/{id}/add",method = RequestMethod.POST)
     public void addUniversityCarrers(@PathVariable String id, @RequestBody ArrayList<Carrer> c) {
-        universities.addUniversityCarrer(id, c);
+        universities.setUniversityCarrer(id, c);
     }
     
     @RequestMapping(method = RequestMethod.GET)
@@ -62,8 +64,12 @@ public class UnivController {
         return universities.getUniversityCarrers(id);
     }
     
-//    @RequestMapping(value = "/{id}/logo", method = RequestMethod.GET)
-//    public ResponseEntity<InputStreamResource> getUniversityLogo(@PathVariable String id) {
-//        return ResponseEntity.ok().contentType(MediaType.parseMediaType("image/jpg")).body(new InputStreamResource(universities.getUniversityLogo(id)));
-//    }
+    @RequestMapping(value = "/{id}/logo", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<java.sql.Blob> getUniversityLogo(@PathVariable String id) {        
+        return ResponseEntity.ok().contentType(MediaType.parseMediaType("image/png"))
+                .body(universities.getUniversityLogo(id));
+    }
 }
+
+
