@@ -100,5 +100,21 @@ angular.module('services.services', ['ngRoute', 'ngResource'])
         // Post Test
         .factory('PostQue', function ($resource) {
             return $resource('/test/postQuestions');
-        });
+        })
+        
+        
+        //Get Student by ID
+        .factory('GetStudentById', function ($resource) {
+            return $resource('/api/stu/:id', {id:'@id'}, {
+                get: {
+                    method: 'GET', 
+                    isArray: false
+                }
+            });
+        })
+        
+        //Post Student
+        .factory('PostStu', function ($resource) {
+            return $resource('/api/stu/add');
+        })
 ;
