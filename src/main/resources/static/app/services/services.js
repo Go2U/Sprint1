@@ -97,6 +97,10 @@ angular.module('services.services', ['ngRoute', 'ngResource'])
         .factory('PostUniv', function ($resource) {
             return $resource('/api/uni/add');
         })
+        // Post User
+        .factory('PostUser', function ($resource) {
+            return $resource('/api/user/add');
+        })
         // Post Test
         .factory('PostQue', function ($resource) {
             return $resource('/test/postQuestions');

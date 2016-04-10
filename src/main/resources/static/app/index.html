@@ -30,7 +30,7 @@
                     <!-- Nav -->
                     <nav id="nav" class="menu">
 
-                        <ul ng-show="authenticated" ng-controller="rootCtrl">
+                        <ul ng-show="authenticatedU" ng-controller="rootCtrl">
                             <li><a href="index.html" style="color: black; font-size: 150%; font-weight: bold">Home</a></li>
                             <li><a href="#/uniReg" style="color: black; font-size: 150%; font-weight: bold">Universidad</a></li>
                             <li><a href="#/stuReg" style="color: black; font-size: 150%; font-weight: bold">Estudiantes</a></li>
@@ -61,7 +61,7 @@
                                 </ul>
                             </li-->
                         </ul>
-                        <ul  ng-show="!authenticated">
+                        <ul  ng-show="!authenticatedU">
                             <li><a href="index.html" style="color: black; font-size: 150%; font-weight: bold">Home</a></li>
                             <li><a href="#/welcomeUniversity" style="color: black; font-size: 150%; font-weight: bold">Universidad</a></li>
                             <li><a href="#/welcomeStudent" style="color: black; font-size: 150%; font-weight: bold">Estudiantes</a></li>

@@ -27,31 +27,29 @@ import org.hibernate.annotations.Proxy;
 @Entity
 @Table(name = "Carrer")
 @Proxy(lazy = false)
-public class Carrer implements java.io.Serializable{
+public class Carrer implements java.io.Serializable {
+
     private Integer id;
     private String name;
-    private String department;
     private List<University> universities;
-    
-    public Carrer(String name, String dep){
+
+    public Carrer(String name, String dep) {
         this.name = name;
-        this.department = dep;
     }
-    
-    public Carrer(Integer id,String name, String dep){
+
+    public Carrer(Integer id, String name, String dep) {
         this.id = id;
         this.name = name;
-        this.department = dep;
     }
-    
-    public Carrer(){
-        
+
+    public Carrer() {
+
     }
 
     /**
      * @return the name
      */
-    @Column(name="name")
+    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -61,21 +59,6 @@ public class Carrer implements java.io.Serializable{
      */
     public void setName(String name) {
         this.name = name;
-    }
-
-    /**
-     * @return the department
-     */
-    @Column(name="department")
-    public String getDepartment() {
-        return department;
-    }
-
-    /**
-     * @param department the department to set
-     */
-    public void setDepartment(String department) {
-        this.department = department;
     }
 
     /**
@@ -93,11 +76,11 @@ public class Carrer implements java.io.Serializable{
     public void setId(Integer id) {
         this.id = id;
     }
-    
+
     @ManyToMany(cascade = CascadeType.ALL)
     @Fetch(FetchMode.JOIN)
     @JoinTable(name="Carrer_has_University",joinColumns={@JoinColumn(name="Carrer_idCarrer", referencedColumnName="idCarrer", nullable = false)},
-               inverseJoinColumns= {@JoinColumn(name="University_idUniversity", referencedColumnName="idUniversity", nullable = false)}
+               inverseJoinColumns= {@JoinColumn(name="University_username", referencedColumnName="username", nullable = false)}
               ) 
     public List<University> getUniversities() {
         return universities;
@@ -106,8 +89,4 @@ public class Carrer implements java.io.Serializable{
     public void setUniversities(List<University> universities) {
         this.universities = universities;
     }
-    
-    
-    
-    
 }

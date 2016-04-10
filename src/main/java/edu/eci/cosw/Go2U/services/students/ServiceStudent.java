@@ -28,9 +28,9 @@ public class ServiceStudent implements StudentServiceInterface{
     }
 
     @Override
-    public void updateStudent(String id, Student s) {
+    public void updateStudent(String un, Student s) {
         for (Student Student1: Students) {
-            if (Student1.getId().compareTo(id)==0){
+            if (Student1.getUsername().compareTo(un)==0){
                 Student1.setName(s.getName());
                 Student1.setLastName(s.getLastName());
                 Student1.setGender(s.getGender());
@@ -49,7 +49,7 @@ public class ServiceStudent implements StudentServiceInterface{
     public Student getStudentById(String id) {
         Student r = null;
         for (Student Student1 : Students) {
-            if (Student1.getId().compareTo(id)==0){
+            if (Student1.getUsername().compareTo(id)==0){
                 r = Student1;               
             }
         }

@@ -24,17 +24,16 @@ angular.module('myApp', [
                 $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
             }])
 
-        .controller('rootCtrl', ['$scope', '$rootScope', '$http', '$location', function ($scope, $rootScope, $http, $location) {
+        .controller('rootCtrl', ['$scope', '$rootScope', '$http', '$location','Usuario', function ($scope, $rootScope, $http, $location,Usuario) {
                 $scope.logout = function () {
-//                    $http.post('/logout', {}).success(function () {
-//                        $rootScope.authenticated = false;
-//                        $location.path("/login");
-//                    }).error(function (data) {
-//                        $rootScope.authenticated = false;
-//                        $location.path("/login");
-//                    });
-                    $rootScope.authenticated = false;
-                    $location.path("/");
+                    $http.post('/logout', {}).success(function () {
+                        $rootScope.authenticatedU = false;
+                        Usuario.addUser("none");
+                        $location.path("/");
+                    }).error(function (data) {
+                        $rootScope.authenticatedU = false;
+                        $location.path("/");
+                    });
                 };
             }]);
 

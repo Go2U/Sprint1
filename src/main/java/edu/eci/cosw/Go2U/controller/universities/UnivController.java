@@ -29,24 +29,25 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RestController
 @RequestMapping("/api/uni")
 public class UnivController {
+
     @Autowired
     ServiceUniversity universities;
-
-    @RequestMapping(value = "/add",method = RequestMethod.POST)
+    
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     public void addUniversity(@RequestBody University u) {
         universities.addUniversity(u);
     }
-    
-    @RequestMapping(value = "/upd/{id}",method = RequestMethod.POST)
+
+    @RequestMapping(value = "/upd/{id}", method = RequestMethod.POST)
     public void updateUniversity(@PathVariable String id, @RequestBody University u) {
-        universities.updateUniversity(id,u);
+        universities.updateUniversity(id, u);
     }
-    
-    @RequestMapping(value = "/{id}/add",method = RequestMethod.POST)
+
+    @RequestMapping(value = "/{id}/add", method = RequestMethod.POST)
     public void addUniversityCarrers(@PathVariable String id, @RequestBody ArrayList<Carrer> c) {
         universities.setUniversityCarrer(id, c);
     }
-    
+
     @RequestMapping(method = RequestMethod.GET)
     public List<University> getUniversities() {
         return universities.getUniversities(); //Obtiene lista de todos los clientes
@@ -57,19 +58,17 @@ public class UnivController {
         //System.out.println("entro");
         return universities.getUniversityById(id);
     }
-    
+
     //On test creation, its necesary to list the carrers available
     @RequestMapping(value = "/{id}/carrers", method = RequestMethod.GET)
-    public List<Carrer> getUniversityCarrers(@PathVariable String id){
+    public List<Carrer> getUniversityCarrers(@PathVariable String id) {
         return universities.getUniversityCarrers(id);
     }
-    
+
     @RequestMapping(value = "/{id}/logo", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<java.sql.Blob> getUniversityLogo(@PathVariable String id) {        
+    public ResponseEntity<java.sql.Blob> getUniversityLogo(@PathVariable String id) {
         return ResponseEntity.ok().contentType(MediaType.parseMediaType("image/png"))
                 .body(universities.getUniversityLogo(id));
     }
 }
-
-

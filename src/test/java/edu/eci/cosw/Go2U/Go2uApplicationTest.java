@@ -31,7 +31,7 @@ public class Go2uApplicationTest {
         
         @Test
 	public void deberiaExistirUniversidad() {
-            University u= new University("eci","Escuela Colombiana de Ingenieria Julio Garavito","eci@escuelaing.edu.co",1);            
+            University u= new University("eci","Escuela Colombiana de Ingenieria Julio Garavito","eci@escuelaing.edu.co");            
             unRepository.save(u);
             
             University un1=unRepository.getOne("eci");
@@ -41,11 +41,11 @@ public class Go2uApplicationTest {
         
         @Test
 	public void deberiaDevolverListaDeUniversidades() {            
-            University u1= new University("eci","Escuela Colombiana de Ingenieria Julio Garavito","eci@escuelaing.edu.co",1);  
-            University u2= new University("tadeo","Jorge Tadeo Lozano","tadeo@utadeo.edu.co",1);
-            University u3= new University("nacional","Universidad Nacional de Colombia ","nacional@unacional.edu.co",1);
-            University u4= new University("andes","Universidad de los Andes","andes@uandes.edu.co",1);
-            University u5= new University("udca","Universidad de ciencias aplicadas y ambientales","udca@udca.edu.co",1);
+            University u1= new University("eci","Escuela Colombiana de Ingenieria Julio Garavito","eci@escuelaing.edu.co");  
+            University u2= new University("tadeo","Jorge Tadeo Lozano","tadeo@utadeo.edu.co");
+            University u3= new University("nacional","Universidad Nacional de Colombia ","nacional@unacional.edu.co");
+            University u4= new University("andes","Universidad de los Andes","andes@uandes.edu.co");
+            University u5= new University("udca","Universidad de ciencias aplicadas y ambientales","udca@udca.edu.co");
             unRepository.save(u1);
             unRepository.save(u2);
             unRepository.save(u3);
@@ -58,7 +58,7 @@ public class Go2uApplicationTest {
                  
         @Test
 	public void deberiaDevolverUnaUniversidadPorID() {            
-            University u= new University("eci","Escuela Colombiana de Ingenieria Julio Garavito","eci@escuelaing.edu.co",1);
+            University u= new University("eci","Escuela Colombiana de Ingenieria Julio Garavito","eci@escuelaing.edu.co");
             unRepository.save(u);
                         
             University u1=unService.getUniversityById("eci");

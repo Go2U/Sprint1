@@ -5,12 +5,15 @@
  */
 package edu.eci.cosw.Go2U.model.universities;
 
+import edu.eci.cosw.Go2U.model.user.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mysql.jdbc.Blob;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,6 +22,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -31,9 +36,8 @@ import org.hibernate.annotations.Proxy;
 @Entity
 @Table(name = "University")
 @Proxy(lazy = false)
-public class University implements java.io.Serializable{
-    private String id;
-    private String pass;
+public class University implements java.io.Serializable {
+    private String username;
     private String name;
     private Integer city;
     private String email;
@@ -44,39 +48,23 @@ public class University implements java.io.Serializable{
     private List<Carrer> carrers;
     private Blob Logo;
     
-    public University(String id, String pass, List<Carrer> carrers){
-        this.id = id;
-        this.pass = pass; 
+    public University(String un, List<Carrer> carrers){
+        this.username=un;
         this.carrers = carrers;
     }
     
     public University(){
-        
+        super();
     }
     
     // ***Constructor para realizar pruebas*** //
-    public University(String id, String name, String email, Integer city){
-        this.id=id;
+    public University(String un, String name, String email){
+        this.city=0;
+        this.username=un;
         this.name=name;
         this.email=email;
-        this.city=city;
     }
-    /**
-     * @return the id
-     */
-    @Id
-    @Column(name = "idUniversity")
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(String id) {
-        this.id = id;
-    }
-
+    
     /**
      * @return the name
      */
@@ -95,7 +83,7 @@ public class University implements java.io.Serializable{
     /**
      * @return the city
      */
-    @Column(name="City_idCity")
+    @Column(name="City_idCity", nullable = true)
     public Integer getCity() {
         return city;
     }
@@ -140,8 +128,9 @@ public class University implements java.io.Serializable{
     /**
      * @return the carrers
      */
-    @ManyToMany (cascade = CascadeType.ALL, mappedBy = "universities")
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "universities")
     @Fetch(FetchMode.JOIN)
+    //@JoinColumn(name = "University_username", referencedColumnName = "username", nullable = false)
     public List<Carrer> getCarrers() {
         return carrers;
     }
@@ -225,18 +214,23 @@ public class University implements java.io.Serializable{
     }
 
     /**
-     * @return the pass
+     * @return the username
      */
-    
-    public String getPass() {
-        return pass;
+    @Id
+    @Column(name = "username")
+    public String getUsername() {
+        return username;
     }
 
     /**
-     * @param pass the pass to set
+     * @param username the username to set
      */
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setUsername(String username) {
+        this.username = username;
     }
+
+    /**
+     * @return the pass
+     */
     
 }

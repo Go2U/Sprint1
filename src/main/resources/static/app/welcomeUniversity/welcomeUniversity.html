@@ -8,12 +8,13 @@
                 <header>
                     <h3>Ingresar</h3>                    
                 </header>
-                <form role="form" ng-submit="loginUni()">
+                <p id="warning" style="visibility:hidden; color: red; font-weight: bold">Username or password are incorrect. Please check them and try again.</p>
+                <form role="form" ng-submit="login()">
                     <div class="form-group">
-                        <input type="text" placeholder="Usuario" class="form-control" ng-model="IUser"/>
+                        <input type="text" placeholder="Usuario" class="form-control" ng-model="credentials.username"/>
                     </div>
                     <div class="form-group">
-                        <input type="password" placeholder="Contraseña" class="form-control" ng-model="IPass"/>
+                        <input type="password" placeholder="Contraseña" class="form-control" ng-model="credentials.password"/>
                     </div>
                     <button type="submit" class="button alt">Ingresar</button>
                 </form>
@@ -33,7 +34,7 @@
                 <header>
                     <h3>Registrar Universidad</h3>                    
                 </header>
-                <form role="form" ng-submit="newUniversity()">                    
+                <form role="form" ng-submit="newUniversity($event)">                    
                     <div class="form-group">
                         <input type="email" placeholder="E-mail" class="form-control" ng-model="REmail"/>
                     </div>

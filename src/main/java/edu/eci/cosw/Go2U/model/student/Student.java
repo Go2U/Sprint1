@@ -5,6 +5,7 @@
  */
 package edu.eci.cosw.Go2U.model.student;
 
+import edu.eci.cosw.Go2U.model.user.User;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -21,7 +22,7 @@ import org.hibernate.annotations.Proxy;
 @Table(name = "Student")
 @Proxy(lazy = false)
 public class Student {
-    private String id;
+    private String username;
     private String name;
     private String lastName;
     private String gender;
@@ -29,25 +30,12 @@ public class Student {
     private int cellPhone;
 //    private Result result;
 
-    
-
-    public Student(String id, String name, String lastName) {
-        this.id = id;
+    public Student(String un, String name, String lastName) {
         this.name = name;
         this.lastName = lastName;
     }
     
     public Student(){
-    }
-    
-    @Id
-    @Column(name = "idStudent")
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
     
     @Column(name = "name")
@@ -104,4 +92,20 @@ public class Student {
 //    public void setResult(Result result) {
 //        this.result = result;
 //    }
+
+    /**
+     * @return the username
+     */
+    @Id
+    @Column(name = "username")
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * @param username the username to set
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }
