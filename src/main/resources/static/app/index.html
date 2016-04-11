@@ -29,8 +29,8 @@
 
                     <!-- Nav -->
                     <nav id="nav" class="menu">
-
-                        <ul ng-show="authenticatedU" ng-controller="rootCtrl">
+                        
+                        <!--ul ng-show="authenticatedU" ng-controller="rootCtrl">
                             <li><a href="index.html" style="color: black; font-size: 150%; font-weight: bold">Home</a></li>
                             <li><a href="#/uniReg" style="color: black; font-size: 150%; font-weight: bold">Universidad</a></li>
                             <li><a href="#/stuReg" style="color: black; font-size: 150%; font-weight: bold">Estudiantes</a></li>
@@ -38,10 +38,10 @@
                             <li><a href="#/view2" style="color: black; font-size: 150%; font-weight: bold">Add Task</a></li>
                             <li><a href="#/list" style="color: black; font-size: 150%; font-weight: bold">List Tasks</a></li>
                             <li><a href="#/clients" style="color: black; font-size: 150%; font-weight: bold">Clients</a></li>
-                            <li><a href="#/test"  style="color: black; font-size: 150%; font-weight: bold">Prueba</a></li>-->
+                            <li><a href="#/test"  style="color: black; font-size: 150%; font-weight: bold">Prueba</a></li>>
                             <li><a href="" ng-click="logout()" style="color: black; font-size: 150%; font-weight: bold">Logout</a></li>
 
-                            <!--li>
+                            <li>
                                 <a href="#">Dropdown</a>
                                 <ul>
                                     <li><a href="#">Lorem ipsum dolor</a></li>
@@ -59,14 +59,23 @@
                                     </li>
                                     <li><a href="#">Veroeros feugiat</a></li>
                                 </ul>
-                            </li-->
+                            </li>
+                        </ul-->
+                        <ul ng-show="authenticatedU" ng-controller="rootCtrl">
+<!--                            <li><a href="index.html" style="color: black; font-size: 150%; font-weight: bold">Home</a></li>-->
+                            <li><a href="#/uniReg" style="color: black; font-size: 150%; font-weight: bold">Universidad</a></li>
+                            <li><a href="" ng-click="logout()" style="color: black; font-size: 150%; font-weight: bold">Logout</a></li>
+                        </ul>
+                        <ul ng-show="authenticatedS" ng-controller="rootCtrl">
+<!--                            <li><a href="index.html" style="color: black; font-size: 150%; font-weight: bold">Home</a></li>-->
+                            <li><a href="#/stuReg" style="color: black; font-size: 150%; font-weight: bold">Estudiantes</a></li>
+                            <li><a href="" ng-click="logout()" style="color: black; font-size: 150%; font-weight: bold">Logout</a></li>
                         </ul>
                         <ul  ng-show="!authenticatedU">
                             <li><a href="index.html" style="color: black; font-size: 150%; font-weight: bold">Home</a></li>
                             <li><a href="#/welcomeUniversity" style="color: black; font-size: 150%; font-weight: bold">Universidad</a></li>
                             <li><a href="#/welcomeStudent" style="color: black; font-size: 150%; font-weight: bold">Estudiantes</a></li>
                         </ul>
-
                     </nav>
                 </div>
             </div>

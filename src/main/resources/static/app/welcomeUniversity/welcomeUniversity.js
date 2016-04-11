@@ -10,24 +10,23 @@ angular.module('myApp.welcomeUniversity', ['ngRoute'])
             }])
 
         .controller('welcomeUniversityCtrl', ['$rootScope', '$scope', 'GetUnivById', 'PostUniv', '$http', '$location', 'Usuario','$mdDialog', 'PostUser', function ($rootScope, $scope, GetUnivById, PostUniv, $http, $location, Usuario,$mdDialog,PostUser) {
-                $scope.IUser = "";
-                $scope.IPass = "";
-
+//                $scope.IUser = "";
+//                $scope.IPass = "";
                 $scope.REmail = "";
                 $scope.RUser = "";
                 $scope.RPass = "";
 
-                $scope.loginUni = function () {
-                    $scope.data = GetUnivById.get({id: $scope.IUser});
-                    $scope.data.$promise.then(function (data) {
-                        $scope.u = data;
-                        if ($scope.u.pass == $scope.IPass) {
-                            Usuario.addUser($scope.IUser);
-                            $rootScope.authenticatedU = true;
-                            $location.path('/uniReg');
-                        }
-                    });
-                };
+//                $scope.loginUni = function () {
+//                    $scope.data = GetUnivById.get({id: $scope.IUser});
+//                    $scope.data.$promise.then(function (data) {
+//                        $scope.u = data;
+//                        if ($scope.u.pass == $scope.IPass) {
+//                            Usuario.addUser($scope.IUser);
+//                            $rootScope.authenticatedU = true;
+//                            $location.path('/uniReg');
+//                        }
+//                    });
+//                };
 
 
                 $scope.newUniversity = function (ev) {
@@ -81,7 +80,7 @@ angular.module('myApp.welcomeUniversity', ['ngRoute'])
 
                 };
 
-                authenticate();
+                //authenticate();
                 $scope.credentials = {};
                 $scope.login = function () {
                     authenticate($scope.credentials, function () {

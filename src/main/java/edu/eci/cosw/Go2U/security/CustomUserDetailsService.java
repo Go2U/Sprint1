@@ -6,6 +6,7 @@
 package edu.eci.cosw.Go2U.security;
 
 import edu.eci.cosw.Go2U.model.user.User;
+import edu.eci.cosw.Go2U.services.user.Assembler;
 import edu.eci.cosw.Go2U.services.user.ServiceUser;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,18 +28,23 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
     ServiceUser serviceUser;
     
+    @Autowired
+    private Assembler assembler;
+    
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = serviceUser.getUserByUsername(username);
+        
         System.out.println("--------------->" + user.getUsername() + " " + user.getPassword());
         if (user == null) {
             //System.out.println("User not found");
             throw new UsernameNotFoundException("Username not found");
         }
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
-                true, true, true, true, getGrantedAuthorities(user));
+//        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
+//                true, true, true, true, getGrantedAuthorities(user));
+        return assembler.buildUserFromUserEntity(user);
     }
-
+    
     private List<GrantedAuthority> getGrantedAuthorities(User user) {
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority("ROLE_" + serviceUser.getRolNameById(user.getRole())));

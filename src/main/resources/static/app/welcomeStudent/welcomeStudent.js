@@ -9,33 +9,93 @@ angular.module('myApp.welcomeStudent', ['ngRoute'])
                 });
             }])
 
-        .controller('welcomeStudentCtrl', ['$rootScope', '$scope', 'GetStudentById', 'PostStu', '$http', '$location', 'Usuario', function ($rootScope, $scope, GetStudentById, PostStu, $http, $location, Usuario) {
-                $scope.IUser = "";
-                $scope.IPass = "";
-
+        .controller('welcomeStudentCtrl', ['$rootScope', '$scope', 'GetStudentById', 'PostStu', '$http', '$location', 'Usuario','PostUser','$mdDialog', function ($rootScope, $scope, GetStudentById, PostStu, $http, $location, Usuario,PostUser,$mdDialog) {
+//                $scope.IUser = "";
+//                $scope.IPass = "";
                 $scope.REid = "";
                 $scope.RUser = "";
                 $scope.RPass = "";
                 
+//                $scope.loginStu = function () {
+//                    $scope.data = GetStudentById.get({id: $scope.IUser});
+//                    $scope.data.$promise.then(function (data) {
+//                        $scope.u = data;
+//                        if ($scope.u.lastName == $scope.IPass) {
+//                            Usuario.addUser($scope.IUser);
+//                            $rootScope.authenticated = true;
+//                            $location.path('/stuReg');
+//                        }
+//                    });
+//                };
 
-                $scope.loginStu = function () {
-                    $scope.data = GetStudentById.get({id: $scope.IUser});
-                    $scope.data.$promise.then(function (data) {
-                        $scope.u = data;
-                        if ($scope.u.lastName == $scope.IPass) {
-                            Usuario.addUser($scope.IUser);
-                            $rootScope.authenticated = true;
-                            $location.path('/stuReg');
+                $scope.newStudent = function () {
+                    var student = {"email": $scope.REmail, "username": $scope.RUser};
+                    var user = {"username": $scope.RUser, "password": $scope.RPass, "role":3};
+                    PostUser.save(user, function () {
+                        console.info("Saved" + JSON.stringify(user));
+                    });
+                    PostStu.save(student, function () {
+                        console.info("Saved" + JSON.stringify(student));
+                    });
+                    $scope.REmail="";
+                    $scope.RUser="";
+                    $scope.REmail="";
+                    // Appending dialog to document.body to cover sidenav in docs app
+                    // Modal dialogs should fully cover application
+                    // to prevent interaction outside of dialog
+                    $mdDialog.show(
+                            $mdDialog.alert()
+                            .parent(angular.element(document.querySelector('#popupContainer')))
+                            .clickOutsideToClose(true)
+                            .title('Sign Up')
+                            .textContent('Your account has been created correctly.')
+                            .ariaLabel('Alert Dialog Demo')
+                            .ok('Got it!')
+                            .targetEvent(ev)
+                            );
+                };
+                
+                var authenticate = function (credentials, callback) {
+                    console.log('authenticate');
+                    var headers = credentials ? {authorization: "Basic "
+                                + btoa(credentials.username + ":" + credentials.password)
+                    } : {};
+                    console.log('headers');
+                    $http.get('/api/user/', {headers: headers}).success(function (data) {
+                        console.log('$http.get');
+                        if (data.name) {
+                            $rootScope.authenticatedU = true;
+                            console.log('OK');
+                        } else {
+                            $rootScope.authenticatedU = false;
+                            console.log('NOT');
+                        }
+                        callback && callback();
+                    }).error(function () {
+                        console.log('ERROR');
+                        $rootScope.authenticatedU = false;
+                        callback && callback();
+                    });
+
+                };
+                
+                //authenticate();
+                $scope.credentials = {};
+                $scope.login = function () {
+                    authenticate($scope.credentials, function () {
+                        console.log($rootScope.authenticatedS);
+                        if ($rootScope.authenticatedS) {
+                            console.log('OK');
+                            Usuario.addUser($scope.credentials.username);
+                            $location.path('/uniReg');
+                            $scope.error = false;
+                        } else {
+                            console.log('NOT');
+                            $location.path("/welcomeUniversity");
+                            document.getElementById("warning").style.visibility = 'visible';
+                            $scope.error = true;
                         }
                     });
                 };
-
-
-                $scope.newStudent = function () {
-                    var student = {"id": $scope.REid,"name":$scope.RUser ,"lastName": $scope.RPass};
-                    PostStu.save(student, function () {
-                        console.info("Saved" + JSON.stringify(student));
-                        alert("Usuario registrado!")
-                    });
-                };
+                
             }]);

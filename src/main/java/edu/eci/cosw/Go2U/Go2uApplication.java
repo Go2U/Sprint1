@@ -49,6 +49,7 @@ public class Go2uApplication {
         @Qualifier("customUserDetailsService")
         UserDetailsService userDetailsService;
         
+        
         @Override
         protected void configure(AuthenticationManagerBuilder builder) throws Exception {
             //builder.inMemoryAuthentication().withUser("user").password("password").roles("USER");
@@ -63,7 +64,7 @@ public class Go2uApplication {
                     .authorizeRequests()
                         .antMatchers("/app/**").permitAll()
                         .antMatchers("/api/uni/add","/api/user/add").permitAll()
-                        .antMatchers("/api/**").hasRole("ADMIN")
+                        .antMatchers("/").hasRole("ADMIN")
                         .antMatchers("/api/uni/**").hasRole("UNI")
                         .antMatchers("/api/stu/**").hasRole("STU")
                         .anyRequest().authenticated()
