@@ -39,8 +39,7 @@ angular.module('myApp.uniReg', ['ngRoute', 'ngMaterial'])
                     console.log($scope.data);
                     $scope.data.$promise.then(function (data) {
                         $scope.u = data;
-                        $scope.user = $scope.u.id;
-                        $scope.pass = $scope.u.pass;
+                        $scope.user = $scope.u.username;
                         $scope.name = $scope.u.name;
                         $scope.email = $scope.u.email;
                         $scope.url = $scope.u.url;
@@ -74,8 +73,7 @@ angular.module('myApp.uniReg', ['ngRoute', 'ngMaterial'])
 
                 // Save the Universiti information
                 $scope.saveInfoUni = function (ev) {
-                    var u = {'id': $scope.user,
-                        'pass': $scope.pass,
+                    var u = {'username': $scope.user,
                         'name': $scope.name,
                         'email': $scope.email,
                         'url': $scope.url,
