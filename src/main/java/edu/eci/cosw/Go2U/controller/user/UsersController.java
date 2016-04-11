@@ -21,18 +21,23 @@ import org.springframework.web.bind.annotation.RestController;
  * @author miguelromero
  */
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api")
 public class UsersController {  
     
     @Autowired
     ServiceUser users;
     
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/user")
+    public Principal user(Principal user) {
+        return user;
+    }
+    
+    @RequestMapping(value = "/user/add", method = RequestMethod.POST)
     public void addUser(@RequestBody User u) {
         users.addUser(u);
     }
     
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
     public User getUniversityById(@PathVariable String username) {
         //System.out.println("entro");
         return users.getUserByUsername(username);

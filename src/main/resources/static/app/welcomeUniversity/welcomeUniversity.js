@@ -62,7 +62,7 @@ angular.module('myApp.welcomeUniversity', ['ngRoute'])
                                 + btoa(credentials.username + ":" + credentials.password)
                     } : {};
                     console.log('headers');
-                    $http.get('/api/user/', {headers: headers}).success(function (data) {
+                    $http.get('/api/user', {headers: headers}).success(function (data) {
                         console.log('$http.get');
                         if (data.name) {
                             $rootScope.authenticatedU = true;
