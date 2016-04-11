@@ -8,12 +8,12 @@
                 <header>
                     <h3>Ingresar</h3>                    
                 </header>
-                <form role="form" ng-submit="loginStu()">
+                <form role="form" ng-submit="login()">
                     <div class="form-group">
-                        <input type="text" placeholder="Usuario" class="form-control" ng-model="IUser"/>
+                        <input type="text" placeholder="Usuario" class="form-control" ng-model="credentials.username"/>
                     </div>
                     <div class="form-group">
-                        <input type="password" placeholder="Contraseña" class="form-control" ng-model="IPass"/>
+                        <input type="password" placeholder="Contraseña" class="form-control" ng-model="credentials.password"/>
                     </div>
                     <button type="submit" class="button alt">Ingresar</button>
                 </form>

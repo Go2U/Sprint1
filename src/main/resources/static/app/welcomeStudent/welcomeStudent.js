@@ -64,16 +64,16 @@ angular.module('myApp.welcomeStudent', ['ngRoute'])
                     $http.get('/api/user/', {headers: headers}).success(function (data) {
                         console.log('$http.get');
                         if (data.name) {
-                            $rootScope.authenticatedU = true;
+                            $rootScope.authenticatedS = true;
                             console.log('OK');
                         } else {
-                            $rootScope.authenticatedU = false;
+                            $rootScope.authenticatedS = false;
                             console.log('NOT');
                         }
                         callback && callback();
                     }).error(function () {
                         console.log('ERROR');
-                        $rootScope.authenticatedU = false;
+                        $rootScope.authenticatedS = false;
                         callback && callback();
                     });
 
@@ -87,11 +87,11 @@ angular.module('myApp.welcomeStudent', ['ngRoute'])
                         if ($rootScope.authenticatedS) {
                             console.log('OK');
                             Usuario.addUser($scope.credentials.username);
-                            $location.path('/uniReg');
+                            $location.path('/stuReg');
                             $scope.error = false;
                         } else {
                             console.log('NOT');
-                            $location.path("/welcomeUniversity");
+                            $location.path("/welcomeStudent");
                             document.getElementById("warning").style.visibility = 'visible';
                             $scope.error = true;
                         }

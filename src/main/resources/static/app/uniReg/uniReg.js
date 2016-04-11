@@ -34,8 +34,9 @@ angular.module('myApp.uniReg', ['ngRoute', 'ngMaterial'])
                 // Save the Universiti information
                 $scope.loadUni = function () {
                     $scope.userId = Usuario.getUser();
-//                    console.log($scope.userId);
+                    console.log($scope.userId);
                     $scope.data = GetUnivById.get({id: $scope.userId});
+                    console.log($scope.data);
                     $scope.data.$promise.then(function (data) {
                         $scope.u = data;
                         $scope.user = $scope.u.id;
