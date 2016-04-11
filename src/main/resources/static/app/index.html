@@ -61,17 +61,18 @@
                                 </ul>
                             </li>
                         </ul-->
-                        <ul ng-show="authenticatedU" ng-controller="rootCtrl">
+                        <ul ng-show="authenticatedU && !authenticatedS" ng-controller="rootCtrl">
 <!--                            <li><a href="index.html" style="color: black; font-size: 150%; font-weight: bold">Home</a></li>-->
                             <li><a href="#/uniReg" style="color: black; font-size: 150%; font-weight: bold">Universidad</a></li>
+                            <li><a href="#/test" style="color: black; font-size: 150%; font-weight: bold">Test</a></li>
                             <li><a href="" ng-click="logout()" style="color: black; font-size: 150%; font-weight: bold">Logout</a></li>
                         </ul>
-                        <ul ng-show="authenticatedS" ng-controller="rootCtrl">
+                        <ul ng-show="authenticatedS && !authenticatedU" ng-controller="rootCtrl">
 <!--                            <li><a href="index.html" style="color: black; font-size: 150%; font-weight: bold">Home</a></li>-->
                             <li><a href="#/stuReg" style="color: black; font-size: 150%; font-weight: bold">Estudiantes</a></li>
                             <li><a href="" ng-click="logout()" style="color: black; font-size: 150%; font-weight: bold">Logout</a></li>
                         </ul>
-                        <ul  ng-show="!authenticatedU">
+                        <ul  ng-show="!authenticatedU && !authenticatedS">
                             <li><a href="index.html" style="color: black; font-size: 150%; font-weight: bold">Home</a></li>
                             <li><a href="#/welcomeUniversity" style="color: black; font-size: 150%; font-weight: bold">Universidad</a></li>
                             <li><a href="#/welcomeStudent" style="color: black; font-size: 150%; font-weight: bold">Estudiantes</a></li>

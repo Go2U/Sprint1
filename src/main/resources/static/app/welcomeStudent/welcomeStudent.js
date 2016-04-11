@@ -28,7 +28,7 @@ angular.module('myApp.welcomeStudent', ['ngRoute'])
 //                    });
 //                };
 
-                $scope.newStudent = function () {
+                $scope.newStudent = function (ev) {
                     var student = {"name": $scope.REmail, "username": $scope.RUser};
                     var user = {"username": $scope.RUser, "password": $scope.RPass, "role":3};
                     PostUser.save(user, function () {
