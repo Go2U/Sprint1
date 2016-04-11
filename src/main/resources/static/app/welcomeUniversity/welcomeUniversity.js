@@ -30,7 +30,7 @@ angular.module('myApp.welcomeUniversity', ['ngRoute'])
 
 
                 $scope.newUniversity = function (ev) {
-                    var university = {"email": $scope.REmail, "username": $scope.RUser, "city":0};
+                    var university = {"email": $scope.REmail, "username": $scope.RUser, "city":1};
                     var user = {"username": $scope.RUser, "password": $scope.RPass, "role":2};
                     PostUser.save(user, function () {
                         console.info("Saved" + JSON.stringify(user));

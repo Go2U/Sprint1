@@ -29,7 +29,7 @@ angular.module('myApp.welcomeStudent', ['ngRoute'])
 //                };
 
                 $scope.newStudent = function () {
-                    var student = {"email": $scope.REmail, "username": $scope.RUser};
+                    var student = {"name": $scope.REmail, "username": $scope.RUser};
                     var user = {"username": $scope.RUser, "password": $scope.RPass, "role":3};
                     PostUser.save(user, function () {
                         console.info("Saved" + JSON.stringify(user));
