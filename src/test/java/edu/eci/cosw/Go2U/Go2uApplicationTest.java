@@ -3,6 +3,9 @@ package edu.eci.cosw.Go2U;
 import edu.eci.cosw.Go2U.model.student.Student;
 import edu.eci.cosw.Go2U.model.universities.Carrer;
 import edu.eci.cosw.Go2U.model.universities.University;
+import edu.eci.cosw.Go2U.model.user.Rol;
+import edu.eci.cosw.Go2U.model.user.User;
+import edu.eci.cosw.Go2U.persistence.RolRepository;
 import edu.eci.cosw.Go2U.persistence.StudentRepository;
 import edu.eci.cosw.Go2U.persistence.UniversityRepository;
 import edu.eci.cosw.Go2U.persistence.UserRepository;
@@ -44,13 +47,15 @@ public class Go2uApplicationTest {
     UserServiceInterface userService;
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    RolRepository rolRepository;
 
     /**
      * *********University Test**********
      */
     @Test
     public void deberiaRegistrarUniversidad() {
-        University u = new University("eci", "Escuela Colombiana de Ingenieria Julio Garavito", "eci@escuelaing.edu.co");
+        University u = new University("eci","Escuela Colombiana de Ingenieria Julio Garavito","eci@escuelaing.edu.co");
         unService.addUniversity(u);
 
         University un1 = unRepository.getOne("eci");
@@ -193,7 +198,49 @@ public class Go2uApplicationTest {
     }
     
     /**
-     * *********Test Test**********
+     * *********User Test**********
      */
+    
+    @Test
+    public void deberiaRegistrarUsuario() {
+        User u = new User();
+        u.setUsername("henrymonroy7");
+        u.setPassword("qwerty");
+        u.setRole(1);        
+        userService.addUser(u);
+        User u1 = userRepository.getOne("henrymonroy7");
+        assertEquals(u1.getPassword(), "qwerty");
+        assertEquals(u1.getUsername(), "henrymonroy7");
+        assertEquals(u1.getRole(),1);
+    }
+    
+    @Test
+    public void deberiaDevolverUsuarioPorId() {
+        User u = new User();
+        u.setUsername("henrymonroy7");
+        u.setPassword("qwerty");
+        u.setRole(1);        
+        userService.addUser(u);
+
+        User u1 = userRepository.getOne("henrymonroy7");
+        assertEquals(u1.getUsername(), "henrymonroy7");
+        assertEquals(u1.getPassword(), "qwerty");
+        assertEquals(u1.getRole(),1);
+    }
+    
+    @Test
+    public void deberiaDevolverRolDeUsuarioPorId() {        
+        Rol r= new Rol();
+        r.setRole(1);
+        r.setName("university");
+        rolRepository.save(r);
+        User u = new User();
+        u.setUsername("henrymonroy7");
+        u.setPassword("qwerty");
+        u.setRole(1);
+        userService.addUser(u);        
+        assertEquals(userService.getRolNameById(1), rolRepository.findOne(1).getName());
+    }
+    
 
 }

@@ -44,13 +44,14 @@ public class StuController {
     }
     
     @RequestMapping(method = RequestMethod.GET)    
-    public List<Student> getStudents() {
+    public List<Student> getStudents() {        
         return students.getStudents();
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Student getStudentById(String id) {
+    public Student getStudentById(String id) {       
         return students.getStudentById(id);
+        
     }
     
 }

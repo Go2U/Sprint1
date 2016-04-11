@@ -12,6 +12,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
+import org.hibernate.annotations.Proxy;
 
 /**
  *
@@ -19,6 +20,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "User")
+@Proxy(lazy = false)
 public class User {
     private String username;
     private String password;
