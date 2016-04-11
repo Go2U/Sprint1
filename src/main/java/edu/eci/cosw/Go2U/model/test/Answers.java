@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author cbonilla
  */
-public class Answers {
+public class Answers implements java.io.Serializable{
     
     private Integer idAnswer;
     private String answer = "";

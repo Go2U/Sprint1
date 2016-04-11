@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mysql.jdbc.Blob;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import javax.persistence.AttributeOverride;
@@ -46,9 +47,10 @@ public class University implements java.io.Serializable {
     private String descp;
     private Integer number;
     private List<Carrer> carrers;
-    private Blob Logo;
+    private java.sql.Blob Logo;
     
     public University(String un, List<Carrer> carrers){
+        super();
         this.username=un;
         this.carrers = carrers;
     }
@@ -59,6 +61,7 @@ public class University implements java.io.Serializable {
     
     // ***Constructor para realizar pruebas*** //
     public University(String un, String name, String email){
+        super();
         this.city=0;
         this.username=un;
         this.name=name;
@@ -68,7 +71,7 @@ public class University implements java.io.Serializable {
     /**
      * @return the name
      */
-    @Column(name="name")
+    @Column(name="name", nullable = false)
     public String getName() {
         return name;
     }
@@ -98,7 +101,7 @@ public class University implements java.io.Serializable {
     /**
      * @return the address
      */
-     @Column(name="address")
+     @Column(name="address",nullable = true)
     public String getAddress() {
         return address;
     }
@@ -132,8 +135,17 @@ public class University implements java.io.Serializable {
     @Fetch(FetchMode.JOIN)
     //@JoinColumn(name = "University_username", referencedColumnName = "username", nullable = false)
     public List<Carrer> getCarrers() {
-        return carrers;
+        return this.carrers;
     }
+    
+//    public Carrer getCarrer(Integer id) {        
+//        for(Carrer c:this.getCarrers()){
+//            if(c.getId()==id){
+//                return c;
+//            }
+//        }
+//        return null;
+//    }
     
     public void setCarrer(Carrer c){
         boolean exits=false;
@@ -148,8 +160,16 @@ public class University implements java.io.Serializable {
     }
     
     public void setCarrers(List<Carrer> c){
-//        this.carrers = new Set<>();
-        this.carrers = c;
+        this.carrers=c;
+    }
+    
+    public boolean existCarrer(Carrer carrer){
+        for(Carrer c: this.getCarrers()){
+            if(c.getId()==carrer.getId()){
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -164,7 +184,7 @@ public class University implements java.io.Serializable {
     /**
      * @param logo the logo to set
      */
-    public void setLogo(Blob logo) {
+    public void setLogo(java.sql.Blob logo) {
         this.Logo = logo;
     }
 

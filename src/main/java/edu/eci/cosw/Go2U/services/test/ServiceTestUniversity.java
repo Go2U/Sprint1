@@ -7,7 +7,9 @@ package edu.eci.cosw.Go2U.services.test;
 
 import edu.eci.cosw.Go2U.model.test.Test;
 import edu.eci.cosw.Go2U.model.test.Questions;
-import java.util.ArrayList;
+//import edu.eci.cosw.Go2U.persistence.TestRepository;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,12 +17,13 @@ import org.springframework.stereotype.Service;
  * @author cbonilla
  */
 @Service
-public class ServiceTestUniversity implements ServiceTestUniversityInterface{
+public class ServiceTestUniversity implements ServiceTestUniversityInterface{    
+    Test prueba=new Test();
     
-    Test test;
+//    @Autowired
+//    TestRepository test;
     
-    public ServiceTestUniversity(){
-        test = new Test();
+    public ServiceTestUniversity(){        
     }
     
 //    @Override
@@ -29,8 +32,8 @@ public class ServiceTestUniversity implements ServiceTestUniversityInterface{
 //    }
 
     @Override
-    public ArrayList<Questions> getTest() {
-        return test.getTest();
+    public List<Questions> getTest() {
+        return prueba.getQuestions();
     }
 
 //    @Override
@@ -40,6 +43,6 @@ public class ServiceTestUniversity implements ServiceTestUniversityInterface{
 
     @Override
     public void addQuestions(Questions q) {
-        test.addQuestions(q);
+        prueba.setQuestions(q);
     }
 }

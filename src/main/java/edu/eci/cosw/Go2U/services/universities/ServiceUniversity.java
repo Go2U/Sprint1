@@ -21,75 +21,57 @@ import org.springframework.stereotype.Service;
  * @author miguelromero
  */
 @Service
-public class ServiceUniversity implements UnivServiceInterface{
-    //public static ArrayList<Carrer> carrers = new ArrayList<Carrer>() {{add(new Carrer(1000,"c1","d1")); add(new Carrer(1001,"c2","d2"));}};
-    //public static List<University> Universities = new ArrayList<University>() {{ add(new University("eci","eci", carrers)); add(new University("ros","ros", carrers));}};
+public class ServiceUniversity implements UnivServiceInterface{    
     
     @Autowired
     UniversityRepository university;
     
-    @Override
+    
+    @Override //Probado
     public void addUniversity(University u) {
         university.save(u);
     }
 
-    @Override
+    @Override //Probado
     public List<University> getUniversities() {
         return university.findAll();
     }
     
-    @Override
+    @Override //Probado
     public University getUniversityById(String id) {
         return university.findOne(id);
     }
 
-    @Override
+    @Override //En proceso
     public List<Carrer> getUniversityCarrers(String id) {
-//        ArrayList<Carrer> ans = null;
-//        for (University u: Universities) {
-//            if (u.getId().compareTo(id)==0){
-//                ans = (ArrayList<Carrer>) u.getCarrers();
-//            }
-//        }
-//        return ans;
-        return university.findOne(id).getCarrers();
+        return university.getOne(id).getCarrers();
     }
 
     @Override
     public java.sql.Blob getUniversityLogo(String id) {
-//        Blob ans = null;
-//        for (University u: Universities) {
-//            if (u.getId().compareTo(id)==0){
-//                ans = u.getLogo();
-//            }
-//        }
-//        return ans;
         return university.findLogoById(id);
     }
 
-    @Override
-    public void setUniversityCarrer(String id, ArrayList<Carrer> carrers) {
-        University u= university.getOne(id);
-        for (Carrer c: carrers) {
-            u.setCarrer(c);
+    @Override //En proceso
+    public void setUniversityCarrer(String id, List<Carrer> carrers) {
+//        University u= university.getOne(id);
+        List<Carrer> carrersTemp=university.getOne(id).getCarrers();
+        System.out.println("$$$$$$$$$$$$$$$$$$$/ "+carrersTemp.size());
+        for(Carrer c: carrers) {
+            if(!university.getOne(id).existCarrer(c)){
+                c.setUniversities(university.getOne(id));
+                carrersTemp.add(c);
+            }
         }
-        university.save(u);
+        System.out.println("$$$$$$$$$$$$$$$$$$$// "+carrersTemp.size());        
+        
+        university.getOne(id).setCarrers(carrersTemp);
+        
+        System.out.println("$$$$$$$$$$$$$$$$$$$ "+university.getOne(id).getCarrers().size());
     }
 
-    @Override
+    @Override //Probado
     public void updateUniversity(String id, University u) {
-//        for (University un: Universities) {
-//            if (un.getId().compareTo(id)==0){
-//                un.setAddress(u.getAddress());
-//                un.setCity(u.getCity());
-//                un.setDescp(u.getDescp());
-//                un.setEmail(u.getEmail());
-//                un.setName(u.getName());
-//                un.setNumber(u.getNumber());
-//                un.setPass(u.getPass());
-//                un.setUrl(u.getUrl());
-//            }
-//        }
         university.save(u);
     }
     

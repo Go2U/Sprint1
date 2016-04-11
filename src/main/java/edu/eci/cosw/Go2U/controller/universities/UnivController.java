@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
@@ -44,8 +45,8 @@ public class UnivController {
     }
 
     @RequestMapping(value = "/{id}/add", method = RequestMethod.POST)
-    public void addUniversityCarrers(@PathVariable String id, @RequestBody ArrayList<Carrer> c) {
-        universities.setUniversityCarrer(id, c);
+    public void addUniversityCarrers(@PathVariable String id, @RequestBody List<Carrer> carrers) {                
+        universities.setUniversityCarrer(id, carrers);
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -61,7 +62,7 @@ public class UnivController {
 
     //On test creation, its necesary to list the carrers available
     @RequestMapping(value = "/{id}/carrers", method = RequestMethod.GET)
-    public List<Carrer> getUniversityCarrers(@PathVariable String id) {
+    public List<Carrer> getUniversityCarrers(@PathVariable String id) {        
         return universities.getUniversityCarrers(id);
     }
 

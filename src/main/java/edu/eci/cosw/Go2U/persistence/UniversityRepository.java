@@ -6,7 +6,7 @@
 package edu.eci.cosw.Go2U.persistence;
 
 import edu.eci.cosw.Go2U.model.universities.University;
-import java.sql.Blob;
+//import java.sql.Blob;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;

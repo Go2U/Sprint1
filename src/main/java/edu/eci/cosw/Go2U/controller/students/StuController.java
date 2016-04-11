@@ -7,7 +7,7 @@ package edu.eci.cosw.Go2U.controller.students;
 
 import edu.eci.cosw.Go2U.model.student.Student;
 import edu.eci.cosw.Go2U.services.students.ServiceStudent;
-import static edu.eci.cosw.Go2U.services.students.ServiceStudent.Students;
+import java.util.List;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -43,8 +43,8 @@ public class StuController {
         students.updateStudent(id, s);
     }
     
-    @RequestMapping(method = RequestMethod.GET)
-    public ArrayList<Student> getStudents() {
+    @RequestMapping(method = RequestMethod.GET)    
+    public List<Student> getStudents() {
         return students.getStudents();
     }
     

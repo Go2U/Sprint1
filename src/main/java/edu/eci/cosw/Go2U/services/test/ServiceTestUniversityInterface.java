@@ -7,6 +7,7 @@ package edu.eci.cosw.Go2U.services.test;
 
 import edu.eci.cosw.Go2U.model.test.Questions;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -14,7 +15,7 @@ import java.util.ArrayList;
  */
 public interface ServiceTestUniversityInterface {
 //    public int getIdUniversity();
-    public ArrayList<Questions> getTest();
+    public List<Questions> getTest();
 //    public ArrayList<Questions> Test(int u);
     public void addQuestions(Questions q); 
 }

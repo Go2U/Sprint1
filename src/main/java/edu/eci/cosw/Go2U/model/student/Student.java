@@ -21,7 +21,7 @@ import org.hibernate.annotations.Proxy;
 @Entity
 @Table(name = "Student")
 @Proxy(lazy = false)
-public class Student {
+public class Student implements java.io.Serializable{
     private String username;
     private String name;
     private String lastName;
@@ -31,11 +31,14 @@ public class Student {
 //    private Result result;
 
     public Student(String un, String name, String lastName) {
+        super();
+        this.username=un;
         this.name = name;
         this.lastName = lastName;
     }
     
     public Student(){
+        super();
     }
     
     @Column(name = "name")

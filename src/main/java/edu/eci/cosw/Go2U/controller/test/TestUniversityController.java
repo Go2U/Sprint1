@@ -8,6 +8,7 @@ package edu.eci.cosw.Go2U.controller.test;
 import edu.eci.cosw.Go2U.services.test.ServiceTestUniversity;
 import edu.eci.cosw.Go2U.model.test.Questions;
 import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +32,7 @@ public class TestUniversityController{
 //    }
     
     @RequestMapping(value = "/getTestUniversity", method = RequestMethod.GET)
-    public ArrayList<Questions> getTestUniversity(){
+    public List<Questions> getTestUniversity(){
         return TestUniversity.getTest();
     }
     
