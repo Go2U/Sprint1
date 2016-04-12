@@ -45,7 +45,7 @@ public class ServiceUniversity implements UnivServiceInterface{
         return university.findOne(id);
     }
 
-    @Override //En proceso
+    @Override //Probado
     public List<Carrer> getUniversityCarrers(String id) {
         return university.getOne(id).getCarrers();
     }
@@ -55,15 +55,12 @@ public class ServiceUniversity implements UnivServiceInterface{
         return university.findLogoById(id);
     }
 
-    @Override //En proceso
+    @Override //Probado
     public void setUniversityCarrer(String id, List<Carrer> carrers) {
         University u= university.getOne(id);
         List<Carrer> carrersTemp=u.getCarrers();
-        System.out.println("$$$$$$$$$$$$$$$$$$$/ "+carrersTemp.size());
         for(Carrer c: carrers) {
             if(!u.existCarrer(c)){
-                System.out.println("$$$$$$$$$jjuiiioo$$$$$$$$$$/");
-        
                 List<University> uAux=c.getUniversities();
                 uAux.add(u);
                 c.setUniversities(uAux);
@@ -71,13 +68,8 @@ public class ServiceUniversity implements UnivServiceInterface{
                 carrersTemp.add(c);
             }
         }
-      
-      
         u.setCarrers(carrersTemp);
         university.save(u);
-//        
-        System.out.println("$$$$$$$$$$$$$$$$$$$ "+university.getOne(id).getCarrers().size());
-        
     }
 
     @Override //Probado

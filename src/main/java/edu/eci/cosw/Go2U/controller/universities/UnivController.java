@@ -46,7 +46,6 @@ public class UnivController {
 
     @RequestMapping(value = "/{id}/add", method = RequestMethod.POST)
     public void addUniversityCarrers(@PathVariable String id, @RequestBody List<Carrer> carrers) {
-//        System.out.println("entro1");
         universities.setUniversityCarrer(id, carrers);
     }
 
@@ -57,14 +56,12 @@ public class UnivController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public University getUniversityById(@PathVariable String id) {
-        //System.out.println("entro");
         return universities.getUniversityById(id);
     }
 
     //On test creation, its necesary to list the carrers available
     @RequestMapping(value = "/{id}/carrers", method = RequestMethod.GET)
     public List<Carrer> getUniversityCarrers(@PathVariable String id) {
-//        System.out.println("entro2");
         return universities.getUniversityCarrers(id);
     }
 

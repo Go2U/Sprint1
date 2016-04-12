@@ -90,34 +90,40 @@ public class Go2uApplicationTest {
         assertEquals(u1.getName(), "Escuela Colombiana de Ingenieria Julio Garavito");
     }
 
-//        @Test
-//	public void deberiaDevolverListaDeCarreras() {
-//            University u= new University("eci","Escuela Colombiana de Ingenieria Julio Garavito","eci@escuelaing.edu.co");            
-////            unService.addUniversity(u);
-//            Carrer c1=new Carrer(1, "Ingenieria de sistemas", "sistemas"); 
-//            Carrer c2=new Carrer(2, "Ingenieria electronica", "electronica");
-//            Carrer c3=new Carrer(3, "Ingenieria civil", "civil"); 
-//            Carrer c4=new Carrer(4, "Ingenieria mecanica", "mecanica"); 
-//            List<Carrer> listCarrers= new ArrayList<>();
-//            listCarrers.add(c1);
-//            listCarrers.add(c2);
-//            listCarrers.add(c3);
-//            listCarrers.add(c4);
-//            unService.setUniversityCarrer("eci", listCarrers);
-//           
-//            assertEquals(unService.getUniversityCarrers("eci").size(),4);
-//
-//	}
-        @Test
-	public void deberiaAgregarUnaCarrera() {
-            University u= new University("eci","Escuela Colombiana de Ingenieria Julio Garavito","eci@escuelaing.edu.co");            
-            unService.addUniversity(u);
-            Carrer c1=new Carrer(1, "Ingenieria de sistemas", "sistemas");            
-            List<Carrer> listCarrers= new ArrayList<>();
-            listCarrers.add(c1);
-            unService.setUniversityCarrer("eci", listCarrers);
-            assertEquals(unService.getUniversityCarrers("eci").size(),1);
-	}
+    @Test
+    public void deberiaAgregarUnaCarrera() {
+        University u2 = new University("tadeo", "Jorge Tadeo Lozano", "tadeo@utadeo.edu.co");
+        unService.addUniversity(u2);
+        Carrer c1 = new Carrer(1, "Diseño grafico", "Diseño");
+        Carrer c2 = new Carrer(2, "Publicidad", "Diseño");
+        Carrer c3 = new Carrer(1, "Economia", "Ciencias sociales"); //Ya existe Id --> No la registra
+        List<Carrer> listCarrers = new ArrayList<>();
+        listCarrers.add(c1);
+        listCarrers.add(c2);
+        listCarrers.add(c3);
+        unService.setUniversityCarrer("tadeo", listCarrers);
+        assertEquals(unService.getUniversityCarrers("tadeo").size(), 2);
+    }    
+    
+    @Test
+    public void deberiaDevolverListaDeCarreras() {
+        University u = new University("eci", "Escuela Colombiana de Ingenieria Julio Garavito", "eci@escuelaing.edu.co");
+        unService.addUniversity(u);
+        Carrer c1 = new Carrer(1, "Ingenieria de sistemas", "sistemas");
+        Carrer c2 = new Carrer(2, "Ingenieria electronica", "electronica");
+        Carrer c3 = new Carrer(3, "Ingenieria civil", "civil");
+        Carrer c4 = new Carrer(4, "Ingenieria mecanica", "mecanica");
+        List<Carrer> listCarrers = new ArrayList<>();
+        listCarrers.add(c1);
+        listCarrers.add(c2);
+        listCarrers.add(c3);
+        listCarrers.add(c4);
+        unService.setUniversityCarrer("eci", listCarrers);
+
+        assertEquals(unService.getUniversityCarrers("eci").size(), 4);
+
+    }
+
         
     @Test
     public void deberiaActualizarDatosDeUnaUniversidad() {
