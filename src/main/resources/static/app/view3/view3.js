@@ -18,14 +18,13 @@ angular.module('myApp.view3', ['ngRoute'])
                 
                 $scope.data = GetCarrUnivById.get({id: $scope.userId});
                 $scope.data.$promise.then(function (data) {
-                    alert("entra");
                         $scope.u = data;
                         $scope.carrer=$scope.u;
                         console.log($scope.carrer);
                 });
                 
                 $scope.newTask = function (ev){
-                    var question = {"idQuestion":0,
+                    var question = {"idQuestion":10,
                                     "question":$scope.Que,
                                     "answer":
                                         [{"idAnswer":1,"answer":$scope.SAns[0],"academicProgramC":
@@ -57,22 +56,4 @@ angular.module('myApp.view3', ['ngRoute'])
                     $scope.APAns[3][0]=4;
                     $scope.VAns[3][0]=4;
                 };
-                
-              
-                /*$scope.newTask = function () {
-                    var task = {"num":$scope.nq, "preg":$scope.pre, "ans1":$scope.a1, "ans2":$scope.b2, "ans3":$scope.c3, "ans4":$scope.d4};
-                    Post.save(task, function(){
-                        console.info("Saved "+JSON.stringify(task));
-                    });
-                }*/
             }]);
-
-//        .controller('View2Ctrl', ['$scope', 'communication', function ($scope, communication) {
-//                $scope.InDesc;
-//                $scope.InPrio;
-//                
-//                $scope.addTask = function(){
-//                    communication.addTodo({desc:$scope.InDesc, prio:$scope.InPrio});
-//                }
-//                
-//            }]);

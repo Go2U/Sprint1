@@ -45,4 +45,10 @@ public class TestUniversityController{
         TestUniversity.addQuestions(q);
     }
     
+    @RequestMapping(value = "/save",method = RequestMethod.GET)
+    public void save() {
+        System.out.println("entra base");
+        TestUniversity.Save();
+    }
+    
 }

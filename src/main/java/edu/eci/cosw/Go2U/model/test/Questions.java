@@ -6,9 +6,13 @@
 package edu.eci.cosw.Go2U.model.test;
 
 import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 
+import static javax.persistence.CascadeType.ALL;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -21,20 +25,20 @@ import org.hibernate.annotations.Proxy;
  * @author cbonilla
  */
 
-//@Entity
-//@Table(name = "Test")
-//@Proxy(lazy = false)
+@Entity
+@Table(name = "Question")
+@Proxy(lazy = false)
 public class Questions implements java.io.Serializable{
     
     private Integer idQuestion;
     private String question = "";
-    private ArrayList<Answers> answer = new ArrayList<>();
+    private List<Answers> answer = new ArrayList<>();
     
     public Questions(){
     }
 
-//    @Id
-//    @Column(name="idQuestion")
+    @Id
+    @Column(name="idQuestion")
     public Integer getIdQuestion() {
         return idQuestion;
     }
@@ -43,7 +47,7 @@ public class Questions implements java.io.Serializable{
         this.idQuestion = idQuestion;
     }
 
-//    @Column(name="Question")
+    @Column(name="Question")
     public String getQuestion() {
         return question;
     }
@@ -51,15 +55,15 @@ public class Questions implements java.io.Serializable{
     public void setQuestion(String question) {
         this.question = question;
     }
-
-//    @OneToMany
-//    @Fetch(FetchMode.JOIN)
-//    @JoinColumn(name = "Question_idQuestion", nullable = false)
-    public ArrayList<Answers> getAnswer() {
+    
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @Fetch(FetchMode.JOIN)
+    @JoinColumn(name="Question_idQuestion", nullable = false)
+    public List<Answers> getAnswer() {
         return answer;
     }
 
-    public void setAnswer(ArrayList<Answers> answer) {
+    public void setAnswer(List<Answers> answer) {
         this.answer = answer;
     }
 

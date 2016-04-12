@@ -7,10 +7,12 @@ package edu.eci.cosw.Go2U.model.test;
 
 import edu.eci.cosw.Go2U.model.universities.Carrer;
 import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.Fetch;
@@ -22,20 +24,20 @@ import org.hibernate.annotations.Proxy;
  * @author cbonilla
  */
 
-//@Entity
-//@Table(name = "Test")
-//@Proxy(lazy = false)
+@Entity
+@Table(name = "Answer")
+@Proxy(lazy = false)
 public class Answers implements java.io.Serializable{
     
     private Integer idAnswer=0;
     private String answer = "";
-    private ArrayList<AnswerCarrer> academicProgramC = new ArrayList<>();
+    private List<AnswerCarrer> academicProgramC = new ArrayList<>();
     
     public Answers(){
     }
 
-//    @Id
-//    @Column(name="idAnswer")
+    @Id
+    @Column(name="idAnswer")
     public Integer getIdAnswer() {
         return idAnswer;
     }
@@ -44,7 +46,7 @@ public class Answers implements java.io.Serializable{
         this.idAnswer = idAnswer;
     }
 
-//    @Column(name="Answer")
+    @Column(name="Answer")
     public String getAnswer() {
         return answer;
     }
@@ -53,14 +55,14 @@ public class Answers implements java.io.Serializable{
         this.answer = answer;
     }
 
-//    @OneToMany
-//    @Fetch(FetchMode.JOIN)
-//    @JoinColumn(name = "Answer_idAnswer", nullable = false)
-    public ArrayList<AnswerCarrer> getAcademicProgramC() {
+    @OneToMany
+    @Fetch(FetchMode.JOIN)
+    @JoinColumn(name="Answer_idAnswer_AC", insertable = false,updatable = false) 
+    public List<AnswerCarrer> getAcademicProgramC() {
         return academicProgramC;
     }
 
-    public void setAcademicProgramC(ArrayList<AnswerCarrer> academicProgramC) {
+    public void setAcademicProgramC(List<AnswerCarrer> academicProgramC) {
         this.academicProgramC = academicProgramC;
     }
     

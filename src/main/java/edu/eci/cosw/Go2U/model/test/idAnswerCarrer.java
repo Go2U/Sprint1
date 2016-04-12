@@ -14,13 +14,13 @@ import javax.persistence.Embeddable;
  *
  * @author cbonilla
  */
-//@Embeddable
+@Embeddable
 public class idAnswerCarrer implements Serializable{
     
     private Integer idAnswer =0;
     private Integer idCarrer =0;
 
-//    @Column(name="Answer_idAnswer")
+    @Column(name="Answer_idAnswer_AC",insertable = false,updatable = false)
     public Integer getIdAnswer() {
         return idAnswer;
     }
@@ -29,7 +29,7 @@ public class idAnswerCarrer implements Serializable{
         this.idAnswer = idAnswer;
     }
 
-//    @Column(name="Carrer_idCarrer")
+    @Column(name="Carrer_idCarrer")
     public Integer getIdCarrer() {
         return idCarrer;
     }

@@ -5,12 +5,11 @@
  */
 package edu.eci.cosw.Go2U.model.test;
 
-import edu.eci.cosw.Go2U.model.universities.Carrer;
+
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import org.hibernate.annotations.Proxy;
 
@@ -18,9 +17,9 @@ import org.hibernate.annotations.Proxy;
  *
  * @author cbonilla
  */
-//@Entity
-//@Table(name = "Answer_has_Carrer")
-//@Proxy(lazy = false)
+@Entity
+@Table(name = "Answer_has_Carrer")
+@Proxy(lazy = false)
 public class AnswerCarrer implements Serializable{
     
     Integer valSum=0;
@@ -29,7 +28,7 @@ public class AnswerCarrer implements Serializable{
     public AnswerCarrer() {
     }
 
-//    @EmbeddedId
+    @EmbeddedId
     public idAnswerCarrer getId() {
         return id;
     }
@@ -38,7 +37,7 @@ public class AnswerCarrer implements Serializable{
         this.id = id;
     }
 
-//    @Column(name="valor")
+    @Column(name="valor")
     public Integer getValSum() {
         return valSum;
     }

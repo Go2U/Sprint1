@@ -133,6 +133,7 @@ public class University implements java.io.Serializable {
      */
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "universities")
     @Fetch(FetchMode.JOIN)
+    @JsonIgnore
     //@JoinColumn(name = "University_username", referencedColumnName = "username", nullable = false)
     public List<Carrer> getCarrers() {
         return this.carrers;
