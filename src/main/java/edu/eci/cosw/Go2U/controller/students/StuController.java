@@ -39,7 +39,7 @@ public class StuController {
     }
     
     @RequestMapping(value = "/upds/{id}",method = RequestMethod.POST)
-    public void updateStudent(String id, Student s) {
+    public void updateStudent(@PathVariable String id,@RequestBody Student s) {
         students.updateStudent(id, s);
     }
     
@@ -49,7 +49,7 @@ public class StuController {
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Student getStudentById(String id) {       
+    public Student getStudentById(@PathVariable String id) {       
         return students.getStudentById(id);
         
     }

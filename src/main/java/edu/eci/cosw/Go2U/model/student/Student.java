@@ -27,6 +27,7 @@ public class Student implements java.io.Serializable{
     private String lastName;
     private String gender;
     private String address;
+    private String email;
     private int cellPhone;
 //    private Result result;
 
@@ -110,5 +111,20 @@ public class Student implements java.io.Serializable{
      */
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    /**
+     * @return the email
+     */
+    @Column(name = "email")
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

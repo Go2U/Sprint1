@@ -9,10 +9,11 @@ angular.module('myApp.stuReg', ['ngRoute', 'ngMaterial'])
                 });
             }])
 
-        .controller('stuRegCtrl', ['$scope', '$rootScope', 'GetUnivById', 'GetCarrUnivById', 'UpdateUni', 'PostCarrersUni', 'Usuario', '$compile', '$mdDialog', '$mdMedia', function ($scope, $rootScope, GetUnivById, GetCarrUnivById, UpdateUni, PostCarrersUni, Usuario, $compile, $mdDialog, $mdMedia) {
+        .controller('stuRegCtrl', ['$scope', '$rootScope', 'GetStudentById','UpdateStu', 'Usuario', '$compile', '$mdDialog', '$mdMedia', function ($scope, $rootScope, GetStudentById, UpdateStu, Usuario, $compile, $mdDialog, $mdMedia) {
                 $scope.userId = "";
                 // Information variables
                 $scope.user = "";
+                $scope.email = "";
                 $scope.name = "";
                 $scope.lastName = "";
                 $scope.gender = "";
@@ -21,11 +22,12 @@ angular.module('myApp.stuReg', ['ngRoute', 'ngMaterial'])
 
                 $scope.loadStu = function () {
                     $scope.userId = Usuario.getUser();
-                    $scope.data = GetUnivById.get({id: $scope.userId});
+                    $scope.data = GetStudentById.get({id: $scope.userId});
                     $scope.data.$promise.then(function (data) {
                         $scope.s = data;
-                        $scope.user = $scope.s.id;
+                        $scope.user = $scope.s.username;
                         $scope.name = $scope.s.name;
+                        $scope.email = $scope.s.email;
                         $scope.lastName = $scope.s.lastName;
                         $scope.gender = $scope.s.gender;
                         $scope.address = $scope.s.address;
@@ -36,7 +38,7 @@ angular.module('myApp.stuReg', ['ngRoute', 'ngMaterial'])
 
                 $scope.saveInfoStu = function (ev) {
                     var s = {'id': $scope.user,
-                        
+                        'email': $scope.email,
                         'name': $scope.name,
                         'lastName': $scope.lastName,
                         'gender': $scope.gender,

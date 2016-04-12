@@ -8,6 +8,7 @@
                 <header>
                     <h3>Ingresar</h3>                    
                 </header>
+                <p id="warning" style="visibility:hidden; color: red; font-weight: bold">Username or password are incorrect. Please check them and try again.</p>
                 <form role="form" ng-submit="login()">
                     <div class="form-group">
                         <input type="text" placeholder="Usuario" class="form-control" ng-model="credentials.username"/>

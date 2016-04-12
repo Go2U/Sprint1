@@ -89,6 +89,10 @@ angular.module('services.services', ['ngRoute', 'ngResource'])
         .factory('UpdateUni', function ($resource) {
             return $resource('/api/uni/upd/:id',{id:'@id'});
         })
+        // Update student information by Id
+        .factory('UpdateStu', function ($resource) {
+            return $resource('/api/stu/upd/:id',{id:'@id'});
+        })
         // Post carrers to university by Id
         .factory('PostCarrersUni', function ($resource) {
             return $resource('/api/uni/:id/add',{id:'@id'});
