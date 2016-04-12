@@ -37,10 +37,10 @@ public class Carrer implements java.io.Serializable {
         this.name = name;
     }
 
-    public Carrer(Integer id, String name, String dep, University u) {
+    public Carrer(Integer id, String name, String dep) {
         this.id = id;
         this.name = name;
-        this.universities.add(u);
+        
     }
 
     public Carrer() {
@@ -87,8 +87,8 @@ public class Carrer implements java.io.Serializable {
         return universities;
     }
 
-    public void setUniversities(University u){//List<University> universities) {
-//        this.universities = universities;
-        this.universities.add(u);
+    public void setUniversities(List<University> universities){//List<University> universities) {
+        this.universities = universities;
+//        this.universities.add(u);
     }
 }

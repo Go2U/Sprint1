@@ -8,6 +8,7 @@ package edu.eci.cosw.Go2U.services.universities;
 import com.mysql.jdbc.Blob;
 import edu.eci.cosw.Go2U.model.universities.Carrer;
 import edu.eci.cosw.Go2U.model.universities.University;
+import edu.eci.cosw.Go2U.persistence.CarrerRepository;
 import edu.eci.cosw.Go2U.persistence.UniversityRepository;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -25,6 +26,8 @@ public class ServiceUniversity implements UnivServiceInterface{
     
     @Autowired
     UniversityRepository university;
+    @Autowired
+    CarrerRepository carrer;
     
     
     @Override //Probado
@@ -54,20 +57,27 @@ public class ServiceUniversity implements UnivServiceInterface{
 
     @Override //En proceso
     public void setUniversityCarrer(String id, List<Carrer> carrers) {
-//        University u= university.getOne(id);
-        List<Carrer> carrersTemp=university.getOne(id).getCarrers();
+        University u= university.getOne(id);
+        List<Carrer> carrersTemp=u.getCarrers();
         System.out.println("$$$$$$$$$$$$$$$$$$$/ "+carrersTemp.size());
         for(Carrer c: carrers) {
-            if(!university.getOne(id).existCarrer(c)){
-                c.setUniversities(university.getOne(id));
+            if(!u.existCarrer(c)){
+                System.out.println("$$$$$$$$$jjuiiioo$$$$$$$$$$/");
+        
+                List<University> uAux=c.getUniversities();
+                uAux.add(u);
+                c.setUniversities(uAux);
+                carrer.save(c);
                 carrersTemp.add(c);
             }
         }
-        System.out.println("$$$$$$$$$$$$$$$$$$$// "+carrersTemp.size());        
-        
-        university.getOne(id).setCarrers(carrersTemp);
-        
+      
+      
+        u.setCarrers(carrersTemp);
+        university.save(u);
+//        
         System.out.println("$$$$$$$$$$$$$$$$$$$ "+university.getOne(id).getCarrers().size());
+        
     }
 
     @Override //Probado

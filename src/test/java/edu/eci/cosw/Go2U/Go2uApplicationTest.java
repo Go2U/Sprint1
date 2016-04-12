@@ -47,6 +47,7 @@ public class Go2uApplicationTest {
     UserServiceInterface userService;
     @Autowired
     UserRepository userRepository;
+    
     @Autowired
     RolRepository rolRepository;
 
@@ -92,28 +93,32 @@ public class Go2uApplicationTest {
 //        @Test
 //	public void deberiaDevolverListaDeCarreras() {
 //            University u= new University("eci","Escuela Colombiana de Ingenieria Julio Garavito","eci@escuelaing.edu.co");            
-//            u.setCarrer(new Carrer(1, "Ingenieria de sistemas", "sistemas"));
-//            u.setCarrer(new Carrer(2, "Ingenieria electronica", "electronica"));
-//            u.setCarrer(new Carrer(3, "Ingenieria civil", "civil"));
-//            u.setCarrer(new Carrer(4, "Ingenieria mecanica", "mecanica"));            
-//            
-//            unRepository.save(u);                        
-//            List<Carrer>  list1=unService.getUniversityCarrers("eci");
-//            assertEquals(list1.size(),4);
-//	}
-//        @Test
-//	public void deberiaAgregarUnaCarrera() {
-//            University u= new University("eci","Escuela Colombiana de Ingenieria Julio Garavito","eci@escuelaing.edu.co");            
-//            unRepository.save(u);            
-////            System.out.println("############## "+unRepository.getOne("eci").getName());
-//            Carrer c1=new Carrer(1, "Ingenieria de sistemas", "sistemas",u);            
+////            unService.addUniversity(u);
+//            Carrer c1=new Carrer(1, "Ingenieria de sistemas", "sistemas"); 
+//            Carrer c2=new Carrer(2, "Ingenieria electronica", "electronica");
+//            Carrer c3=new Carrer(3, "Ingenieria civil", "civil"); 
+//            Carrer c4=new Carrer(4, "Ingenieria mecanica", "mecanica"); 
 //            List<Carrer> listCarrers= new ArrayList<>();
 //            listCarrers.add(c1);
-//            System.out.println("############## "+listCarrers.size());
-//            
+//            listCarrers.add(c2);
+//            listCarrers.add(c3);
+//            listCarrers.add(c4);
 //            unService.setUniversityCarrer("eci", listCarrers);
-//            assertEquals(unService.getUniversityCarrers("eci").size(),1);
+//           
+//            assertEquals(unService.getUniversityCarrers("eci").size(),4);
+//
 //	}
+        @Test
+	public void deberiaAgregarUnaCarrera() {
+            University u= new University("eci","Escuela Colombiana de Ingenieria Julio Garavito","eci@escuelaing.edu.co");            
+            unService.addUniversity(u);
+            Carrer c1=new Carrer(1, "Ingenieria de sistemas", "sistemas");            
+            List<Carrer> listCarrers= new ArrayList<>();
+            listCarrers.add(c1);
+            unService.setUniversityCarrer("eci", listCarrers);
+            assertEquals(unService.getUniversityCarrers("eci").size(),1);
+	}
+        
     @Test
     public void deberiaActualizarDatosDeUnaUniversidad() {
         University u1 = new University("eci", "Escuela Colombiana de Ingenieria Julio Garavito", "eci@escuelaing.edu.co");
