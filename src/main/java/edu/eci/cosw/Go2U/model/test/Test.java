@@ -27,11 +27,16 @@ import org.hibernate.annotations.Proxy;
 public class Test implements java.io.Serializable{
     
     private Integer idTest;
-    private int idUniversity = 0;
+    private String idUniversity = "";
     private List<Questions> questions = new ArrayList<>();
     
     public Test(){
         super();
+    }
+    
+    public Test(String idUniversity){
+        super();
+        this.idUniversity = idUniversity;
     }
     
 //    @Id
@@ -46,27 +51,20 @@ public class Test implements java.io.Serializable{
     }
     
 //    @Column(name="University_idUniversity", nullable = false)
-    public int getIdUniversity() {
+    public String getIdUniversity() {
         return idUniversity;
     }
 
-    public void setIdUniversity(int idUniversity) {
+    public void setIdUniversity(String idUniversity) {
         this.idUniversity = idUniversity;
     }
 
 //    @OneToMany
 //    @Fetch(FetchMode.JOIN)
-//    @JoinColumn(name = "TEST_idTest", nullable = false)
+//    @JoinColumn(name = "Test_idTest", nullable = false)
     public List<Questions> getQuestions() {
         return questions;
     }
-
-//    public List<Questions> Test(int u) {
-//        if(idUniversity==u){
-//            return test;
-//        }
-//        return new ArrayList<>();
-//    }
 
     public void setQuestions(Questions q) {
         questions.add(q);

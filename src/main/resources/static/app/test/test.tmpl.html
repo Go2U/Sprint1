@@ -9,18 +9,15 @@
         <md-dialog-content>
             <div class="md-dialog-content">
                 <table class="table table-striped table-hover" >
-                    <tr ng-repeat="pregunta in locals.test.answer| orderBy:predicate:reverse">
+                    <tr ng-repeat="pregunta in locals.test.answer">
                         <td>
                             {{pregunta.answer}}
                         </td>
                         <td>
-                            <p ng-repeat="programa in pregunta.academicProgram| orderBy:predicate:reverse track by $index">
-                                {{programa}}
-                            </p>
-                        </td>
-                        <td>
-                            <p ng-repeat="val in pregunta.valSum| orderBy:predicate:reverse track by $index">
-                                {{val}}
+                            <p ng-repeat="programa in pregunta.academicProgramC">
+                                {{programa.valSum}}
+                                {{programa.id.idCarrer}}
+                                {{programa.id.idAnswer}}
                             </p>
                         </td>
                     </tr>

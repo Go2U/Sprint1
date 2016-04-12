@@ -5,8 +5,9 @@
 // */
 //package edu.eci.cosw.Go2U.persistence;
 //
-//import org.aspectj.weaver.ast.Test;
+//import edu.eci.cosw.Go2U.model.test.Test;
 //import org.springframework.data.jpa.repository.JpaRepository;
+//import org.springframework.data.jpa.repository.Query;
 //import org.springframework.stereotype.Service;
 //
 ///**
@@ -15,5 +16,8 @@
 // */
 //@Service
 //public interface TestRepository extends JpaRepository<Test,Integer>{
+// 
+//    @Query("from Test t where t.idUniversity= ?1")
+//    Test findTest(String idUniversity);
 //    
 //}

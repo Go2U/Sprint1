@@ -18,29 +18,26 @@ angular.module('myApp.view3', ['ngRoute'])
                 
                 $scope.data = GetCarrUnivById.get({id: $scope.userId});
                 $scope.data.$promise.then(function (data) {
+                    alert("entra");
                         $scope.u = data;
                         $scope.carrer=$scope.u;
                         console.log($scope.carrer);
                 });
                 
                 $scope.newTask = function (ev){
-                    var question = {"question":$scope.Que,
-                            "answer":[
-                            {"answer":$scope.SAns[0],
-                                "academicProgram":[$scope.APAns[0][0]],
-                                "valSum":[$scope.VAns[0][0]]},
-                            {"answer":$scope.SAns[1],
-                                "academicProgram":[$scope.APAns[1][0]],
-                                "valSum":[$scope.VAns[1][0]]},
-                            {"answer":$scope.SAns[2],
-                                "academicProgram":[$scope.APAns[2][0]],
-                                "valSum":[$scope.VAns[2][0]]
-                            },
-                            {"answer":$scope.SAns[3],
-                                "academicProgram":[$scope.APAns[3][0]],
-                                "valSum":[$scope.VAns[3][0]]
-                            }
-                        ]};
+                    var question = {"idQuestion":0,
+                                    "question":$scope.Que,
+                                    "answer":
+                                        [{"idAnswer":1,"answer":$scope.SAns[0],"academicProgramC":
+                                                [{"valSum":$scope.VAns[0][0],"id":{"idAnswer":0,"idCarrer":$scope.APAns[0][0]}}]
+                                        },{"idAnswer":2,"answer":$scope.SAns[1],"academicProgramC":
+                                                [{"valSum":$scope.VAns[1][0],"id":{"idAnswer":0,"idCarrer":$scope.APAns[1][0]}}]
+                                        },{"idAnswer":3,"answer":$scope.SAns[2],"academicProgramC":
+                                                [{"valSum":$scope.VAns[2][0],"id":{"idAnswer":0,"idCarrer":$scope.APAns[2][0]}}]
+                                        },{"idAnswer":4,"answer":$scope.SAns[3],"academicProgramC":
+                                                [{"valSum":$scope.VAns[3][0],"id":{"idAnswer":0,"idCarrer":$scope.APAns[3][0]}}]
+                                        }]
+                                    };
                     PostQue.save(question, function(){
                         //console.info("Saved "+JSON.stringify(question));
                         alert("Pregunta agregada");

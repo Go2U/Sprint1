@@ -7,34 +7,44 @@ package edu.eci.cosw.Go2U.model.test;
 
 import edu.eci.cosw.Go2U.model.universities.Carrer;
 import java.util.ArrayList;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.Proxy;
 
 /**
  *
  * @author cbonilla
  */
+
+//@Entity
+//@Table(name = "Test")
+//@Proxy(lazy = false)
 public class Answers implements java.io.Serializable{
     
-    private Integer idAnswer;
+    private Integer idAnswer=0;
     private String answer = "";
-    private ArrayList<String> IdcademicProgram = new ArrayList<>();
-    private ArrayList<Carrer> academicProgramC = new ArrayList<>();
-    private ArrayList<Integer> valSum = new ArrayList<>();
+    private ArrayList<AnswerCarrer> academicProgramC = new ArrayList<>();
     
     public Answers(){
-        Carrer tem = new Carrer("Ing Sistemas", "unoH");
-        tem.setId(1000);
-        academicProgramC.add(tem);
-        tem = new Carrer("Ing electrónica", "dosH");
-        tem.setId(1001);
-        academicProgramC.add(tem);
-        tem =new Carrer("Economia", "tresH");
-        tem.setId(1002);
-        academicProgramC.add(tem);
-        tem =new Carrer("Medicina", "CuatroH");
-        tem.setId(1003);
-        academicProgramC.add(tem);
     }
 
+//    @Id
+//    @Column(name="idAnswer")
+    public Integer getIdAnswer() {
+        return idAnswer;
+    }
+
+    public void setIdAnswer(Integer idAnswer) {
+        this.idAnswer = idAnswer;
+    }
+
+//    @Column(name="Answer")
     public String getAnswer() {
         return answer;
     }
@@ -43,28 +53,15 @@ public class Answers implements java.io.Serializable{
         this.answer = answer;
     }
 
-    public ArrayList<String> getAcademicProgram() {
-        ArrayList<String> tem = new ArrayList<>();
-        for(int  j=0;j<IdcademicProgram.size();j++){
-            for(int  i=0;i<academicProgramC.size();i++){
-                if(Integer.parseInt(IdcademicProgram.get(j))==academicProgramC.get(i).getId()){
-                    tem.add(academicProgramC.get(i).getName());
-                }
-            }
-        }
-        return tem;
+//    @OneToMany
+//    @Fetch(FetchMode.JOIN)
+//    @JoinColumn(name = "Answer_idAnswer", nullable = false)
+    public ArrayList<AnswerCarrer> getAcademicProgramC() {
+        return academicProgramC;
     }
 
-    public void setAcademicProgram(ArrayList<String> academicProgram) {
-        this.IdcademicProgram = academicProgram;
-    }
-
-    public ArrayList<Integer> getValSum() {
-        return valSum;
-    }
-
-    public void setValSum(ArrayList<Integer> valSum) {
-        this.valSum = valSum;
+    public void setAcademicProgramC(ArrayList<AnswerCarrer> academicProgramC) {
+        this.academicProgramC = academicProgramC;
     }
     
 }

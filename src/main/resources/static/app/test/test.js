@@ -44,43 +44,24 @@ angular.module('myApp.test', ['ngRoute'])
                     });
                 };
                 
-                $scope.showAdd = function (ev, test) {/*
-                    var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
-                    $mdDialog.show({
-                        controller: DialogController,
-                        templateUrl: 'test/testAdd.tmpl.html',
-                        parent: angular.element(document.body),
-                        targetEvent: ev,
-                        clickOutsideToClose: true,
-                        locals:{test:test},
-                        fullscreen: useFullScreen
-                    })
-                            .then(function (answer) {
-                                $scope.status = 'You said the information was "' + answer + '".';
-                            }, function () {
-                                $scope.status = 'You cancelled the dialog.';
-                            });
-                    $scope.$watch(function () {
-                        return $mdMedia('xs') || $mdMedia('sm');
-                    }, function (wantsFullScreen) {
-                        $scope.customFullscreen = (wantsFullScreen === true);
-                    });*/
+                $scope.showAdd = function (ev, test) {
                     $location.path('/view3');
                 };
                 
                 $scope.addQue = function (){
-                    var question = {"question":$scope.Que,
-                            "answer":[
-                            {"answer":$scope.SAns[0],
-                                "academicProgram":[$scope.APAns[0][0],$scope.APAns[0][1],$scope.APAns[0][2]],
-                                "valSum":[$scope.VAns[0][0],$scope.VAns[0][1],$scope.VAns[0][2]]},
-                            {"answer":$scope.SAns[1],
-                                "academicProgram":[$scope.APAns[1][0],$scope.APAns[1][1],$scope.APAns[1][2]],
-                                "valSum":[$scope.VAns[1][0],$scope.VAns[1][1],$scope.VAns[1][2]]},
-                            {"answer":$scope.SAns[2],
-                                "academicProgram":[$scope.APAns[2][0],$scope.APAns[2][1],$scope.APAns[2][2]],
-                                "valSum":[$scope.VAns[2][0],$scope.VAns[2][1],$scope.VAns[2][2]]
-                            }]};
+                    var question = {"idQuestion":0,
+                                    "question":$scope.Que,
+                                    "answer":
+                                        [{"idAnswer":1,"answer":$scope.SAns[0],"academicProgramC":
+                                                [{"valSum":$scope.VAns[0][0],"id":{"idAnswer":0,"idCarrer":$scope.APAns[0][0]}}]
+                                        },{"idAnswer":2,"answer":$scope.SAns[1],"academicProgramC":
+                                                [{"valSum":$scope.VAns[1][0],"id":{"idAnswer":0,"idCarrer":$scope.APAns[1][0]}}]
+                                        },{"idAnswer":3,"answer":$scope.SAns[2],"academicProgramC":
+                                                [{"valSum":$scope.VAns[2][0],"id":{"idAnswer":0,"idCarrer":$scope.APAns[2][0]}}]
+                                        },{"idAnswer":4,"answer":$scope.SAns[3],"academicProgramC":
+                                                [{"valSum":$scope.VAns[3][0],"id":{"idAnswer":0,"idCarrer":$scope.APAns[3][0]}}]
+                                        }]
+                                    };
                     PostQue.save(question, function(){
                         //console.info("Saved "+JSON.stringify(question));
                     });

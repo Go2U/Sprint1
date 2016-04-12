@@ -50,7 +50,7 @@ public class Go2uApplicationTest {
     
     @Autowired
     RolRepository rolRepository;
-
+    
     /**
      * *********University Test**********
      */

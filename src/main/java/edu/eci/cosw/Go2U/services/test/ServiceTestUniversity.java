@@ -18,28 +18,29 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ServiceTestUniversity implements ServiceTestUniversityInterface{    
-    Test prueba=new Test();
+    Test prueba = new Test();
     
 //    @Autowired
 //    TestRepository test;
     
-    public ServiceTestUniversity(){        
+    public ServiceTestUniversity(){
+    }
+
+    @Override
+    public void setIdUniversity(String university) {
+        prueba.setIdUniversity(university);
     }
     
-//    @Override
-//    public int getIdUniversity() {
-//        return test.getIdUniversity();
-//    }
-
     @Override
     public List<Questions> getTest() {
         return prueba.getQuestions();
     }
-
-//    @Override
-//    public ArrayList<Questions> Test(int u) {
-//        return test.Test(u);
-//    }
+    
+    @Override
+    public List<Questions> getTest(String university) {
+//        prueba = test.findTest(university);
+        return prueba.getQuestions();
+    }
 
     @Override
     public void addQuestions(Questions q) {
