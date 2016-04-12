@@ -56,7 +56,7 @@ public class ServiceUniversity implements UnivServiceInterface{
     }
 
     @Override //Probado
-    public void setUniversityCarrer(String id, List<Carrer> carrers) {
+    public void setUniversityCarrer(String id, List<Carrer> carrers) {        
         University u= university.getOne(id);
         List<Carrer> carrersTemp=u.getCarrers();
         for(Carrer c: carrers) {

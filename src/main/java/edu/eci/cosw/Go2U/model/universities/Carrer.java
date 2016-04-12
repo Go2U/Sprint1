@@ -87,8 +87,7 @@ public class Carrer implements java.io.Serializable {
         return universities;
     }
 
-    public void setUniversities(List<University> universities){//List<University> universities) {
+    public void setUniversities(List<University> universities){
         this.universities = universities;
-//        this.universities.add(u);
     }
 }
