@@ -13,7 +13,6 @@ angular.module('myApp.uniReg', ['ngRoute', 'ngMaterial'])
                 $scope.userId = "";
                 // Information variables
                 $scope.user = "";
-                $scope.pass = "";
                 $scope.name = "";
                 $scope.email = "";
                 $scope.url = "";
@@ -26,7 +25,6 @@ angular.module('myApp.uniReg', ['ngRoute', 'ngMaterial'])
                 $scope.carNumber = 1;
                 $scope.carrers = [];
                 $scope.cName = [];
-                $scope.dep = [];
                 // Alert variables
                 $scope.status = '  ';
                 $scope.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
@@ -52,11 +50,9 @@ angular.module('myApp.uniReg', ['ngRoute', 'ngMaterial'])
 
                         if ($scope.carrers.length > 0) {
                             $scope.cName[0] = $scope.carrers[0].name;
-                            $scope.dep[0] = $scope.carrers[0].department;
                             $scope.addCarrer();
                             for (var i = 1; i < $scope.carrers.length; i++) {
                                 $scope.cName[i] = $scope.carrers[i].name;
-                                $scope.dep[i] = $scope.carrers[i].department;
                                 $scope.addCarrer();
                             }
                         }
@@ -129,9 +125,7 @@ angular.module('myApp.uniReg', ['ngRoute', 'ngMaterial'])
                 // Add a new space for a new carrer
                 $scope.addCarrer = function () {
                     var fragment = $scope.create('<div class="form-group"><input type="text" class="form-control" name="name" \n\
-                                                    id="name' + $scope.carNumber + '" placeholder="Name" ng-model="cName[' + $scope.carNumber + ']"/>\n\
-                                                    <input type="text" class="form-control" name="dep" id="dep' + $scope.carNumber + '" \n\
-                                                    placeholder="Department" ng-model="dep[' + $scope.carNumber + ']"/></div>');
+                                                    id="name' + $scope.carNumber + '" placeholder="Name" ng-model="cName['+ $scope.carNumber + ']"/></div>');
                     // You can use native DOM methods to insert the fragment:
 
                     var element = document.getElementById('carrers');
@@ -139,8 +133,6 @@ angular.module('myApp.uniReg', ['ngRoute', 'ngMaterial'])
                     element.appendChild(fragment);
 
                     element = document.getElementById('name' + $scope.carNumber);
-                    $compile(element)($scope);
-                    element = document.getElementById('dep' + $scope.carNumber);
                     $compile(element)($scope);
                     $scope.carNumber += 1;
                 };
@@ -150,7 +142,7 @@ angular.module('myApp.uniReg', ['ngRoute', 'ngMaterial'])
                     $scope.carrers = [];
                     for (var i = 0; i < $scope.carNumber; i++) {
                         if ($scope.cName[i] != null) {
-                            $scope.carrers.push({'id': i + 1000, 'name': $scope.cName[i], 'department': $scope.dep[i]});
+                            $scope.carrers.push({'id': i + 1000, 'name': $scope.cName[i]});
                         }
                     }
 
