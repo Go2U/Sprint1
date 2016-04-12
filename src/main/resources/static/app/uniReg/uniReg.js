@@ -147,20 +147,20 @@ angular.module('myApp.uniReg', ['ngRoute', 'ngMaterial'])
                         }
                     }
                     
-                    $scope.saveInfoUni(ev);
+//                    $scope.saveInfoUni(ev);
 
-//                    PostCarrersUni.save({id: $scope.userId}, $scope.carrers, function () {
-//                        console.info("Saved " + JSON.stringify($scope.carrers));
-//                    });
+                    PostCarrersUni.save({id: $scope.userId}, $scope.carrers, function () {
+                        console.info("Saved " + JSON.stringify($scope.carrers));
+                    });
 
                     //Create new field
                     if ($scope.cName[$scope.carNumber - 1] != null) {
                         $scope.addCarrer();
                     }
 
-                    // Appending dialog to document.body to cover sidenav in docs app
-                    // Modal dialogs should fully cover application
-                    // to prevent interaction outside of dialog
+//                     Appending dialog to document.body to cover sidenav in docs app
+//                     Modal dialogs should fully cover application
+//                     to prevent interaction outside of dialog
                     $mdDialog.show(
                             $mdDialog.alert()
                             .parent(angular.element(document.querySelector('#popupContainer')))
