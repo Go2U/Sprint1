@@ -76,6 +76,7 @@ angular.module('myApp.uniReg', ['ngRoute', 'ngMaterial'])
                         'city': $scope.city,
                         'address': $scope.address,
                         'number': $scope.number,
+                        'carrers': $scope.carrers,
                         'logo': $scope.src_logo,
                         'descp': $scope.desc
                     };
@@ -145,10 +146,12 @@ angular.module('myApp.uniReg', ['ngRoute', 'ngMaterial'])
                             $scope.carrers.push({'id': i + 1000, 'name': $scope.cName[i]});
                         }
                     }
+                    
+                    $scope.saveInfoUni(ev);
 
-                    PostCarrersUni.save({id: $scope.userId}, $scope.carrers, function () {
-                        console.info("Saved " + JSON.stringify($scope.carrers));
-                    });
+//                    PostCarrersUni.save({id: $scope.userId}, $scope.carrers, function () {
+//                        console.info("Saved " + JSON.stringify($scope.carrers));
+//                    });
 
                     //Create new field
                     if ($scope.cName[$scope.carNumber - 1] != null) {
