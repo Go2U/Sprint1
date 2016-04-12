@@ -37,7 +37,7 @@ angular.module('myApp.stuReg', ['ngRoute', 'ngMaterial'])
                 $scope.loadStu();
 
                 $scope.saveInfoStu = function (ev) {
-                    var s = {'id': $scope.user,
+                    var s = {'username': $scope.user,
                         'email': $scope.email,
                         'name': $scope.name,
                         'lastName': $scope.lastName,

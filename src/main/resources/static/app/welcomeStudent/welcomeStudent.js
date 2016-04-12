@@ -12,9 +12,9 @@ angular.module('myApp.welcomeStudent', ['ngRoute'])
         .controller('welcomeStudentCtrl', ['$rootScope', '$scope', 'GetStudentById', 'PostStu', '$http', '$location', 'Usuario','PostUser','$mdDialog', function ($rootScope, $scope, GetStudentById, PostStu, $http, $location, Usuario,PostUser,$mdDialog) {
 //                $scope.IUser = "";
 //                $scope.IPass = "";
-                $scope.REid = "";
-                $scope.RUser = "";
                 $scope.RPass = "";
+                $scope.RUser = "";
+                $scope.REmail = "";
                 
 //                $scope.loginStu = function () {
 //                    $scope.data = GetStudentById.get({id: $scope.IUser});
@@ -37,7 +37,7 @@ angular.module('myApp.welcomeStudent', ['ngRoute'])
                     PostStu.save(student, function () {
                         console.info("Saved" + JSON.stringify(student));
                     });
-                    $scope.REmail="";
+                    $scope.RPass="";
                     $scope.RUser="";
                     $scope.REmail="";
                     // Appending dialog to document.body to cover sidenav in docs app

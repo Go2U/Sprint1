@@ -38,7 +38,7 @@ public class StuController {
         students.addStudent(s); 
     }
     
-    @RequestMapping(value = "/upds/{id}",method = RequestMethod.POST)
+    @RequestMapping(value = "/upd/{id}",method = RequestMethod.POST)
     public void updateStudent(@PathVariable String id,@RequestBody Student s) {
         students.updateStudent(id, s);
     }

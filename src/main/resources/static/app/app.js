@@ -27,13 +27,17 @@ angular.module('myApp', [
         .controller('rootCtrl', ['$scope', '$rootScope', '$http', '$location','Usuario', function ($scope, $rootScope, $http, $location,Usuario) {
                 $scope.logout = function () {
                     $http.post('/logout', {}).success(function () {
-                        $rootScope.authenticatedU = false;
                         Usuario.addUser("none");
+                        $rootScope.authenticatedS = false;
+                        $rootScope.authenticatedU = false;
                         $location.path("/");
                     }).error(function (data) {
+                        Usuario.addUser("none");
+                        $rootScope.authenticatedS = false;
                         $rootScope.authenticatedU = false;
                         $location.path("/");
                     });
+                    console.log($rootScope.authenticatedS+" "+$rootScope.authenticatedU);
                 };
             }]);
 

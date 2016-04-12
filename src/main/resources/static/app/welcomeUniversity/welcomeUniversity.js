@@ -40,7 +40,7 @@ angular.module('myApp.welcomeUniversity', ['ngRoute'])
                     });
                     $scope.REmail="";
                     $scope.RUser="";
-                    $scope.REmail="";
+                    $scope.RPass="";
                     // Appending dialog to document.body to cover sidenav in docs app
                     // Modal dialogs should fully cover application
                     // to prevent interaction outside of dialog
