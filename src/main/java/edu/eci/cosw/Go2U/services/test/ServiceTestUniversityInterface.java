@@ -14,8 +14,6 @@ import java.util.List;
  */
 public interface ServiceTestUniversityInterface {
     public void setIdUniversity(String university);
-    public List<Questions> getTest();
     public List<Questions> getTest(String university);
-    public void addQuestions(Questions q); 
-    public void Save(); 
+    public void addQuestions(String u, Questions q);
 }

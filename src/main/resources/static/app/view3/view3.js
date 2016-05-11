@@ -9,7 +9,7 @@ angular.module('myApp.view3', ['ngRoute'])
                 });
             }])
 
-        .controller('View3Ctrl', ['$scope', 'Usuario', 'PostQue','GetCarrUnivById',function ($scope,Usuario,PostQue,GetCarrUnivById) {
+        .controller('View3Ctrl', ['$scope', 'Usuario', 'PostQueSC','GetCarrUnivById',function ($scope,Usuario,PostQueSC,GetCarrUnivById) {
                 $scope.InDesc;
                 $scope.InPrio;
                 $scope.nq;
@@ -24,21 +24,30 @@ angular.module('myApp.view3', ['ngRoute'])
                 });
                 
                 $scope.newTask = function (ev){
-                    var question = {"idQuestion":10,
-                                    "question":$scope.Que,
+                    var question = {"question":$scope.Que,
                                     "answer":
-                                        [{"idAnswer":1,"answer":$scope.SAns[0],"academicProgramC":
-                                                [{"valSum":$scope.VAns[0][0],"id":{"idAnswer":0,"idCarrer":$scope.APAns[0][0]}}]
-                                        },{"idAnswer":2,"answer":$scope.SAns[1],"academicProgramC":
-                                                [{"valSum":$scope.VAns[1][0],"id":{"idAnswer":0,"idCarrer":$scope.APAns[1][0]}}]
-                                        },{"idAnswer":3,"answer":$scope.SAns[2],"academicProgramC":
-                                                [{"valSum":$scope.VAns[2][0],"id":{"idAnswer":0,"idCarrer":$scope.APAns[2][0]}}]
-                                        },{"idAnswer":4,"answer":$scope.SAns[3],"academicProgramC":
-                                                [{"valSum":$scope.VAns[3][0],"id":{"idAnswer":0,"idCarrer":$scope.APAns[3][0]}}]
+                                        [{"answer":$scope.SAns[0],"academicProgramC":
+                                                []
+//                                                [{"valSum":$scope.VAns[0][0]}]
+//                                                [{"id":{"idCarrer":$scope.APAns[0][0]}}]
+//                                                [{"valSum":$scope.VAns[0][0],"id":{"idCarrer":$scope.APAns[0][0]}}]
+//                                                [{"valSum":$scope.VAns[0][0],"idCarrer":$scope.APAns[0][0]}]
+//                                                [{"valSum":$scope.VAns[0][0],"id":{"idCarrer":$scope.APAns[0][0]}}]
+                                        },{"answer":$scope.SAns[1],"academicProgramC":
+                                                []
+//                                                [{"valSum":$scope.VAns[1][0],"idCarrer":$scope.APAns[1][0]}]
+//                                                [{"valSum":$scope.VAns[1][0],"id":{"idCarrer":$scope.APAns[1][0]}}]
+                                        },{"answer":$scope.SAns[2],"academicProgramC":
+                                                []
+//                                                [{"valSum":$scope.VAns[2][0],"idCarrer":$scope.APAns[2][0]}]
+//                                                [{"valSum":$scope.VAns[2][0],"id":{"idCarrer":$scope.APAns[2][0]}}]
+                                        },{"answer":$scope.SAns[3],"academicProgramC":
+                                                []
+//                                                [{"valSum":$scope.VAns[3][0],"idCarrer":$scope.APAns[3][0]}]
+//                                                [{"valSum":$scope.VAns[3][0],"id":{"idCarrer":$scope.APAns[3][0]}}]
                                         }]
                                     };
-                    PostQue.save(question, function(){
-                        //console.info("Saved "+JSON.stringify(question));
+                    PostQueSC.save({id: $scope.userId},question, function(){
                         alert("Pregunta agregada");
                         
                     });

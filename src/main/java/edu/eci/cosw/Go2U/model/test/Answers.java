@@ -5,14 +5,13 @@
  */
 package edu.eci.cosw.Go2U.model.test;
 
-import edu.eci.cosw.Go2U.model.universities.Carrer;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.Fetch;
@@ -37,6 +36,7 @@ public class Answers implements java.io.Serializable{
     }
 
     @Id
+    @GeneratedValue
     @Column(name="idAnswer")
     public Integer getIdAnswer() {
         return idAnswer;
@@ -57,7 +57,7 @@ public class Answers implements java.io.Serializable{
 
     @OneToMany
     @Fetch(FetchMode.JOIN)
-    @JoinColumn(name="Answer_idAnswer_AC", insertable = false,updatable = false) 
+    @JoinColumn(name="Answer_idAnswer_AC")//, insertable = false,updatable = false) 
     public List<AnswerCarrer> getAcademicProgramC() {
         return academicProgramC;
     }

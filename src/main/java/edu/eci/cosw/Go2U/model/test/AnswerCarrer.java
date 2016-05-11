@@ -25,7 +25,7 @@ public class AnswerCarrer implements Serializable{
     Integer valSum=0;
     idAnswerCarrer id = new idAnswerCarrer();
 
-    public AnswerCarrer() {
+   public AnswerCarrer() {
     }
 
     @EmbeddedId

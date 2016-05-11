@@ -7,6 +7,7 @@ package edu.eci.cosw.Go2U.controller.test;
 
 import edu.eci.cosw.Go2U.services.test.ServiceTestUniversity;
 import edu.eci.cosw.Go2U.model.test.Questions;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,30 +26,18 @@ public class TestUniversityController{
 
     @Autowired
     ServiceTestUniversity TestUniversity;
-    
-    @RequestMapping(value = "/getTestUniversity", method = RequestMethod.GET)
-    public List<Questions> getTestUniversity(){
-        return TestUniversity.getTest();
-    }
-    
+ 
     @RequestMapping(value = "/getTestUniversity/{id}", method = RequestMethod.GET)
     public List<Questions> getTestUniversity(@PathVariable String id){
         TestUniversity.setIdUniversity(id);
         List<Questions> p = TestUniversity.getTest(id);
         return p;
     }
-    
-    @RequestMapping(value = "/postQuestions",method = RequestMethod.POST)
-    public void postTask(@RequestBody Questions q) {
-        System.out.println(q.getAnswer().size());
-        System.out.println(q.getAnswer().get(0).getIdAnswer());
-        TestUniversity.addQuestions(q);
+    @RequestMapping(value = "/postQuestions/{id}",method = RequestMethod.POST)
+    public void postTask(@PathVariable String id,@RequestBody Questions q) {
+        TestUniversity.addQuestions(id,q);
+        System.out.println("Nuevo");
     }
     
-    @RequestMapping(value = "/save",method = RequestMethod.GET)
-    public void save() {
-        System.out.println("entra base");
-        TestUniversity.Save();
-    }
     
 }

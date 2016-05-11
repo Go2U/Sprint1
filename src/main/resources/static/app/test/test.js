@@ -8,8 +8,17 @@ angular.module('myApp.test', ['ngRoute'])
                     controller: 'testCtrl'
                 });
             }])
-        .controller('testCtrl', ['$scope', 'Test', '$mdDialog', '$mdMedia','PostQue','$location', function ($scope, Test, $mdDialog, $mdMedia,PostQue,$location) {
-                $scope.tests = Test.query();
+        .controller('testCtrl', ['$scope','Usuario', 'Test', '$mdDialog', '$mdMedia','PostQueSC','$location', function ($scope, Usuario , Test, $mdDialog, $mdMedia,PostQueSC,$location) {
+                //$scope.tests = Test.query();
+                $scope.tests;
+                
+                $scope.userID = Usuario.getUser();
+                $scope.data = Test.query({id:$scope.userID});
+                $scope.data.$promise.then(function (data) {
+                        $scope.u = data;
+                        $scope.tests=$scope.u;
+                });
+        
 
                 $scope.predicate = 'id';
                 $scope.reverse = true;
@@ -49,7 +58,7 @@ angular.module('myApp.test', ['ngRoute'])
                 };
                 
                 $scope.addQue = function (){
-                    var question = {"idQuestion":0,
+                    var question = {"idQuestion":1,
                                     "question":$scope.Que,
                                     "answer":
                                         [{"idAnswer":1,"answer":$scope.SAns[0],"academicProgramC":
@@ -62,7 +71,7 @@ angular.module('myApp.test', ['ngRoute'])
                                                 [{"valSum":$scope.VAns[3][0],"id":{"idAnswer":0,"idCarrer":$scope.APAns[3][0]}}]
                                         }]
                                     };
-                    PostQue.save(question, function(){
+                    PostQueSC.save({id: $scope.userId},question, function(){
                         //console.info("Saved "+JSON.stringify(question));
                     });
                     $mdDialog.hide();

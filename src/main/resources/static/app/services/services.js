@@ -60,7 +60,8 @@ angular.module('services.services', ['ngRoute', 'ngResource'])
         })
         //Get test
         .factory('Test', function ($resource) {
-            return $resource('/test/getTestUniversity', {}, {
+            return $resource('/test/getTestUniversity/:id', {id:'@id'}, {
+//            return $resource('/test/getTestUniversity', {}, {
                 get: {
                     method: 'GET',
                     isArray: true
@@ -106,10 +107,9 @@ angular.module('services.services', ['ngRoute', 'ngResource'])
             return $resource('/api/user/add');
         })
         // Post Test
-        .factory('PostQue', function ($resource) {
-            return $resource('/test/postQuestions');
+        .factory('PostQueSC', function ($resource) {
+            return $resource('/test/postQuestions/:id',{id:'@id'});
         })
-        
         
         //Get Student by ID
         .factory('GetStudentById', function ($resource) {
