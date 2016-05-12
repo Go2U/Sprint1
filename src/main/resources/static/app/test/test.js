@@ -8,9 +8,17 @@ angular.module('myApp.test', ['ngRoute'])
                     controller: 'testCtrl'
                 });
             }])
-        .controller('testCtrl', ['$scope','Usuario', 'Test', '$mdDialog', '$mdMedia','PostQueSC','$location', function ($scope, Usuario , Test, $mdDialog, $mdMedia,PostQueSC,$location) {
-                //$scope.tests = Test.query();
+        .controller('testCtrl', ['$scope','Usuario', 'Test', '$mdDialog', '$mdMedia','PostQueSC','$location','GetCarrUnivById', function ($scope, Usuario , Test, $mdDialog, $mdMedia,PostQueSC,$location,GetCarrUnivById) {
+                
                 $scope.tests;
+                $scope.carrer=[];
+                $scope.userId = Usuario.getUser();
+                
+                $scope.data = GetCarrUnivById.get({id: $scope.userId});
+                $scope.data.$promise.then(function (data) {
+                        $scope.u = data;
+                        $scope.carrer=$scope.u;
+                });
                 
                 $scope.userID = Usuario.getUser();
                 $scope.data = Test.query({id:$scope.userID});
@@ -38,7 +46,7 @@ angular.module('myApp.test', ['ngRoute'])
                         parent: angular.element(document.body),
                         targetEvent: ev,
                         clickOutsideToClose: true,
-                        locals:{test:test},
+                        locals:{test:test,carr:$scope.carrer},
                         fullscreen: useFullScreen
                     })
                             .then(function (answer) {
@@ -92,4 +100,14 @@ function DialogController($scope, $mdDialog, locals) {
     $scope.answer = function (answer) {
         $mdDialog.hide(answer);
     };
+    $scope.convertir = function (numero) {
+        var carr = locals.carr;
+        var salida = "";
+        for(var i=0;i<carr.length;i++){
+            if(carr[i].id==numero){
+                salida = carr[i].name;
+            }
+        }
+        return salida;
+    }
 }

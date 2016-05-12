@@ -15,9 +15,8 @@
                         </td>
                         <td>
                             <p ng-repeat="programa in pregunta.academicProgramC">
+                                {{convertir(programa.id.idCarrer)}}
                                 {{programa.valSum}}
-                                {{programa.id.idCarrer}}
-                                {{programa.id.idAnswer}}
                             </p>
                         </td>
                     </tr>

@@ -26,6 +26,18 @@ angular.module('myApp.view3', ['ngRoute'])
                 $scope.newTask = function (ev){
                     var question = {"question":$scope.Que,
                                     "answer":
+                                        [{"answer":$scope.SAns[0],"academicProgramC":
+                                                [{"valSum":$scope.VAns[0][0],"id":{"idCarrer":$scope.APAns[0][0]}}]
+                                        },{"answer":$scope.SAns[1],"academicProgramC":
+                                                [{"valSum":$scope.VAns[1][0],"id":{"idCarrer":$scope.APAns[1][0]}}]
+                                        },{"answer":$scope.SAns[2],"academicProgramC":
+                                                [{"valSum":$scope.VAns[2][0],"id":{"idCarrer":$scope.APAns[2][0]}}]
+                                        },{"answer":$scope.SAns[3],"academicProgramC":
+                                                [{"valSum":$scope.VAns[3][0],"id":{"idCarrer":$scope.APAns[3][0]}}]
+                                        }]
+                                    };
+                    /*var question = {"question":$scope.Que,
+                                    "answer":
                                         [{"answer":"nada","academicProgramC":
                                                 [{"valSum":$scope.VAns[0][0],"id":{"idCarrer":$scope.APAns[0][0]}}]
                                         },{"answer":"poco","academicProgramC":
@@ -35,18 +47,22 @@ angular.module('myApp.view3', ['ngRoute'])
                                         },{"answer":"Mucho","academicProgramC":
                                                 [{"valSum":$scope.VAns[3][0],"id":{"idCarrer":$scope.APAns[3][0]}}]
                                         }]
-                                    };
+                                    };*/
                     PostQueSC.save({id: $scope.userId},question, function(){
                         alert("Pregunta agregada");
                         
                     });
                     $scope.Que = "";
+                    $scope.SAns[0]="";
                     $scope.APAns[0][0]=4;
                     $scope.VAns[0][0]=4;
+                    $scope.SAns[1]="";
                     $scope.APAns[1][0]=4;
                     $scope.VAns[1][0]=4;
+                    $scope.SAns[2]="";
                     $scope.APAns[2][0]=4;
                     $scope.VAns[2][0]=4;
+                    $scope.SAns[3]="";
                     $scope.APAns[3][0]=4;
                     $scope.VAns[3][0]=4;
                 };
