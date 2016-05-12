@@ -7,6 +7,8 @@ package edu.eci.cosw.Go2U.model.test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.CascadeType;
 
 import static javax.persistence.CascadeType.ALL;
@@ -32,7 +34,7 @@ import org.hibernate.annotations.Proxy;
 @Proxy(lazy = false)
 public class Questions implements java.io.Serializable{
     
-    private Integer idQuestion;
+    private int idQuestion;
     private String question = "";
     private List<Answers> answer = new ArrayList<>();
     
@@ -42,11 +44,11 @@ public class Questions implements java.io.Serializable{
     @Id
     @GeneratedValue
     @Column(name="idQuestion")
-    public Integer getIdQuestion() {
+    public int getIdQuestion() {
         return idQuestion;
     }
 
-    public void setIdQuestion(Integer idQuestion) {
+    public void setIdQuestion(int idQuestion) {
         this.idQuestion = idQuestion;
     }
 
@@ -70,4 +72,24 @@ public class Questions implements java.io.Serializable{
         this.answer = answer;
     }
 
+    public Questions cloneQ(){
+        Questions Q = new Questions();
+        Q.setIdQuestion(this.getIdQuestion());
+        for(Answers an:this.getAnswer()){
+            Answers a =new Answers();
+            a.setIdAnswer(an.getIdAnswer());
+            a.setAnswer(an.getAnswer().toString());
+            for(AnswerCarrer ac:an.getAcademicProgramC()){
+                AnswerCarrer ansC = new AnswerCarrer();
+                idAnswerCarrer id =new idAnswerCarrer();
+                id.setIdAnswer(ac.getId().getIdAnswer());
+                id.setIdCarrer(ac.getId().getIdCarrer());
+                ansC.setId(id);
+                ansC.setValSum(ac.getValSum());
+                a.getAcademicProgramC().add(ansC);
+            }
+            Q.getAnswer().add(a);
+        }
+        return Q;
+    }
 }

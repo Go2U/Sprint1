@@ -36,7 +36,7 @@ public class TestUniversityController{
     @RequestMapping(value = "/postQuestions/{id}",method = RequestMethod.POST)
     public void postTask(@PathVariable String id,@RequestBody Questions q) {
         TestUniversity.addQuestions(id,q);
-        System.out.println("Nuevo");
+//        System.out.println("Nuevo");
     }
     
     

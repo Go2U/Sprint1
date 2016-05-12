@@ -28,7 +28,7 @@ import org.hibernate.annotations.Proxy;
 @Proxy(lazy = false)
 public class Answers implements java.io.Serializable{
     
-    private Integer idAnswer=0;
+    private int idAnswer=0;
     private String answer = "";
     private List<AnswerCarrer> academicProgramC = new ArrayList<>();
     
@@ -38,11 +38,11 @@ public class Answers implements java.io.Serializable{
     @Id
     @GeneratedValue
     @Column(name="idAnswer")
-    public Integer getIdAnswer() {
+    public int getIdAnswer() {
         return idAnswer;
     }
 
-    public void setIdAnswer(Integer idAnswer) {
+    public void setIdAnswer(int idAnswer) {
         this.idAnswer = idAnswer;
     }
 
@@ -64,6 +64,11 @@ public class Answers implements java.io.Serializable{
 
     public void setAcademicProgramC(List<AnswerCarrer> academicProgramC) {
         this.academicProgramC = academicProgramC;
+    }
+
+    @Override
+    public String toString() {
+        return "Answers{" + "idAnswer=" + idAnswer + ", answer=" + answer + ", academicProgramC=" + academicProgramC + '}';
     }
     
 }

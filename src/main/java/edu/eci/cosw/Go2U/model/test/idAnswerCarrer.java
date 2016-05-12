@@ -18,28 +18,35 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class idAnswerCarrer implements Serializable{
     
-    private Integer idAnswer =0;
-    private Integer idCarrer =1;
+    private int idAnswer;// =0;
+    private int idCarrer;// =1;
 
     @Column(name="Answer_idAnswer_AC")//,insertable = false,updatable = false)
-    public Integer getIdAnswer() {
+    public int getIdAnswer() {
         return idAnswer;
     }
 
-    public void setIdAnswer(Integer idAnswer) {
-        LOG.info(">>>>ASIGNANDO IDANSWER"+this.idAnswer);
+    public void setIdAnswer(int idAnswer) {
+//        LOG.info(">>>>ASIGNANDO IDANSWER"+this.idAnswer);
         this.idAnswer = idAnswer;
     }
     private static final Logger LOG = Logger.getLogger(idAnswerCarrer.class.getName());
 
     @Column(name="Carrer_idCarrer")
-    public Integer getIdCarrer() {
+    public int getIdCarrer() {
         return idCarrer;
     }
 
-    public void setIdCarrer(Integer idCarrer) {
-        LOG.info(">>>>ASIGNANDO IDCAREER"+this.idCarrer);        
+    public void setIdCarrer(int idCarrer) {
+//        LOG.info(">>>>ASIGNANDO IDCAREER"+this.idCarrer);        
         this.idCarrer = idCarrer;
     }
+
+    @Override
+    public String toString() {
+        return "idAnswerCarrer{" + "idAnswer=" + idAnswer + ", idCarrer=" + idCarrer + '}';
+    }
+    
+    
     
 }

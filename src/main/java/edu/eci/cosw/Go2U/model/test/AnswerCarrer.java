@@ -22,7 +22,7 @@ import org.hibernate.annotations.Proxy;
 @Proxy(lazy = false)
 public class AnswerCarrer implements Serializable{
     
-    Integer valSum=0;
+    int valSum=0;
     idAnswerCarrer id = new idAnswerCarrer();
 
    public AnswerCarrer() {
