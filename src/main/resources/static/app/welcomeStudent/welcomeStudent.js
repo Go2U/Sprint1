@@ -9,13 +9,13 @@ angular.module('myApp.welcomeStudent', ['ngRoute'])
                 });
             }])
 
-        .controller('welcomeStudentCtrl', ['$rootScope', '$scope', 'GetStudentById', 'PostStu', '$http', '$location', 'Usuario','PostUser','$mdDialog', function ($rootScope, $scope, GetStudentById, PostStu, $http, $location, Usuario,PostUser,$mdDialog) {
+        .controller('welcomeStudentCtrl', ['$rootScope', '$scope', 'GetStudentById', 'PostStu', '$http', '$location', 'Usuario', 'PostUser', '$mdDialog', function ($rootScope, $scope, GetStudentById, PostStu, $http, $location, Usuario, PostUser, $mdDialog) {
 //                $scope.IUser = "";
 //                $scope.IPass = "";
                 $scope.RPass = "";
                 $scope.RUser = "";
                 $scope.REmail = "";
-                
+
 //                $scope.loginStu = function () {
 //                    $scope.data = GetStudentById.get({id: $scope.IUser});
 //                    $scope.data.$promise.then(function (data) {
@@ -30,16 +30,19 @@ angular.module('myApp.welcomeStudent', ['ngRoute'])
 
                 $scope.newStudent = function (ev) {
                     var student = {"email": $scope.REmail, "username": $scope.RUser};
-                    var user = {"username": $scope.RUser, "password": $scope.RPass, "role":3};
+                    var user = {"username": $scope.RUser, "password": $scope.RPass, "role": 3};
                     PostUser.save(user, function () {
                         console.info("Saved" + JSON.stringify(user));
                     });
+                    setTimeout(function () {
+                        // rest of code here
+                    }, 2000);
                     PostStu.save(student, function () {
                         console.info("Saved" + JSON.stringify(student));
                     });
-                    $scope.RPass="";
-                    $scope.RUser="";
-                    $scope.REmail="";
+                    $scope.RPass = "";
+                    $scope.RUser = "";
+                    $scope.REmail = "";
                     // Appending dialog to document.body to cover sidenav in docs app
                     // Modal dialogs should fully cover application
                     // to prevent interaction outside of dialog
@@ -54,7 +57,7 @@ angular.module('myApp.welcomeStudent', ['ngRoute'])
                             .targetEvent(ev)
                             );
                 };
-                
+
                 var authenticate = function (credentials, callback) {
                     console.log('authenticate');
                     var headers = credentials ? {authorization: "Basic "
@@ -78,7 +81,7 @@ angular.module('myApp.welcomeStudent', ['ngRoute'])
                     });
 
                 };
-                
+
                 //authenticate();
                 $scope.credentials = {};
                 $scope.login = function () {
@@ -97,5 +100,5 @@ angular.module('myApp.welcomeStudent', ['ngRoute'])
                         }
                     });
                 };
-                
+
             }]);
