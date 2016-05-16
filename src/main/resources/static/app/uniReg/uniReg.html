@@ -5,13 +5,13 @@
         <!-- Subscription -->
         <article class="box post">
             <header class="major">
-                <h2>Subscription Management</h2>
+                <h2>Planes de Suscripción</h2>
             </header>
             <table>
                 <tr>
                     <td> <input type="image" src="images/pic26.jpg" alt="FreePlanlogo" onclick="alert('Este plan es Gratis!')"> </td>
-                    <td> <input type="image" src="images/pic27.jpg" alt="StandardPlanlogo" onclick="alert('Este plan tiene una valor $2000 6 meses!')"> </td>
-                    <td> <input type="image" src="images/pic28.jpg" alt="PremiumPlanlogo" onclick="alert('Este plan tiene una valor $3500 un año!')"> </td>
+                    <td> <input type="image" src="images/pic27.jpg" alt="StandardPlanlogo" onclick="alert('Este plan tiene una valor $4 000 000 6 meses!')"> </td>
+                    <td> <input type="image" src="images/pic28.jpg" alt="PremiumPlanlogo" onclick="alert('Este plan tiene una valor $7 500 000 12 meses!')"> </td>
                     
                     <!--<a href="#" class="button alt">Subscribe</a>-->
                 </tr>
@@ -27,22 +27,23 @@
         <!-- Test -->
         <article class="box post">
             <header class="major">
-                <h2>Test Management</h2>
+                <h2>Elaborar Test</h2>
             </header>
-            <a href="#/test" class="button alt">Edit</a>
+            <p>Ingresa aquí el Test vocacional que ayudará a los aspirantes a encontrar una carrera en la mejor universidad del país</p>
+            <a href="#/test" class="button alt">Editar</a>
         </article>
 
         <!-- Information -->
         <article class="box post">
             <header class="major">
-                <h2>University Information</h2>
+                <h2>Perfil de la Universidad</h2>
             </header>
             <form role="form" ng-submit="saveInfoUni($event)">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="user" id="username" placeholder="User" ng-model="user" disabled/>
+                    <input type="text" class="form-control" name="user" id="username" placeholder="Usuario" ng-model="user" disabled/>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Name" ng-model="name"/>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Nombre" ng-model="name"/>
                 </div>
                 <div class="form-group">
                     <input type="email" class="form-control" name="email" id="email" placeholder="Email" ng-model="email"/>
@@ -51,13 +52,13 @@
                     <input type="url" class="form-control" name="url" id="url" placeholder="Url" ng-model="url"/>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="city" id="city" placeholder="City" ng-model="city"/>
+                    <input type="text" class="form-control" name="city" id="city" placeholder="Ciudad" ng-model="city"/>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="address" id="address" placeholder="Address" ng-model="address"/>
+                    <input type="text" class="form-control" name="address" id="address" placeholder="Dirección" ng-model="address"/>
                 </div>
                 <div class="form-group">
-                    <input type="number" class="form-control" name="number" id="number" placeholder="Telephon Number" ng-model="number"/>
+                    <input type="number" class="form-control" name="number" id="number" placeholder="Teléfono" ng-model="number"/>
                 </div>
                 <div class="form-group">
                     <input type="file" class="form-control" id="logoURL" accept="image/*">
@@ -65,11 +66,11 @@
                 </div>
                 <div class="form-group">
                     <div class="12u">
-                        <textarea name="desc" id="desc" placeholder="Description" rows="5" ng-model="desc"></textarea>
+                        <textarea name="desc" id="desc" placeholder="Descripción" rows="5" ng-model="desc"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="button alt">Save</button>
+                    <button type="submit" class="button alt">Guardar</button>
                 </div>
             </form>
         </article>
@@ -77,14 +78,14 @@
         <!-- Carrers -->
         <article class="box post">
             <header class="major">
-                <h2>Carrers</h2>
+                <h2>Carreras</h2>
             </header>
-            <form role="form" ng-submit="saveCarrers($event)" id="carrers">
-                <div class="form-group">
-                    <button type="submit" class="button alt">Add</button>
-                </div>
+            <form role="form" ng-submit="saveCarrers($event)" id="carrers">                
                 <div class="form-group" >
-                    <input type="text" class="form-control" name="name" id="name0" placeholder="Name" ng-model="cName[0]"/>
+                    <input type="text" class="form-control" name="name" id="name0" placeholder="Nombre del programa" ng-model="cName[0]"/>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="button alt">Agregar</button>
                 </div>
             </form>
         </article>
@@ -95,20 +96,22 @@
         <!-- Sidebar -->
         <!-- Calendar -->
         <section class="box">
-            <a class="image featured"><img src="images/pic09.jpg" alt="" /></a>
+            <a class="image featured"><img src="images/pic29.jpg" alt="" /></a>
             <header>
-                <h3>Calendar</h3>
+                <h2>Programar Visita</h2>
             </header>
-            <a href="#/calendar" class="button alt">Edit</a>
+            <p>Realiza un Tour por tus instalaciones para que los aspirantes se sientan más felices de ser parte de tu equipo</p>
+            <a href="#/calendar" class="button alt">Editar</a>
         </section>
 
         <!-- Gallery -->
         <section class="box">
-            <a class="image featured"><img src="images/pic09.jpg" alt="" /></a>
+            <a class="image featured"><img src="images/pic30.jpg" alt="" /></a>
             <header>
-                <h3>Gallery</h3>
+                <h2>Galería</h2>
             </header>
-            <a href="#" class="button alt">Edit</a>
+            <p>Arma una galería con todos los proyectos innovadores en los que estés trabajando</p>
+            <a href="#/uniReg" class="button alt" onclick="alert('¡Sección en construcción!')">Editar</a>
         </section>
     </div>
 </div>
