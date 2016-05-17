@@ -80,14 +80,14 @@
             <header class="major">
                 <h2>Carreras</h2>
             </header>
-            <form role="form" ng-submit="saveCarrers($event)" id="carrers">                
+            <form role="form" ng-submit="saveCarrers($event)" id="carrers">
+                <div class="form-group">
+                    <button type="submit" class="button alt">Agregar</button>
+                </div>
                 <div class="form-group" >
                     <select required id="name0" ng-model="cName[0]">
                         <option ng-repeat="todo in carrersALL" >{{todo}}</option>
                     </select>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="button alt">Agregar</button>
                 </div>
             </form>
         </article>
