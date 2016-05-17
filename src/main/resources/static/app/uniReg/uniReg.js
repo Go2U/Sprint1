@@ -9,7 +9,7 @@ angular.module('myApp.uniReg', ['ngRoute', 'ngMaterial'])
                 });
             }])
 
-        .controller('uniRegCtrl', ['$scope', '$rootScope', 'GetUnivById', 'GetCarrUnivById', 'UpdateUni', 'PostCarrersUni', 'Usuario', '$compile', '$mdDialog', '$mdMedia', function ($scope, $rootScope, GetUnivById, GetCarrUnivById, UpdateUni, PostCarrersUni, Usuario, $compile, $mdDialog, $mdMedia) {
+        .controller('uniRegCtrl', ['$scope', '$rootScope', 'GetUnivById', 'GetCarrUnivById', 'UpdateUni', 'PostCarrersUni', 'Usuario', '$compile', '$mdDialog', '$mdMedia','GetAllCarr', function ($scope, $rootScope, GetUnivById, GetCarrUnivById, UpdateUni, PostCarrersUni, Usuario, $compile, $mdDialog, $mdMedia,GetAllCarr) {
                 $scope.userId = "";
                 // Information variables
                 $scope.user = "";
@@ -24,6 +24,8 @@ angular.module('myApp.uniReg', ['ngRoute', 'ngMaterial'])
                 // Carrers variables
                 $scope.carNumber = 1;
                 $scope.carrers = [];
+                $scope.carrersALL = [];
+                $scope.carrersN2Id = {};
                 $scope.cName = [];
                 // Alert variables
                 $scope.status = '  ';
@@ -46,23 +48,37 @@ angular.module('myApp.uniReg', ['ngRoute', 'ngMaterial'])
                         $scope.number = $scope.u.number;
                         $scope.src_logo = $scope.u.logo;
                         $scope.desc = $scope.u.descp;
-                        $scope.carrers = $scope.u.carrers;
-
-                        if ($scope.carrers.length > 0) {
-                            $scope.cName[0] = $scope.carrers[0].name;
+                    });
+                    
+                    $scope.data = GetAllCarr.query();
+                    console.log($scope.data);
+                    $scope.data.$promise.then(function (data) {
+                        $scope.u = data;
+                        //console.log($scope.u);
+                        for (var i = 0; i < $scope.u.length; i++) {
+                            $scope.carrersALL[i] = $scope.u[i].name;
+                            $scope.carrersN2Id[$scope.u[i].name]=$scope.u[i].id;
+                        }
+                        //console.log($scope.carrersALL);
+                        //console.log($scope.carrersN2Id);
+                    });
+                    
+                    
+                    $scope.data = GetCarrUnivById.query({id: $scope.userId});
+                    $scope.data.$promise.then(function (data) {
+                        $scope.u = data;
+                        console.log(data);
+                        if ($scope.u.length > 0) {                            
+                            $scope.cName[0] = $scope.u[0].name;
+                            $scope.carrers.push({'id': $scope.carrersN2Id[$scope.cName[0]], 'name': $scope.cName[0]});
                             $scope.addCarrer();
-                            for (var i = 1; i < $scope.carrers.length; i++) {
-                                $scope.cName[i] = $scope.carrers[i].name;
+                            for (var i = 1; i < $scope.u.length; i++) {
+                                $scope.cName[i] = $scope.u[i].name;
+                                $scope.carrers.push({'id': $scope.carrersN2Id[$scope.cName[i]], 'name': $scope.cName[i]});
                                 $scope.addCarrer();
                             }
                         }
                     });
-
-//                    $scope.data = GetCarrUnivById.query({id: $scope.userId});
-//                    $scope.data.$promise.then(function (data) {
-//                        $scope.u = data;
-//                        console.log(data);
-//                    });
                 };
 
                 $scope.loadUni();
@@ -125,12 +141,9 @@ angular.module('myApp.uniReg', ['ngRoute', 'ngMaterial'])
 
                 // Add a new space for a new carrer
                 $scope.addCarrer = function () {
-                    var fragment = $scope.create('<div class="form-group"><input type="text" class="form-control" name="name" \n\
-                                                    id="name' + $scope.carNumber + '" placeholder="Name" ng-model="cName['+ $scope.carNumber + ']"/></div>');
-                    // You can use native DOM methods to insert the fragment:
+                    var fragment = $scope.create('<div class="form-group"><select required id="name' + $scope.carNumber + '" ng-model="cName['+ $scope.carNumber + ']"><option ng-repeat="todo in carrersALL" >{{todo}}</option></select></div>');                    
 
                     var element = document.getElementById('carrers');
-
                     element.appendChild(fragment);
 
                     element = document.getElementById('name' + $scope.carNumber);
@@ -139,11 +152,14 @@ angular.module('myApp.uniReg', ['ngRoute', 'ngMaterial'])
                 };
 
                 // Save carrers information
-                $scope.saveCarrers = function (ev) {
+                $scope.saveCarrers = function (ev) {                   
                     $scope.carrers = [];
-                    for (var i = 0; i < $scope.carNumber; i++) {
+                    for (var i = 0; i < $scope.carNumber; i++) {                        
+                        //var element = document.getElementById('name' + i);
+                        //$scope.cName[i]=element.text();
+                        console.log($scope.cName[i]);
                         if ($scope.cName[i] != null) {
-                            $scope.carrers.push({'id': i + 1000, 'name': $scope.cName[i]});
+                            $scope.carrers.push({'id': $scope.carrersN2Id[$scope.cName[i]], 'name': $scope.cName[i]});
                         }
                     }
                     

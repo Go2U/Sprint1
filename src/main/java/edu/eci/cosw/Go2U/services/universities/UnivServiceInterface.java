@@ -25,4 +25,5 @@ public interface UnivServiceInterface {
     public University getUniversityById(String id);
     public List<Carrer> getUniversityCarrers(String id);
     public java.sql.Blob getUniversityLogo(String id);
+    public ArrayList<Carrer> getAllCarrers();
 }

@@ -5,15 +5,13 @@
  */
 package edu.eci.cosw.Go2U.services.universities;
 
-import com.mysql.jdbc.Blob;
 import edu.eci.cosw.Go2U.model.universities.Carrer;
 import edu.eci.cosw.Go2U.model.universities.University;
 import edu.eci.cosw.Go2U.persistence.CarrerRepository;
 import edu.eci.cosw.Go2U.persistence.UniversityRepository;
-import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -75,6 +73,11 @@ public class ServiceUniversity implements UnivServiceInterface{
     @Override //Probado
     public void updateUniversity(String id, University u) {
         university.save(u);
+    }
+    
+    @Override
+    public ArrayList<Carrer> getAllCarrers(){
+        return carrer.getAllCarrers();
     }
     
 }

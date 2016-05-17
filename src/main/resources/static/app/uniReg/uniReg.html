@@ -82,7 +82,9 @@
             </header>
             <form role="form" ng-submit="saveCarrers($event)" id="carrers">                
                 <div class="form-group" >
-                    <input type="text" class="form-control" name="name" id="name0" placeholder="Nombre del programa" ng-model="cName[0]"/>
+                    <select required id="name0" ng-model="cName[0]">
+                        <option ng-repeat="todo in carrersALL" >{{todo}}</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="button alt">Agregar</button>
