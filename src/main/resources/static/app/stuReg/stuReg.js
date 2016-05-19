@@ -43,7 +43,7 @@ angular.module('myApp.stuReg', ['ngRoute', 'ngMaterial'])
                         'lastName': $scope.lastName,
                         'gender': $scope.gender,
                         'address': $scope.address,
-                        'cellphone': $scope.cellphone,
+                        'cellPhone': $scope.cellphone,
                     };
 
                     UpdateStu.save({id: $scope.userId}, s, function () {
