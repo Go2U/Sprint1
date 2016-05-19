@@ -31,7 +31,7 @@ angular.module('myApp.stuReg', ['ngRoute', 'ngMaterial'])
                         $scope.lastName = $scope.s.lastName;
                         $scope.gender = $scope.s.gender;
                         $scope.address = $scope.s.address;
-                        $scope.cellphone = $scope.s.cellphone;
+                        $scope.cellphone = $scope.s.cellPhone;
                     });
                 };
                 $scope.loadStu();
