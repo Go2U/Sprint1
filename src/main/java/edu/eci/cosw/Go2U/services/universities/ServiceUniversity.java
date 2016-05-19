@@ -12,8 +12,10 @@ import edu.eci.cosw.Go2U.persistence.UniversityRepository;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 /**
  *
@@ -78,6 +80,20 @@ public class ServiceUniversity implements UnivServiceInterface{
     @Override
     public ArrayList<Carrer> getAllCarrers(){
         return carrer.getAllCarrers();
+    }
+    
+    @Override
+    public String getUniversitySNIES(String id){
+        Map<String, String> vars = new HashMap<String, String>();
+        vars.put("nit", id);
+        RestTemplate restTemplate = new RestTemplate();
+        String result = restTemplate.getForObject("http://estudiantes.is.escuelaing.edu.co/~3069593/simulacion.php?nit={nit}", String.class, vars);
+        return result;
+    }
+    
+    @Override
+    public boolean existUniversity(String id){
+        return university.exists(id);
     }
     
 }

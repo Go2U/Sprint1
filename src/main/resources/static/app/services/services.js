@@ -134,4 +134,24 @@ angular.module('services.services', ['ngRoute', 'ngResource'])
         .factory('PostStu', function ($resource) {
             return $resource('/api/stu/add');
         })
+        
+        // SNIES Connection
+        .factory('SNIESCon', function ($resource) {
+            return $resource('/api/uni/snies/:id', {id:'@id'}, {
+                get: {
+                    method: 'GET', 
+                    isArray: false
+                }
+            });
+        })
+        
+        // Check if a university is already created
+        .factory('CheckUni', function ($resource) {
+            return $resource('/api/uni/check/:id', {id:'@id'}, {
+                get: {
+                    method: 'GET', 
+                    isArray: false
+                }
+            });
+        })
 ;

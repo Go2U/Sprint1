@@ -78,4 +78,13 @@ public class UnivController {
         return universities.getAllCarrers();
     }
     
+    @RequestMapping(value = "/snies/{id}", method = RequestMethod.GET)
+    public String getUniversitySNIES(@PathVariable String id) {
+        return universities.getUniversitySNIES(id);
+    }
+    
+    @RequestMapping(value = "/check/{id}", method = RequestMethod.GET)
+    public boolean existUniversity(@PathVariable String id) {
+        return universities.existUniversity(id);
+    }
 }
