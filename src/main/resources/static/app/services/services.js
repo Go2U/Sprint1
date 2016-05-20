@@ -61,10 +61,18 @@ angular.module('services.services', ['ngRoute', 'ngResource'])
         //Get test
         .factory('Test', function ($resource) {
             return $resource('/test/getTestUniversity/:id', {id:'@id'}, {
-//            return $resource('/test/getTestUniversity', {}, {
                 get: {
                     method: 'GET',
                     isArray: true
+                }
+            });
+        })
+        //Get Question
+        .factory('QuestionGet', function ($resource) {
+            return $resource('/test/getQuestion/:id', {id:'@id'}, {
+                get: {
+                    method: 'GET',
+                    isArray: false
                 }
             });
         })
@@ -118,6 +126,10 @@ angular.module('services.services', ['ngRoute', 'ngResource'])
         // Post Test
         .factory('PostQueSC', function ($resource) {
             return $resource('/test/postQuestions/:id',{id:'@id'});
+        })
+        // Post Modificar
+        .factory('PostQueMod', function ($resource) {
+            return $resource('/test/postQuestionsMod/:id',{id:'@id'});
         })
         
         //Get Student by ID

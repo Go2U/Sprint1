@@ -11,6 +11,7 @@ import edu.eci.cosw.Go2U.model.test.Test;
 import edu.eci.cosw.Go2U.model.test.Questions;
 import edu.eci.cosw.Go2U.model.test.idAnswerCarrer;
 import edu.eci.cosw.Go2U.persistence.AnswerCarrerRepository;
+import edu.eci.cosw.Go2U.persistence.QuestionRepository;
 import edu.eci.cosw.Go2U.persistence.TestRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,9 @@ public class ServiceTestUniversity implements ServiceTestUniversityInterface{
     
     @Autowired
     AnswerCarrerRepository ACR;
+    
+    @Autowired
+    QuestionRepository QR;
     
     public ServiceTestUniversity(){
     }
@@ -75,6 +79,38 @@ public class ServiceTestUniversity implements ServiceTestUniversityInterface{
                 ansC.setId(id);
                 ansC.setValSum(academicProgramC.get(j).getValSum());
                 ACR.save(ansC);
+            }
+        }
+    }
+
+    @Override
+    public Questions getQuestion(String idQuestion) {
+        return QR.findQuestion(Integer.parseInt(idQuestion));
+    }
+
+    @Override
+    public void modQuestions(String u, Questions q) {
+        Questions q1 = QR.findQuestion(q.getIdQuestion());
+        q1.setQuestion(q.getQuestion());
+        for(int i=0;i<q1.getAnswer().size();i++){
+            q1.getAnswer().get(i).setAnswer(q.getAnswer().get(i).getAnswer());
+        }
+        QR.save(q1);
+        for(int i=0;i<q1.getAnswer().size();i++){
+            for(int j=0;j<q1.getAnswer().get(i).getAcademicProgramC().size();j++){
+                if(q.getAnswer().get(i).getAcademicProgramC().get(j).getId().getIdCarrer()!=0)
+                {
+                   if(q.getAnswer().get(i).getAcademicProgramC().get(j).getId().getIdCarrer()==q1.getAnswer().get(i).getAcademicProgramC().get(j).getId().getIdCarrer())
+                   {
+                       q1.getAnswer().get(i).getAcademicProgramC().get(j).setValSum(q.getAnswer().get(i).getAcademicProgramC().get(j).getValSum());
+                       ACR.save(q1.getAnswer().get(i).getAcademicProgramC().get(j));
+                   } 
+                   else
+                   {
+                       ACR.delete(q1.getAnswer().get(i).getAcademicProgramC().get(j).getId());
+                       ACR.save(q.getAnswer().get(i).getAcademicProgramC().get(j));
+                   }
+                }
             }
         }
     }

@@ -10,11 +10,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
-
 /**
  *
  * @author cbonilla
  */
 
+@Service
 public interface QuestionRepository extends JpaRepository<Questions,Integer>{
+    
+    @Query("from Questions q where q.idQuestion= ?1")
+    Questions findQuestion(int idQuestion);
+    
 }

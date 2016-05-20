@@ -45,4 +45,11 @@ public class AnswerCarrer implements Serializable{
     public void setValSum(Integer valSum) {
         this.valSum = valSum;
     }
+
+    @Override
+    public String toString() {
+        return "AnswerCarrer{" + "valSum=" + valSum + ", id=" + id.toString() + '}';
+    }
+    
+    
 }

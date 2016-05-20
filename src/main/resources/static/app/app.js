@@ -16,6 +16,7 @@ angular.module('myApp', [
     'myApp.calendar',
     'myApp.test',
     'myApp.view3',
+    'myApp.view4',
     'services.services',
     'myApp.version'
 ]).

@@ -21,13 +21,12 @@ public class idAnswerCarrer implements Serializable{
     private int idAnswer;// =0;
     private int idCarrer;// =1;
 
-    @Column(name="Answer_idAnswer_AC")//,insertable = false,updatable = false)
+    @Column(name="Answer_idAnswer_AC")
     public int getIdAnswer() {
         return idAnswer;
     }
 
     public void setIdAnswer(int idAnswer) {
-//        LOG.info(">>>>ASIGNANDO IDANSWER"+this.idAnswer);
         this.idAnswer = idAnswer;
     }
     private static final Logger LOG = Logger.getLogger(idAnswerCarrer.class.getName());
@@ -38,7 +37,6 @@ public class idAnswerCarrer implements Serializable{
     }
 
     public void setIdCarrer(int idCarrer) {
-//        LOG.info(">>>>ASIGNANDO IDCAREER"+this.idCarrer);        
         this.idCarrer = idCarrer;
     }
 

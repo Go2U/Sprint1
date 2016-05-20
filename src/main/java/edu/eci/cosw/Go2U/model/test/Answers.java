@@ -68,7 +68,7 @@ public class Answers implements java.io.Serializable{
 
     @Override
     public String toString() {
-        return "Answers{" + "idAnswer=" + idAnswer + ", answer=" + answer + ", academicProgramC=" + academicProgramC + '}';
+        return "Answers{" + "idAnswer=" + idAnswer + ", answer=" + answer + ", academicProgramC=" + academicProgramC.toString() + '}';
     }
     
 }

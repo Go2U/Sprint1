@@ -61,29 +61,16 @@ angular.module('myApp.test', ['ngRoute'])
                     });
                 };
                 
+                $scope.showModi = function (ev, cadena) {
+                    $location.path('/view4').search({'idQuestion': cadena});
+                };
+                
                 $scope.showAdd = function (ev, test) {
                     $location.path('/view3');
                 };
                 
                 $scope.addQue = function (){
-                    var question = {"idQuestion":1,
-                                    "question":$scope.Que,
-                                    "answer":
-                                        [{"idAnswer":1,"answer":$scope.SAns[0],"academicProgramC":
-                                                [{"valSum":$scope.VAns[0][0],"id":{"idAnswer":0,"idCarrer":$scope.APAns[0][0]}}]
-                                        },{"idAnswer":2,"answer":$scope.SAns[1],"academicProgramC":
-                                                [{"valSum":$scope.VAns[1][0],"id":{"idAnswer":0,"idCarrer":$scope.APAns[1][0]}}]
-                                        },{"idAnswer":3,"answer":$scope.SAns[2],"academicProgramC":
-                                                [{"valSum":$scope.VAns[2][0],"id":{"idAnswer":0,"idCarrer":$scope.APAns[2][0]}}]
-                                        },{"idAnswer":4,"answer":$scope.SAns[3],"academicProgramC":
-                                                [{"valSum":$scope.VAns[3][0],"id":{"idAnswer":0,"idCarrer":$scope.APAns[3][0]}}]
-                                        }]
-                                    };
-                    PostQueSC.save({id: $scope.userId},question, function(){
-                        //console.info("Saved "+JSON.stringify(question));
-                    });
-                    $mdDialog.hide();
-                    $scope.tests = Test.query();
+                    alert('Entra');
                 };
             }]);
         

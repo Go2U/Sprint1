@@ -92,4 +92,10 @@ public class Questions implements java.io.Serializable{
         }
         return Q;
     }
+
+    @Override
+    public String toString() {
+        return "Questions{" + "idQuestion=" + idQuestion + ", question=" + question + ", answer=" + answer.toString() + '}';
+    }
+    
 }

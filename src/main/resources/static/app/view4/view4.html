@@ -1,0 +1,170 @@
+<div class="row">
+    <div class="4u 12u(mobile)">
+
+        <!-- Sidebar -->
+        <section class="box">
+            <a href="#" class="image featured"><img src="images/pic13.jpg" alt="" /></a>
+            <header>
+                <h3>Sed etiam lorem nulla</h3>
+            </header>
+            <p>Lorem ipsum dolor sit amet sit veroeros sed amet blandit consequat veroeros lorem blandit  adipiscing et feugiat phasellus tempus dolore ipsum lorem dolore.</p>
+            <footer>
+                <a href="#/test" class="button alt">Volver Atras</a>
+            </footer>
+        </section>
+        <section class="box">
+            <header>
+                <h3>Feugiat consequat</h3>
+            </header>
+            <p>Veroeros sed amet blandit consequat veroeros lorem blandit adipiscing et f eugiat sed lorem consequat feugiat lorem dolore.</p>
+            <ul class="divided">
+                <li><a href="#">Sed et blandit consequat sed</a></li>
+                <li><a href="#">Hendrerit tortor vitae sapien dolore</a></li>
+                <li><a href="#">Sapien id suscipit magna sed felis</a></li>
+                <li><a href="#">Aptent taciti sociosqu ad litora</a></li>
+            </ul>
+            <footer>
+                <a href="#" class="button alt">Ipsum consequat</a>
+            </footer>
+        </section>
+
+    </div>
+    <div class="8u 12u(mobile) important(mobile)">
+
+        <!-- Content -->
+        <article class="box post">
+            <!--a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a-->
+            <header>
+                <h2>Agregar pregunta</h2>
+                <!--p>Lorem ipsum dolor sit amet feugiat</p-->
+            </header>
+            <form role="form" ng-controller="View4Ctrl">
+                <div class="form-group">
+                    <label for="Pregunta">Pregunta:</label> <input type="text" class="form-control" ng-model="Que"/>
+                </div>
+                <div class="form-group">
+                    <!--Nada-->
+                    <label for="Respuesta1">Respuesta A: </label> <input type="text" class="form-control" ng-model="SAns0"/>
+                    <table>
+                        <tr>
+                            <td>
+                                <select ng-model="APAns00">
+                                    <option value="0">Programa</option>
+                                    <option ng-repeat="todo in u" value="{{todo.id}}">{{todo.name}}</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select id="VAns00" name="VAns00" ng-model="VAns00">
+                                    <option>puntaje</option>
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table> 
+                </div>
+                <div class="form-group">
+                    <!--Poco-->
+                    <label for="Respuesta2">Respuesta B: </label> <input type="text" class="form-control" ng-model="SAns1"/>
+                    <table>
+                        <tr>
+                            <td>
+                                <select name="programa" ng-model="APAns10">
+                                    <option value="0" selected>Programa</option>
+                                    <option ng-repeat="todo in u" value="{{todo.id}}">{{todo.name}}</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="puntaje" ng-model="VAns10">
+                                    <option selected>puntaje</option>
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table> 
+                </div>
+                <div class="form-group">
+                    <!--Bastante-->
+                    <label for="Respuesta3">Respuesta C: </label> <input type="text" class="form-control" ng-model="SAns2"/>
+                    <table>
+                        <tr>
+                            <td>
+                                <select name="programa" ng-model="APAns20">
+                                    <option value="0" selected>Programa</option>
+                                    <option ng-repeat="todo in u" value="{{todo.id}}">{{todo.name}}</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="puntaje" ng-model="VAns20">
+                                    <option selected>puntaje</option>
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table> 
+                </div>
+                <div class="form-group">
+                    <!--Mucho-->
+                    <label for="Respuesta4">Respuesta D: </label> <input type="text" class="form-control" ng-model="SAns3"/>
+                    <table>
+                        <tr>
+                            <td>
+                                <select name="programa" ng-model="APAns30">
+                                    <option value="0" selected>Programa</option>
+                                    <option ng-repeat="todo in u" value="{{todo.id}}">{{todo.name}}</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="puntaje" ng-model="VAns30">
+                                    <option selected>puntaje</option>
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table> 
+                </div>
+                <input type="button" value="Agregar pregunta" ng-click="newTask()"/>
+            </form>
+        </article>
+
+    </div>
+</div>

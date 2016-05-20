@@ -33,10 +33,20 @@ public class TestUniversityController{
         List<Questions> p = TestUniversity.getTest(id);
         return p;
     }
+    
+    @RequestMapping(value = "/getQuestion/{id}", method = RequestMethod.GET)
+    public Questions getQuestion(@PathVariable String id){
+        return TestUniversity.getQuestion(id);
+    }
+    
     @RequestMapping(value = "/postQuestions/{id}",method = RequestMethod.POST)
     public void postTask(@PathVariable String id,@RequestBody Questions q) {
         TestUniversity.addQuestions(id,q);
-//        System.out.println("Nuevo");
+    }
+    
+    @RequestMapping(value = "/postQuestionsMod/{id}",method = RequestMethod.POST)
+    public void postTaskMod(@PathVariable String id,@RequestBody Questions q) {
+        TestUniversity.modQuestions(id,q);
     }
     
     
