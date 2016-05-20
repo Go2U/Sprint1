@@ -65,7 +65,7 @@ public class Go2uApplication {
                         .antMatchers("/app/**").permitAll()
                         .antMatchers("/api/uni/add","/api/user/add","/api/stu/add","/api/uni/snies/**","/api/uni/check/**").permitAll()
                         .antMatchers("/api/uni/**").hasRole("UNI")
-                        .antMatchers("/api/stu/**").hasRole("STU")
+                        .antMatchers("/api/stu/**","/api/uni/**","/test/**").hasRole("STU")
                         .anyRequest().authenticated()
                         .and()
                     .logout()

@@ -28,4 +28,5 @@ public interface UnivServiceInterface {
     public ArrayList<Carrer> getAllCarrers();
     public String getUniversitySNIES(String id);
     public boolean existUniversity(String id);
+    
 }
