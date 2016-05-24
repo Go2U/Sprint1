@@ -70,6 +70,7 @@ public class Go2uApplication {
                         .antMatchers("/api/uni/**").hasAnyRole("UNI","STU")
                         .antMatchers("/test/**").hasAnyRole("UNI","STU")
                         .antMatchers("/api/stu/**").hasRole("STU")
+                        .antMatchers("/api/res/**").hasRole("STU")
                         .antMatchers("/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                         .and()
