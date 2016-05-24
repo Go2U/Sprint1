@@ -5,6 +5,7 @@
  */
 package edu.eci.cosw.Go2U.controller.students;
 
+import edu.eci.cosw.Go2U.model.result.Result;
 import edu.eci.cosw.Go2U.model.student.Student;
 import edu.eci.cosw.Go2U.services.students.ServiceStudent;
 import java.util.List;
@@ -50,8 +51,7 @@ public class StuController {
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Student getStudentById(@PathVariable String id) {       
-        return students.getStudentById(id);
-        
+        return students.getStudentById(id);   
     }
     
 }

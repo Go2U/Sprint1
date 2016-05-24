@@ -5,13 +5,21 @@
  */
 package edu.eci.cosw.Go2U.model.student;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import edu.eci.cosw.Go2U.model.universities.University;
 import edu.eci.cosw.Go2U.model.user.User;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.Proxy;
 
 /**
@@ -29,8 +37,8 @@ public class Student implements java.io.Serializable{
     private String address;
     private String email;
     private int cellPhone;
-//    private Result result;
-
+    //private List<Result> results =new ArrayList<>();
+    
     public Student(String un, String name, String lastName) {
         super();
         this.username=un;
@@ -127,4 +135,5 @@ public class Student implements java.io.Serializable{
     public void setEmail(String email) {
         this.email = email;
     }
+    
 }

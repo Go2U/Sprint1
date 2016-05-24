@@ -5,7 +5,9 @@
  */
 package edu.eci.cosw.Go2U.services.students;
 
+import edu.eci.cosw.Go2U.model.result.Result;
 import edu.eci.cosw.Go2U.model.student.Student;
+import edu.eci.cosw.Go2U.persistence.ResultRepository;
 import edu.eci.cosw.Go2U.persistence.StudentRepository;
 import java.util.List;
 import java.util.ArrayList;
@@ -21,6 +23,7 @@ public class ServiceStudent implements StudentServiceInterface{
     
     @Autowired
     StudentRepository student;
+
     
     @Override //Probado
     public void addStudent(Student s) {
@@ -41,5 +44,6 @@ public class ServiceStudent implements StudentServiceInterface{
     public Student getStudentById(String id) {
         return student.getOne(id);
     }
+
     
 }
