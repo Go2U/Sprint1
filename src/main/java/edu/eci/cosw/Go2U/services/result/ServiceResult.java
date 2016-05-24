@@ -6,6 +6,8 @@
 package edu.eci.cosw.Go2U.services.result;
 
 import edu.eci.cosw.Go2U.model.result.Result;
+import edu.eci.cosw.Go2U.model.universities.Carrer;
+import edu.eci.cosw.Go2U.persistence.CarrerRepository;
 import edu.eci.cosw.Go2U.persistence.ResultRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +23,8 @@ public class ServiceResult implements ResultServiceInterface {
     
     @Autowired
     ResultRepository result;
+    @Autowired
+    CarrerRepository carrer;
 
     @Override
     public void addResult(Result r) {

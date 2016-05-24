@@ -36,6 +36,8 @@ public class Result implements java.io.Serializable{
     private Integer id;
     private String idStu;
     private Integer idTest;
+    private String name_university;
+    private String carrerName;
     private List<Carrer> Carrers =new ArrayList<>();
 
     
@@ -101,6 +103,36 @@ public class Result implements java.io.Serializable{
 
     public void setCarrers(List<Carrer> Carrers) {
         this.Carrers = Carrers;
+    }
+
+    /**
+     * @return the name_university
+     */
+    @Column(name = "name_university")
+    public String getName_university() {
+        return name_university;
+    }
+
+    /**
+     * @param name_university the name_university to set
+     */
+    public void setName_university(String name_university) {
+        this.name_university = name_university;
+    }
+
+    /**
+     * @return the carrerName
+     */
+    @Column(name = "carrerName")
+    public String getCarrerName() {
+        return carrerName;
+    }
+
+    /**
+     * @param carrerName the carrerName to set
+     */
+    public void setCarrerName(String carrerName) {
+        this.carrerName = carrerName;
     }
     
     

@@ -6,6 +6,7 @@
 package edu.eci.cosw.Go2U.services.result;
 
 import edu.eci.cosw.Go2U.model.result.Result;
+import edu.eci.cosw.Go2U.model.universities.Carrer;
 import java.util.List;
 
 /**
@@ -18,5 +19,4 @@ public interface ResultServiceInterface {
     public List<Result> getResults();
     public Result getResultById(Integer id);
     public List<Result> getStudentResults(String id);
-    
 }
