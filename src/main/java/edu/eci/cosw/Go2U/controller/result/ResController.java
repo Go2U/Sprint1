@@ -41,4 +41,9 @@ public class ResController {
     public Result getResultById(@PathVariable Integer id) {       
         return results.getResultById(id);   
     }
+    
+    @RequestMapping(value = "/stu/{id}", method = RequestMethod.GET)
+    public List<Result> getStudentResults(@PathVariable String id) {       
+        return results.getStudentResults(id);
+    }
 }
