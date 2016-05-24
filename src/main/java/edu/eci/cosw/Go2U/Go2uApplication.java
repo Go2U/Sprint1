@@ -78,10 +78,12 @@ public class Go2uApplication {
                         .logoutSuccessUrl("/")
                         .and()
                     .csrf()
-                        .csrfTokenRepository(csrfTokenRepository())
-                        .and()
-                    .addFilterAfter(csrfHeaderFilter(), CsrfFilter.class);
+                        .disable();
+//                        .csrfTokenRepository(csrfTokenRepository())
+//                        .and()
+//                    .addFilterAfter(csrfHeaderFilter(), CsrfFilter.class);
         }
+        
 
         private Filter csrfHeaderFilter() {
             return new OncePerRequestFilter() {
