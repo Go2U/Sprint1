@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -30,12 +30,12 @@ import org.hibernate.annotations.Proxy;
 public class Result implements java.io.Serializable{
     
     private Integer id;
-    private Integer idStu;
+    private String idStu;
     private Integer idTest;
     private List<Carrer> Carrers =new ArrayList<>();
 
     
-    public Result(Integer id, Integer idTest, Integer idStu) {
+    public Result(Integer id, Integer idTest, String idStu) {
         this.id = id;
         this.idTest = idTest;
         this.idStu = idStu;
@@ -62,11 +62,11 @@ public class Result implements java.io.Serializable{
      * @return the Id Student
      */
     @Column(name = "Student_IdStudent")
-    public Integer getIdStu() {
+    public String getIdStu() {
         return idStu;
     }
 
-    public void setIdStu(Integer idStu) {
+    public void setIdStu(String idStu) {
         this.idStu = idStu;
     }
     

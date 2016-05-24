@@ -17,5 +17,6 @@ public interface ResultServiceInterface {
     public void addResult(Result r);
     public List<Result> getResults();
     public Result getResultById(Integer id);
+    public List<Result> getStudentResults(String id);
     
 }

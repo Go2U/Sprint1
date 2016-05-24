@@ -7,6 +7,7 @@ package edu.eci.cosw.Go2U.services.result;
 
 import edu.eci.cosw.Go2U.model.result.Result;
 import edu.eci.cosw.Go2U.persistence.ResultRepository;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,5 +35,17 @@ public class ServiceResult implements ResultServiceInterface {
     @Override
     public Result getResultById(Integer id) {
         return result.getOne(id);
+    }
+
+    @Override
+    public List<Result> getStudentResults(String id) {
+        List<Result> results = result.getAllResults();
+        List<Result> studentResults = new ArrayList<Result>();
+        for (Result r : results) {
+            if(r.getIdStu().compareTo(id)==0){
+                studentResults.add(r);
+            }
+        }
+        return studentResults;
     }
 }
