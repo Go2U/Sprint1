@@ -30,7 +30,7 @@ import org.hibernate.annotations.Proxy;
 @Entity
 @Proxy(lazy = false)
 @Table(name = "Result")
-@SequenceGenerator(name="seq", initialValue=1, allocationSize=100)
+//@SequenceGenerator(name="seq", initialValue=1, allocationSize=100)
 public class Result implements java.io.Serializable{
     
     private Integer id;
@@ -52,7 +52,7 @@ public class Result implements java.io.Serializable{
     /**
      * @return the Id
      */
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Id
     @Column(name = "idResult")
     public Integer getId() {
@@ -66,7 +66,7 @@ public class Result implements java.io.Serializable{
     /**
      * @return the Id Student
      */
-    @Column(name = "Student_IdStudent")
+    @Column(name = "Student_username")
     public String getIdStu() {
         return idStu;
     }
